@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "556c822d-afb5-44a7-9607-e73e24a0d7a4",
+		"name": "Client or Salon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21857502",
+		"_collection_link": "https://lunar-sunset-245846.postman.co/workspace/Groomers~35a50556-b6a4-4043-827c-bea93ede7ca3/collection/21857502-556c822d-afb5-44a7-9607-e73e24a0d7a4?action=share&source=collection_link&creator=21857502"
+	},
+	"item": [
+		{
+			"name": "Login Client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"lucifer\",\r\n    \"password\": \"lucifer123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/client/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salon Profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/client/mysalon",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"mysalon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Toggle Salon Holiday for that day",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/client/toggleSalonHoliday",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"toggleSalonHoliday"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Appointments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/client/appointments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Revenue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/client/revenue",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"revenue"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "18/09/2023",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": "20/09/2023",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mark appointment as completed",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appointment_uuid\": \"4f38bafe-02cf-46e6-826e-a4355bbf8af8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/client/update-appointments-status",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"update-appointments-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Slot toggle disable or enable",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\": \"425e3f85-da02-4cb3-ac9a-b3ed7fa46886\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/client/toggle-slot",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"client",
+						"toggle-slot"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2lmZXIiLCJ1dWlkIjoiYjZiZGFiOGQtOTQwMi00NzAxLWJiMzItODNkMmZlZjE3MjQ3Iiwic2Fsb25OYW1lIjoiU3VwZXIgaGFpciBhbmQgc3BhIFNhbG9uICIsImlhdCI6MTcwMTI5MzYzNCwiZXhwIjoxNzAxODk4NDM0fQ.L-8QsB0NMW1VrNPINdiw5mE9wV1PNwiMjzEGYQcIhw0",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

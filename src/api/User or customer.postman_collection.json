@@ -1,0 +1,893 @@
+{
+	"info": {
+		"_postman_id": "bb779aa5-ebca-456b-856c-50ce73d9aa06",
+		"name": "User or customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21857502",
+		"_collection_link": "https://lunar-sunset-245846.postman.co/workspace/Groomers~35a50556-b6a4-4043-827c-bea93ede7ca3/collection/21857502-bb779aa5-ebca-456b-856c-50ce73d9aa06?action=share&source=collection_link&creator=21857502"
+	},
+	"item": [
+		{
+			"name": "Register New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"full_name\": \"Nitin Goswamif\",\r\n    \"email\": \"nitingoswami1900@gmail.com\",\r\n    \"mobile\": \"7111111111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/registration",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sending OTP for signUp new Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nitingoswami1900@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/registration/generateOtp",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"registration",
+						"generateOtp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify New User after Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nitingoswami1900@gmail.com\",\r\n    \"otp\": \"528141\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/registration/verification",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"registration",
+						"verification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sending OTP for login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nitingoswami1900@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/login/generateOtp",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"login",
+						"generateOtp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user with OTP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nitingoswami1900@gmail.com\",\r\n    \"otp\": \"529953\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/login/verification",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"login",
+						"verification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List of Salons in City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/salons?city=gwalior&location=26.231489173332882,78.16314771591767",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"salons"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "gwalior"
+						},
+						{
+							"key": "location",
+							"value": "26.231489173332882,78.16314771591767"
+						},
+						{
+							"key": "minServicePrice",
+							"value": "50",
+							"disabled": true
+						},
+						{
+							"key": "maxServicePrice",
+							"value": "250",
+							"disabled": true
+						},
+						{
+							"key": "minComboPrice",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "maxComboPrice",
+							"value": "170",
+							"disabled": true
+						},
+						{
+							"key": "sex",
+							"value": "female",
+							"disabled": true
+						},
+						{
+							"key": "minRating",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "area",
+							"value": "vinay nagar",
+							"disabled": true
+						},
+						{
+							"key": "service",
+							"value": "hair cut,shaving",
+							"disabled": true
+						},
+						{
+							"key": "distance",
+							"value": "3.83",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deprecated List of Salons in City with auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/auth-salons?city=gwalior",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"auth-salons"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "gwalior"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Salon by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/search/salon?name=Modern hair and spa Salon",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"search",
+						"salon"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Modern hair and spa Salon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salon details by uuid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/salon?uuid=75644b42-1945-44fd-a0c7-9768cdbd3e58&userUuid=322f8d80-42ac-42d7-8ffd-f0dd45eb1a02",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"salon"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "75644b42-1945-44fd-a0c7-9768cdbd3e58"
+						},
+						{
+							"key": "userUuid",
+							"value": "322f8d80-42ac-42d7-8ffd-f0dd45eb1a02"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Timmings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/showtimings/75644b42-1945-44fd-a0c7-9768cdbd3e58?duration=60&date=29/11/2023",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"showtimings",
+						"75644b42-1945-44fd-a0c7-9768cdbd3e58"
+					],
+					"query": [
+						{
+							"key": "duration",
+							"value": "60"
+						},
+						{
+							"key": "date",
+							"value": "29/11/2023"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Wishlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salon_uuid\" : \"75644b42-1945-44fd-a0c7-9768cdbd3e58\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/wishlist/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"wishlist",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Wishlists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/wishlist",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete wishlist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/wishlist/delete",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"wishlist",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Feedback",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salon_uuid\": \"75644b42-1945-44fd-a0c7-9768cdbd3e58\",\r\n    \"rating\": \"3\",\r\n    \"message\": \"Service was good but behavior was rude.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/feedback/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"feedback",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback by Salon UUID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/feedback/getFeedback?salon_uuid=75644b42-1945-44fd-a0c7-9768cdbd3e58",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"feedback",
+						"getFeedback"
+					],
+					"query": [
+						{
+							"key": "salon_uuid",
+							"value": "75644b42-1945-44fd-a0c7-9768cdbd3e58"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback by rating",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/feedback/getFeedback?rating=3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"feedback",
+						"getFeedback"
+					],
+					"query": [
+						{
+							"key": "rating",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback by Salon UUID, Rating",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/feedback/getFeedback?salon_uuid=75644b42-1945-44fd-a0c7-9768cdbd3e58&rating=3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"feedback",
+						"getFeedback"
+					],
+					"query": [
+						{
+							"key": "salon_uuid",
+							"value": "75644b42-1945-44fd-a0c7-9768cdbd3e58"
+						},
+						{
+							"key": "rating",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact Us",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nitingoswami1900@gmail.com\",\r\n    \"name\": \"Nitin Goswami\",\r\n    \"message\": \"hey there\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/contactUs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"contactUs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Home Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/homeService",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"homeService"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Appointment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salon_uuid\": \"b6bdab8d-9402-4701-bb32-83d2fef17247\",\r\n    \"slot_uuid\": \"76277466-9da0-4c48-b18c-51cc97ced2ea\",\r\n    \"duration\": 60,\r\n    \"timing\": \"10:00 AM\",\r\n    \"date\": \"30/11/2023\",\r\n    \"services\": [\"shaving\", \"hair cut\"],\r\n    \"combos\": [\"Super saving\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/user/create_appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"create_appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Appointment with guest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"is_guest_appointment\": true,\r\n    \"full_name\": \"Nishant Goswami\",\r\n    \"mobile\": \"7987256804\",\r\n    \"email\": \"nitingoswami1900@gmail.com\",\r\n    \"salon_uuid\": \"ace721f4-5a41-4f15-bbfe-dc4c08110f62\",\r\n    \"slot_uuid\": \"d9366eaf-8b49-49e9-8dd3-a1d589db0e4c\",\r\n    \"duration\": 45,\r\n    \"timing\": \"10:00 AM\",\r\n    \"date\": \"21/09/2023\",\r\n    \"services\": [\"shaving\"]\r\n    // \"combos\": [\"Super saving\"]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/create_appointment",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"create_appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify payment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/payment/payment-status/Q6AURD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"payment",
+						"payment-status",
+						"Q6AURD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Appointment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/user/cancel_appointment/684993c9-2b83-4c91-97fe-247d19a29049",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"cancel_appointment",
+						"684993c9-2b83-4c91-97fe-247d19a29049"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Re-Schedule Appointment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appointment_uuid\": \"8d768f3a-9e53-4637-945f-329ec8fb9a0c\",\r\n    \"slot_uuid\": \"6332a0f6-9f7b-4536-a19f-f766c4b58ddc\",\r\n    \"timing\": \"1:00 PM\",\r\n    \"date\": \"30/11/2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/reschedule_appointment",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"reschedule_appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appointments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/appointments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recommended salons",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/recommended-salons?city=gwalior",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"recommended-salons"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "gwalior"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/details",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"details"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pdGluZ29zd2FtaTE5MDBAZ21haWwuY29tIiwiZnVsbE5hbWUiOiJOaXRpbiBHb3N3YW1pIiwibW9iaWxlIjoiNzk5OTY3NjQ0MyIsInV1aWQiOiIzMjJmOGQ4MC00MmFjLTQyZDctOGZmZC1mMGRkNDVlYjFhMDIiLCJpYXQiOjE2OTgzMzI5NTAsImV4cCI6MTcwMzUxNjk1MH0.-cxFm8YLseXdaX7x5pjEr_PUHhVWEpcmIJUrqpL3ZF8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

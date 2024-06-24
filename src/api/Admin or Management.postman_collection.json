@@ -1,0 +1,984 @@
+{
+	"info": {
+		"_postman_id": "57ff84c6-0923-433f-a806-a8ce0f9caca4",
+		"name": "Admin or Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21857502",
+		"_collection_link": "https://lunar-sunset-245846.postman.co/workspace/Groomers~35a50556-b6a4-4043-827c-bea93ede7ca3/collection/21857502-57ff84c6-0923-433f-a806-a8ce0f9caca4?action=share&source=collection_link&creator=21857502"
+	},
+	"item": [
+		{
+			"name": "Create admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"nik24g\",\r\n    \"email\": \"nitingoswami1900@gmail.com\",\r\n    \"password\": \"nitin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/registration",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"nik24g\",\r\n    \"password\": \"nitin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Salon Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/salon-code?key=GWL",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"salon-code"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "GWL"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new Salon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "lucifer",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "lucifer123",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "GWL12",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Super hair and spa Salon ",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "salon1@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "unisex",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Plot No 897, Kailash Vihar, Alkapuri, Gwalior - 474011 (Near Cafe Coffee Day)",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "26.207727,78.190941",
+							"type": "text"
+						},
+						{
+							"key": "slots_number",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "service",
+							"value": "[{\"name\": \"hair cut\", \"discount\": 50, \"price\": 200, \"duration\": \"30\"}, {\"name\": \"shaving\", \"discount\": 50, \"price\": 200, \"duration\": \"15\"}, {\"name\": \"massage\", \"discount\": 2000, \"price\": 4500, \"duration\": \"120\"}]",
+							"type": "text"
+						},
+						{
+							"key": "combo_service",
+							"value": "[{\"combo_name\": \"Super saving\", \"services\": [\"hair cutting\", \"shaving\"], \"combo_price\": 170, \"duration\": \"45\"}]",
+							"type": "text"
+						},
+						{
+							"key": "opening_time",
+							"value": "9:00 AM",
+							"type": "text"
+						},
+						{
+							"key": "closing_time",
+							"value": "7:00 PM",
+							"type": "text"
+						},
+						{
+							"key": "lunch_start_time",
+							"value": "2:00 PM",
+							"type": "text"
+						},
+						{
+							"key": "lunch_end_time",
+							"value": "2:45 PM",
+							"type": "text"
+						},
+						{
+							"key": "features",
+							"value": "{\"wifi\": true, \"parking\": true, \"AC\": false}",
+							"type": "text"
+						},
+						{
+							"key": "languages",
+							"value": "{\"hindi\": true, \"english\": true, \"telugu\": false}",
+							"type": "text"
+						},
+						{
+							"key": "owner_name",
+							"value": "Nitin Goswami",
+							"type": "text"
+						},
+						{
+							"key": "owner_mobile",
+							"value": "9856742351",
+							"type": "text"
+						},
+						{
+							"key": "owner_pancard_number",
+							"value": "CVUPG1990U",
+							"type": "text"
+						},
+						{
+							"key": "bank_name",
+							"value": "State bank of India",
+							"type": "text"
+						},
+						{
+							"key": "bank_account_number",
+							"value": "789648545684564",
+							"type": "text"
+						},
+						{
+							"key": "bank_IFSC_code",
+							"value": "SBIN0003491",
+							"type": "text"
+						},
+						{
+							"key": "photos",
+							"type": "file",
+							"src": "/C:/Users/nitin/Downloads/9710be7f-bc1d-46d1-948c-47ba1c3d4065-HD-wallpaper-model-girl-model-girls (6).jpg"
+						},
+						{
+							"key": "photos",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "photos",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "gwalior",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "M.P",
+							"type": "text"
+						},
+						{
+							"key": "area",
+							"value": "Vinay Nagar",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "testing description",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/add-new-salon",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"add-new-salon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating Salon details",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uuid",
+							"value": "c85527c3-b024-468c-bfa6-840dba42871c",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sahid",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "sahid123",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "BNK3",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "groomersalon@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Modern hair and spa Salon with sahid",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Plot No 897, Kailash Vihar, Alkapuri, Gwalior - 474011 (Near Cafe Coffee Day)",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "26.207727,78.190941",
+							"type": "text"
+						},
+						{
+							"key": "slots_number",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "service",
+							"value": "[{\"name\": \"hair cut\", \"discount\": 50, \"price\": 200, \"duration\": \"30\"}, {\"name\": \"shaving\", \"discount\": 50, \"price\": 200, \"duration\": \"15\"}]",
+							"type": "text"
+						},
+						{
+							"key": "combo_service",
+							"value": "[{\"combo_name\": \"Super saving\", \"services\": [\"hair cutting\", \"shaving\"], \"combo_price\": 170, \"duration\": \"60\"}]",
+							"type": "text"
+						},
+						{
+							"key": "opening_time",
+							"value": "10:00 AM",
+							"type": "text"
+						},
+						{
+							"key": "closing_time",
+							"value": "6:00 PM",
+							"type": "text"
+						},
+						{
+							"key": "features",
+							"value": "{\"wifi\": true, \"parking\": true, \"AC\": false}",
+							"type": "text"
+						},
+						{
+							"key": "languages",
+							"value": "{\"hindi\": true, \"english\": true, \"telugu\": false}",
+							"type": "text"
+						},
+						{
+							"key": "owner_name",
+							"value": "Robin Rajput",
+							"type": "text"
+						},
+						{
+							"key": "owner_mobile",
+							"value": "9856742351",
+							"type": "text"
+						},
+						{
+							"key": "owner_pancard_number",
+							"value": "CVUPG1990U",
+							"type": "text"
+						},
+						{
+							"key": "bank_name",
+							"value": "State bank of India",
+							"type": "text"
+						},
+						{
+							"key": "bank_account_number",
+							"value": "789648545684564",
+							"type": "text"
+						},
+						{
+							"key": "bank_IFSC_code",
+							"value": "SBIN0003491",
+							"type": "text"
+						},
+						{
+							"key": "photos",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "photos",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "photos",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "lunch_start_time",
+							"value": "2:00 PM",
+							"type": "text"
+						},
+						{
+							"key": "lunch_end_time",
+							"value": "2:45 PM",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "gwalior",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "delhi",
+							"type": "text"
+						},
+						{
+							"key": "area",
+							"value": "vinay nagar",
+							"type": "text"
+						},
+						{
+							"key": "block_dates",
+							"value": "[\"20/09/2023\", \"21/09/2023\"]",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "testing description",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/salon/update",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"salon",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create slots at onboard time",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salon_code\": \"GWL10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/generateSlotOnBoard",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"generateSlotOnBoard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Slots Daily",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/generateDailySlots",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"generateDailySlots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all salons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/salons",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"salons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting Salons by Salon Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/salons?code=GWL3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"salons"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "GWL3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all salons list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/all-salons",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"all-salons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Salon by salon Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salon_code\": \"HYD014\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/delete-by-id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"delete-by-id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Toggle Salon",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salon_code\": \"GWL001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/toggle-salon",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"toggle-salon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback by Salon and Rating",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback by User",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback by UUID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Feedback",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"feedback_uuid\": \"98d30bd0-9276-4ceb-9933-d770d514d779\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/feedback/delete",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"feedback",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contact Us",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/contact",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Contact Us",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contact_uuid\": \"584ec4d7-0b48-4e1f-8b43-36fdd676eb4f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/contact",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Home Services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/homeService",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"homeService"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Home Service",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"service_uuid\": \"315f969d-5f58-45bd-a30f-227177e19e0b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/homeService",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"homeService"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Appointment status to complete",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/update-appointments-status",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"update-appointments-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback to salon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salon_uuid\": \"b95c6015-2c37-4e51-8670-6f98ee68ba59\",\r\n    \"rating\": \"5\",\r\n    \"message\": \"Service was good but behavior was rude.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/feedback",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make recommended salon",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salon_code\": \"GWL10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/toggle-recommended",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"toggle-recommended"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recommended salons code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/admin/recommended-salon-code?city=gwalior",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"recommended-salon-code"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "gwalior"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5pazI0ZyIsImVtYWlsIjoibml0aW5nb3N3YW1pMTkwMEBnbWFpbC5jb20iLCJ1dWlkIjoiMzE4NzU4NGItYjFhNC00MjBjLTljOGYtYzllMjEzOTUxODMyIiwiaWF0IjoxNzAxMjkzNTU4LCJleHAiOjE3MDE4OTgzNTh9.r8F0sMpQFgY0Kj43f5RMK_jh9rOJCgxV3DyoF1DrZRY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
