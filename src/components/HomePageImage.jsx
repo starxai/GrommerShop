@@ -14,7 +14,7 @@ function BackGroundImage() {
 
             <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
                 <div class="carousel-indicators">
-                    <button style={{width:"16px",height:"14px",borderRadius:"50%"}} type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 1"></button>
+                    <button className="carousel-indicate-one" style={{width:"16px",height:"14px",borderRadius:"50%"}} type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 1"></button>
                     <button style={{width:"16px",height:"14px",borderRadius:"50%"}} type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="1" aria-label="slide 2"></button>
                     <button style={{width:"16px",height:"14px",borderRadius:"50%"}} type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="2" aria-label="slide 3"></button>
                 </div>
@@ -30,11 +30,11 @@ function BackGroundImage() {
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="carousel-control-prev-icon homepage-background-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="carousel-control-next-icon homepage-background-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>

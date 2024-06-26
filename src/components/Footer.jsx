@@ -14,13 +14,13 @@ function Footer() {
 
                 </div>
                 <div className="footer-container">
-                    <p style={{ paddingTop: "80px" }}> <i style={{ color: "white", }} class="bi bi-envelope "></i> <span class="text-white" style={{paddingLeft:"10px",fontFamily:"Poppins"}}>Groomer.online@gmail.com</span></p>
-                    <p>  <i style={{ color: "white" }} class="bi bi-telephone"></i> <span class="text-white" style={{paddingLeft:"10px",fontFamily:"Poppins"}}>+91 9876543210</span></p>
-                    <p> <i style={{ color: "white" }} class="bi bi-geo-alt"></i> <span class="text-white" style={{paddingLeft:"10px",fontFamily:"Poppins"}}>Hi-tech city, Hyderabad</span></p>
+                    <p style={{ paddingTop: "80px" }}> <i style={{ color: "white", }} class="bi bi-envelope "></i> <span class="text-white groomer-card-footer-email" style={{paddingLeft:"10px",fontFamily:"Poppins"}}>Groomer.online@gmail.com</span></p>
+                    <p>  <i style={{ color: "white" }} class="bi bi-telephone"></i> <span class="text-white groomer-card-footer-email" style={{paddingLeft:"10px",fontFamily:"Poppins"}}>+91 9876543210</span></p>
+                    <p> <i style={{ color: "white" }} class="bi bi-geo-alt"></i> <span class="text-white groomer-card-footer-email" style={{paddingLeft:"10px",fontFamily:"Poppins"}}>Hi-tech city, Hyderabad</span></p>
                 </div>
                 <div className="footer-container foonter-terms" >
-                    <p style={{ paddingTop: "80px",fontFamily:'Poppins' }} class="text-white">Terms and Conditions</p>
-                    <p class="text-white" style={{fontFamily:"Poppins"}}>Privacy and Policy</p>
+                    <p style={{ paddingTop: "80px",fontFamily:'Poppins' }} class="text-white groomer-card-footer-email">Terms and Conditions</p>
+                    <p class="text-white groomer-card-footer-email" style={{fontFamily:"Poppins"}}>Privacy and Policy</p>
                 </div>
             </div>
             <center> <hr className="footer-hr" style={{ color: "gold", width: "1205px", }} /></center>

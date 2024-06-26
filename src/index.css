@@ -86,7 +86,7 @@ nav {
   height: 700px;
 }
 .groomer-background-img{
-  width: 100% !important;
+  width: 100%!important;
   height: 700px !important;
 
 }
@@ -694,6 +694,7 @@ p.card-text {
 .cards-container:hover{
   background-color: #5B5441;
 }
+
 
 .card-img-container {
   width: 276px;
@@ -2160,7 +2161,7 @@ width: 357px;
  @media (max-width: 412px) {
   .navbar {
     position: fixed !important;
-    width: 400px !important;
+    width: 360px !important;
     z-index: 10 !important;
     padding: 1% 4% !important;
     margin-left: 0px;
@@ -2185,17 +2186,26 @@ width: 357px;
  
   .groomer-background-img{
    height: 900px;
-   width: 1450px !important;
+   margin-left: 50px;
+   transform: scale(1.0);
+   margin-left: -730px;
+   width: 1400px !important;
    background-size: cover !important;
-   margin-left: -750px;
-   
+  }
+  .card_1{
+    width: 100px !important;
   }
   .groomer-background-container{
-    width: 412px !important;
+    width: 360px !important;
     background-size: cover;
   }
   .groomer-background-carousel{
     background-size: cover;
+    
+  }
+  .card-second-body-groomer{
+    margin-left: -70px;
+    width: 240px;
   }
 
   .backgroung-header{
@@ -2229,26 +2239,27 @@ width: 357px;
     font-family: Avegas Royale;
     line-height: 28px;
     font-weight: 400;
-    margin-left: 50px;
+    margin-left: -90px;
     margin-bottom: 70px;
-    width: 100px !important;
+    width: 1px !important;
   }
   /*.carousel-indicators {
     position: absolute;
     left: 10px;
     bottom: 0px;
   } */
-  .carousel-indicators {
-    display: none;
+  .carousel-indicate-one{
+    width: 0px !important;
+    height: 4px !important;
   }
   .card-img1 {
     width: 148px;
     height: 193px;
-    margin-left: -50px;
+    margin-left: -140px;
   }
   .card_2 img{
     width: 189px;
-    margin-left: 35px;
+    margin-left: -60px;
     height: 273px;
     margin-top: -250px; 
     z-index: 2;
@@ -2261,9 +2272,12 @@ width: 357px;
   .card-img3{
     width: 148px;
     height: 192px;
-    margin-left: 160px;
+    margin-left: 60px;
     margin-top: -300px;
     z-index: 0;
+  }
+  .card_container{
+    width: 360px;
   }
   .goomer-3cards-para{
     font-size: 14px !important;
@@ -2284,24 +2298,25 @@ width: 357px;
   }
   .parent-card-container{
     width: 45%;
-    margin-left: 350px;
+   margin-left: 130px;
     display: flex;
- 
+    margin-top: 100px;
+     
   }
   
   .content_and_cards{
-    width: 1000px;
+    width: 360px;
     
   }
   .card-main h1{
     font-size: 28px;
     width: 266px;
-    margin-left: 50px;
+    margin-left: -60px;
     height: 56px;
     font-family: Avegas Royale;
     font-weight: 700;
     line-height: 28px;
-    margin-top:-170px;
+    margin-top:-250px;
   }
   .card-main{
     display: flex;
@@ -2310,7 +2325,8 @@ width: 357px;
 
   .parent-card-container::after{
     height: 294px;
-    margin-left: -120px;
+  
+    width: 280px;
   }
   .cards-container{
     width: 108px;
@@ -2318,25 +2334,46 @@ width: 357px;
     padding-top: -700px !important;
     margin-bottom: 250px;
     margin-top: -350px;
-    margin-left: 50px;
-    
+    margin-left: 70px;
+  }
+  .cards-container:hover{
+   background: none;
   }
   .cards-positions-container {
     height: 100px;
-    margin-left:50px;
+    margin-left:0px;
     margin-top: 50px;
   }
-  
+  .groomer-cardcontainer2{
+    margin-left: 145px;
+  }
+  .groomercards-maincards{
+    margin-left: -115px;
+  }
+  .star-icon{
+    display: none;
+  }
+  .groomer-mainpagecards-locationicon{
+    margin-left: -60px;
+  }
+  .groomer-mainpage-cardbody{
+    margin-left: -130px;
+  }
+  .groomer-mainpage-rightarrow{
+    font-size: 15px !important;
+  }
   .groomer-card1{
     width: 168px !important; 
     height: 207px;
-    padding-left: 10px;
+  }
+  .reasontousegroomer-responsive{
+    margin-left: -50px;
   }
 
   .card-position {
     position: relative;
     top: 208px;
-    left: 67px;
+    left: 20px;
   }
   .card-img-container{
     width: 200px !important;
@@ -2353,6 +2390,10 @@ width: 357px;
     font-family: Poppins;
     align-items: center;
     font-weight: 400;
+    width: 150px;
+  }
+  .slider-btn-container{
+    display: none;
   }
   p{
     font-size: 10px;
@@ -2369,6 +2410,9 @@ width: 357px;
     margin-left: -100px;
     margin-bottom: -90px;
   }
+  .groomerhomepage-card3{
+    display: none;
+  }
 .btn-more-groomer{
  position: relative;
  top: -250px;
@@ -2378,8 +2422,19 @@ width: 357px;
   margin-top: -500px !important;
 }
 .product-saloon-container{
-  margin-left: 250px;
+  margin-left: 0px;
 }
+.hompage-quotes-indicator{
+  display: none;
+}
+.homepage-groomercards-indicators{
+  width: 100px;
+  margin-left: 30px;
+}
+.homepage-groomercards-maindiv{
+  width: 250px;
+}
+
 .shop-button{
   width: 158px;
   height: 40px;
@@ -2407,7 +2462,7 @@ width: 357px;
   margin-top: 120px;
 }
 .quotation-place-container{
-  width: 375px;
+  width: 360px;
   height: 394px;
   margin-left: 0px;
 }
@@ -2420,9 +2475,17 @@ width: 357px;
   line-height: 21px;
   color: black;
 }
-
+.service-content{
+  width: 200px;
+}
 .service-content::before{
   display: none;
+}
+.groomer-3cardsdisplay{
+  width: 200px !important;
+}
+.homepage-carousel-secondcards{
+  width: 160px !important;
 }
 .home-sallon-circle{
   display: none;
@@ -2431,7 +2494,7 @@ width: 357px;
 .HomeSaloon-Image-container{
   width: 279px !important;
   height: 253px;
- margin-left: 260px;
+  margin-left: 220px;
   margin-top: -450px;
 }
 .groomer-homeservices{
@@ -2440,14 +2503,17 @@ width: 357px;
   font-family: Avegas Royale !important;
   font-weight: 700 !important;
   line-height: 28px ;
-  margin-left: -50px;
+  margin-left: -90px;
 }
 .HomeSaloon-container {
   margin-left: -200px;
 }
+.product-locationicons{
+  margin-left: -60px;
+}
 .homeservices-para1{
-  margin-top: 300px;
-  margin-left: -50px;
+  margin-top: 350px;
+  margin-left: -80px;
   width: 279px !important;
   font-size: 14px !important;
   font-weight: 300 !important;
@@ -2456,12 +2522,12 @@ width: 357px;
 
 }
 .homeservices-para2{
-  margin-left: -50px ;
-  width: 300px !important;
+  margin-left: -80px ;
+  width: 250px !important;
   font-size: 14px !important;
 }
 .btn-home-saloon{
-  margin-left: -60px;
+  margin-left: -80px;
 }
 .groomer-reason-head{
   font-size: 28px !important;
@@ -2472,15 +2538,15 @@ width: 357px;
 }
 .groomer-reasonimg{
   height: 344px;
-  width: 375px;
-  margin-left: -340px;
+  width: 360px;
+  margin-left: -310px;
   margin-top: -100px;
 }
 .reason-paras{
   display: grid;
   grid-template-rows: 1fr;
   margin-top: -50px;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 .reason-userfriendly{
   font-size: 14px !important;
@@ -2609,8 +2675,8 @@ width: 357px;
 
 .get-image-container{
   margin-top: 300px;
-  margin-left: 20px;
-  width: 375px;
+  margin-left: 0px;
+  width: 360px;
   height: 288px;
 }
 .getintouch{
@@ -2621,15 +2687,23 @@ width: 357px;
 .getintouchinput1{
   margin-top: 340px;
   margin-left: -215px;
+  width: 320px;
 }
 .getintouchinput2{
   margin-left: -215px;
+  width: 320px;
 }
 .text-area-container{
   margin-left: -215px;
+  width: 320px;
+}
+.text-area-division{
+  width: 320px;
 }
 .submit-button{
-  margin-left: -150px;
+  margin-left: -130px;
+  width: 167px;
+  height: 44px;
 }
 .grromer-footeremoji{
   margin-top: 350px;
@@ -2638,11 +2712,11 @@ width: 357px;
   height: 65px;
 }
 .footer-container{
-margin-top: 0px;
-margin-left: -130px;
+  margin-top: -20px;
+  margin-left: -160px;
 }
 .foonter-terms{
-  margin-top: 150px;
+  margin-top: 120px;
   margin-left: -350px;
 }
 .icons-chamber{
@@ -2662,15 +2736,19 @@ margin-left: -130px;
 .groomer-copyrightpara{
   font-size: 10px !important;
   margin-left:20px;
-  width: 342px;
+  width: 312px;
   margin-top: 30px;
 }
 .navbar-items{
   color: white;
  position: relative;
- top: 570px;
- left: -30px;
+ top: 670px;
+ z-index: 4;
+ left: -10px;
+ position: fixed !important;
  width: 500px;
+ background-color: #000 !important;
+ 
 }
 
 .navbar-nav li a {
@@ -2684,7 +2762,7 @@ margin-left: -130px;
 .ProfileContainer{
   position: relative;
   top: -38px;
-  left: 210px;
+  left: 230px;
   width: 100px;
   color: white !important;
 }
@@ -2707,7 +2785,17 @@ margin-left: -130px;
   color: white !important;
   margin-left: -100px;
 }
- 
+.groomer-card-footer-email{
+  font-size: 14px !important;
+  
+}
+
+.homepage-background-next-icon{
+  display: none;
+}
+ .homepage-groomer-thirdpage{
+  display: none;
+ }
 
 
 /* Css for the second page */
@@ -2760,10 +2848,14 @@ margin-left: -130px;
 .displaysalonspage-salons{
   display: grid !important;
   grid-template-columns: repeat(2, 2fr) !important;
-  margin-left: 225px; 
+  margin-left: 285px; 
   margin-top: 10px; 
- 
 }
+.salonspage-carousel-indicators{
+padding-top: 100px;
+}
+
+
 .displaysalonspage-mainsalons{
   display: grid !important;
   grid-template-columns: repeat(2, 168px) !important;
@@ -2924,9 +3016,11 @@ display: none;
 }
 .productcard-cardspostion{
   margin-top: -70px;
+  
 }
 .cardsposition-body{
   margin-top: -70px;
+  
 }
 .productcard-cardspostion3{
   margin-top: 2px;
@@ -3285,9 +3379,7 @@ margin-top: 120px;
   margin-top: 500px;
   height: 394px !important;
 }
-.quote-symbol{
-  display: none;
-}
+
 .quotation-container{
   height: 400px;
 }

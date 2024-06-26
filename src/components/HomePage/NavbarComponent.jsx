@@ -83,7 +83,7 @@ function Navbar() {
                             </Link>
                         </li>
 
-                        <li className="nav-item">
+                        <li className="collapse navbar-collapse nav-item">
                             <Link to="/About" className="nav-link">
                                 About us
                             </Link>

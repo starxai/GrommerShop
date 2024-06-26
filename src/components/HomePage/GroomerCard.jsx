@@ -3,7 +3,7 @@ function GroomerCard() {
   return (
     <div className="groomer-card">
       <div className="container d-flex justify-content-center align-items-center">
-        <div className="row d-flex">
+        <div className="row d-flex homepage-groomercards-maindiv">
           <div class="card card_1 col-10 col-md-6 col-lg-3 col-xl-2">
             <h1 style={{fontFamily:"Avegas Royale",fontSize:"60px",fontWeight:500,width:"500px"}} className="groomer-h1">What Is Groomer?</h1>
             <img
@@ -18,7 +18,7 @@ function GroomerCard() {
               </i>
             </div>
           </div>
-          <div class="card card_2 col-12 col-md-4 col-lg-6 col-xl-4">
+          <div class="card card_2 col-12 col-md-4 col-lg-6 col-xl-4 groomer-3cardsdisplay">
             <img
               src="https://i.ibb.co/9hTwnjb/pexels-nikolaos-dimou-1319459-1.jpg" class="card-img2"
               alt="..." className="card-img-2"

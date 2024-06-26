@@ -63,7 +63,7 @@ function ReasonToUseGroomer() {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className="reasontousegroomer-responsive">
                 <img width={700} src="https://i.ibb.co/VDfDCNv/groomer-haircut-3.jpg" alt="" className="groomer-reasonimg"/>
 
                 <div>

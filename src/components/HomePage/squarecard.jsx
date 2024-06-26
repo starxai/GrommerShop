@@ -69,7 +69,7 @@ function Squarecard({
                         <div className="cards-positions-container"  >
                             
                         <div id={id} class="carousel slide" >
-                                        <div class="carousel-indicators">
+                                        <div class="carousel-indicators salonspage-carousel-indicators">
                                     <button style={{ height: "9px", width: "11px", backgroundColor: "#fff", borderRadius: "50%" }} type="button" data-bs-target={"#"+`${id}`} data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 2"></button>
                                             <button style={{ height: "9px", width: "11px", backgroundColor: "#fff", borderRadius: "50%" }} type="button" data-bs-target={"#"+`${id}`} data-bs-slide-to="1" aria-label="Slide 2" ></button>
                                             <button style={{ height: "9px", width: "11px", backgroundColor: "#fff", borderRadius: "50%" }} type="button" data-bs-target={"#"+`${id}`} data-bs-slide-to="2" aria-label="Slide 3" ></button>
