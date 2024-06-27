@@ -156,7 +156,7 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
 
     return (
        
-     <div>
+     <div className="salonpage-maincontainer">
 <input className="search-bar d-sm-inline" placeholder="Search Here" name="salonname" onChange={handlesalonname}/>
    <div className={`filtercard-position ${toggle ? "show" : "hide"}`}> 
 

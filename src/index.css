@@ -595,13 +595,29 @@ p.card-text {
 }
 
 .arrow {
-  border: solid #ff6548;
+  border: solid #CCBB8E;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 5px;
   cursor: pointer;
   /* margin-left: 5px; */ 
 }
+.up {
+  transform: rotate(-135deg) !important;
+  -webkit-transform: rotate(-135deg) !important;
+  position: relative;
+  left: -30px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  position: relative;
+  top: -100px;
+  left: 150px;
+}
+
+
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -1211,7 +1227,9 @@ width: 270px;
   align-items: center;
   text-align: center;
 } 
-
+.filters-apply-button{
+ margin-bottom: 30px;
+}
 .saloon-listing-image-container {
   margin-top: 39%;
   margin-left: 50px;
@@ -1279,6 +1297,7 @@ width: 270px;
     border: 1px solid #CCBB8E;
     border-top: none;
     border-bottom: none;
+    margin-left: 110px;
     border-left: none;
     outline: none;
     background-color: black;
@@ -1289,7 +1308,7 @@ width: 270px;
 } */
 .search-bar {
   background-color: #000;
-  border: 1px solid gold;
+  border: 1px solid #CCBB8E;
   color: #fff;
   width: 250px;
   margin-top: -125px;
@@ -1566,7 +1585,7 @@ form{
   line-height: initial;
   height: 400px;
   width: 400px;
-  background-color: rgb(10, 1, 1)  !important;
+  background-color: rgb(8, 5, 5)  !important;
   margin-left: 100px;
   font-size: 24px !important;
 }
@@ -1580,7 +1599,6 @@ form{
 
 
 .react-datepicker__day{
-  background-color: rgb(1, 6, 3) !important;
   width: 50px !important;
   height: 60px ;
   color: #ece5e5 !important;
@@ -1619,7 +1637,7 @@ form{
 
 
 .react-datepicker__day-names{
-  background-color: rgb(13, 12, 13);
+  background-color: rgb(3, 2, 3);
   color: var(--white) !important;
   margin-bottom: -10px;
   display: grid;
@@ -1643,14 +1661,21 @@ form{
 }
 
 
-
+.react-datepicker__day--selected{
+  background-color: #5B5441 !important;
+  width: 40px !important;
+  height: 30px !important;
+}
 
 .react-datepicker__week{
   color:white !important;
 }
 .react-datepicker__day--selected:hover{
-  background-color: blue !important;
+  background-color: rgb(0, 17, 255) !important;
 }
+
+
+
 .react-datepicker__day--selected:hover,
 .react-datepicker__day--in-selecting-range:hover,
 .react-datepicker__day--in-range:hover,
@@ -1674,17 +1699,18 @@ form{
   color: black;
   width: 241px;
   height: 52px;
-  margin-left: 50px;
+  margin-left: 150px;
   font-size: 14px;
   font: poppins;
+  margin-top: 70px;
 }
 
 .time-slots{
-margin-left: 500px;
+margin-left: 650px;
 display: block;
 height: 200px;
 padding-bottom: 300px;
-
+margin-top: -400px;
 }
 .time-slots-map{
   display: grid;
@@ -2748,7 +2774,9 @@ width: 357px;
  position: fixed !important;
  width: 500px;
  background-color: #000 !important;
- 
+}
+.sortbyorder{
+  margin-left: -100px;
 }
 
 .navbar-nav li a {
@@ -2762,7 +2790,7 @@ width: 357px;
 .ProfileContainer{
   position: relative;
   top: -38px;
-  left: 230px;
+  left: 170px;
   width: 100px;
   color: white !important;
 }
@@ -2800,7 +2828,7 @@ width: 357px;
 
 /* Css for the second page */
  .saloon-listing-cover-image{
-  width: 370px;
+  width: 360px;
   height: 483px !important;
   margin-left: 0px;
   padding-top: 200px;
@@ -2839,21 +2867,24 @@ width: 357px;
   height: 40px;
   width: 291px;
   margin-top: -440px;
-  margin-left: 60px;
+  margin-left: -65px;
   display: block;
   position: relative;
-  left: -50px;
+  left: -110px;
+}
+.salonpage-maincontainer{
+  width: 100px;
 }
 
 .displaysalonspage-salons{
   display: grid !important;
   grid-template-columns: repeat(2, 2fr) !important;
   margin-left: 285px; 
-  margin-top: 10px; 
+  margin-top: -40px; 
 }
-.salonspage-carousel-indicators{
-padding-top: 100px;
-}
+  .salonspage-carousel-indicators{
+  margin-top: -100px;
+  }
 
 
 .displaysalonspage-mainsalons{
@@ -2873,10 +2904,9 @@ padding-top: 100px;
 }
 
 .listing-card-saloon-container{
-  margin-left: -100px;
+  margin-left: 0px;
 } 
 .salonspage-totalcard{
-  padding-bottom: 0px !important;
   margin-left: 67px;
   margin-bottom: 0px !important;
 }
@@ -2990,8 +3020,8 @@ padding-top: 100px;
 .filtercard-position.show {
   display: block;
   position: static;
-  width: 370px;
-  margin-left: -20px;
+  width: 380px;
+  margin-left: -205px;
   height: auto;
   background-color: transparent;
 
@@ -3117,6 +3147,15 @@ margin-top: 120px;
   width: 330px;
   margin-top: 10px;
 }
+
+.salondetailspage-down{
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  position: relative;
+  top: -0px;
+  left: 0px;
+}
+
 .salondetailspage-treatment{
  margin-top: -30px; 
  margin-left: 10px;
@@ -3148,7 +3187,7 @@ margin-top: 120px;
   margin-bottom: 50px;
 }
 .react-datepicker{
-  width: 343px;
+  width: 303px !important;
   height: 366px;
 }
 
@@ -3182,7 +3221,7 @@ margin-top: 120px;
 }
 .booking-saloon-header{
   display: inline-block;
-  margin-left: -50px;
+  
 }
 .salondetailspage-time{
   margin-left: 180px !important;
@@ -3198,34 +3237,40 @@ margin-top: 120px;
 /*.salondetials-selectdate{
   display: none;
 }*/
+.time-slots{
+  margin-top: 100px;
+  margin-left: 600px;
+}
 .salonbookingspage-timeslots{
-  margin-top: 200px;
+  margin-top: 200px !important;
   margin-left: -550px;
   font-size: 20px !important;
   margin-bottom: 60px;
 }
 .proceed-btn{
-  margin-left: -85px;
+  margin-left: 25px;
   margin-bottom: 20px;
   width: 330px;
 }
 
 
 
-
+.react-datepicker__month-container{
+width: 300px;
+}
 .react-datepicker__day{
-  width: 45px !important;
-  height: 45px;
+  width: 43px !important;
+  height: 35px;
 }
 .react-datepicker__header{
-  width: 300px;
+  width: 250px;
 }
 .react-datepicker__day-names{
   background-color: rgb(13, 12, 13);
   color: var(--white) !important;
   margin-bottom: -10px;
   display: grid;
-  grid-template-columns: 48px 48px 48px 53px 48px 48px 48px;
+  grid-template-columns: 45px 45px 45px 50px 48px 48px 48px;
 }
 .salonedetailspage{
   width: 300px !important;
@@ -3247,6 +3292,9 @@ margin-top: 120px;
 /*Checkout or payment page */
 .salons-checkoutpage-header{
   display: none;
+}
+.saloon-paragraph{
+  width: 200px;
 }
 .payment-details{
   font-size: 20px !important;
@@ -3332,8 +3380,13 @@ margin-top: 120px;
   margin-left: 20px;
 }
 .react-datepicker{
+  margin-left: 20px;
+}
+.slaon-bokingpage-column{
+  width: 100px;
   margin-left: -100px;
 }
+
 .saloncheckout-hr{
   width: 300px;
 }
@@ -3387,4 +3440,37 @@ margin-top: 120px;
   padding-top: 100px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* css for Booking history page */
+.bookinghistorypage-heading{
+  font-size: 28px !important;
+  font-weight: 400 !important;
+  font-family: Avegas Royale !important;
+  line-height: 28px !important;
+  width: 200px;
+  margin-left: 80px !important;
  }
+ .titles{
+  display: none;
+ }
+
+
+}

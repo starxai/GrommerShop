@@ -146,10 +146,10 @@ function PageBooking() {
 
                             </div>
                         </div>
-                        <div class="col py-3">
+                        <div class="col py-3 slaon-bokingpage-column">
 
                             <div class="container">
-                                <div class="row">
+                                <div class="row slaon-bokingpage-column">
                                     <div class='col-sm-6 salonbookingspage-datepicker'>
                                    
                                     <Calender  handledate={handledate}/>

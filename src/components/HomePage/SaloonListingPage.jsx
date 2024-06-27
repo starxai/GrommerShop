@@ -471,7 +471,7 @@ function SaloonList() {
                                  
 
 
-                                <div className="one-side-border " > <button class="d-none d-sm-inline" style={{color:"white",backgroundColor:"black",width:"100px"}} onClick={handleFilterApply}>Apply</button>
+                                <div className="one-side-border " > <button class="d-none d-sm-inline filters-apply-button" style={{color:"white",backgroundColor:"black",width:"100px"}} onClick={handleFilterApply}>Apply</button>
                               <div className="filtercard-positions">  <Filterapply  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}/></div>
                             {console.log("salonname"+salonname)}{console.log(salonnameloading)}
                        {/*       <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -544,31 +544,6 @@ function SaloonList() {
         }}
       >
         Sexual-orientation
-      </button>
-    </h2>
-    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div className="accordion-body">
-        <input
-          onClick={(e) => genderConformation(e.target.value)}
-          value="male"
-          name="gender"
-          type="radio"
-          onChange={handlefilterchange}
-        />{" "}
-        <label htmlFor="">male</label>
-        <br />
-        <input
-          onClick={(e) => genderConformation(e.target.value)}
-          value="Female"
-          name="gender"
-          type="radio"
-          onChange={handlefilterchange}
-        />{" "}
-        <label htmlFor="">Female</label>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -775,7 +750,7 @@ function SaloonList() {
 
                                
                                          
-                                <div className="displaysalonspage-mainsalons"  style={{marginLeft:"10px",display:"grid",gridTemplateColumns:"300px 300px 300px"}} >
+                                <div className="displaysalonspage-mainsalons"  style={{marginLeft:"30px",display:"grid",gridTemplateColumns:"300px 300px 300px"}} >
                                     
                                   
                           {/*      {salonnameloading ? (

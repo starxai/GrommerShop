@@ -153,7 +153,7 @@ function SalonMainPage() {
                        <div className="app">
                                 <div className="dropdown">
                                 <div className="dropdown-header"  onClick={toggleDropdown}>Select a treatment
-                                <span className={`arrow ${isDropdownOpen ? 'up' : 'down'}`}></span>
+                                <span className={`arrow ${isDropdownOpen ? 'up' : 'salondetailspage-down'}`}></span>
                                 </div>
 
                                 {
