@@ -86,7 +86,7 @@ nav {
   height: 700px;
 }
 .groomer-background-img{
-  width:  1440px !important;
+  width: 100% !important;
   height: 700px !important;
 
 }
@@ -2250,10 +2250,10 @@ width: 357px;
 
 
 
- @media (max-width: 412px) {
+ @media (max-width: 600px) {
   .navbar {
     position: fixed !important;
-    width: 410px !important;
+    width: 100% !important;
     z-index: 10 !important;
     padding: 1% 4% !important;
     margin-left: 0px;
@@ -2289,12 +2289,12 @@ width: 357px;
     width: 100px !important;
   }
   .groomer-background-container{
-    width: 410px !important;
+    width: 100% !important;
     background-size: cover;
   }
   .groomer-background-carousel{
     background-size: cover;
-    width: 410px !important;
+    width: 360px !important;
     
   }
   .card-second-body-groomer{
@@ -2371,7 +2371,7 @@ width: 357px;
     z-index: 0;
   }
   .card_container{
-    width: 410px; 
+    width: 360px; 
   
      }
   .goomer-3cards-para{
@@ -2400,7 +2400,7 @@ width: 357px;
   }
   
   .content_and_cards{
-   width: 410px; 
+   width: 360px; 
 
     
   }
@@ -2558,7 +2558,7 @@ width: 357px;
   margin-top: 120px;
 }
 .quotation-place-container{
-  width: 410px;
+  width: 360px;
   height: 394px;
   margin-left: 0px;
 }
@@ -3599,15 +3599,15 @@ width: 300px;
 .bookinghistory-price{
   display: inline
 }
-
-
-
-
-
-
+.groomer-background-maincontainer{
 
 }
-
+}
+@media (max-width:360px){
+.groomer-background-maincontainer{
+  width: 360px !important;
+}
+}
 
 
 

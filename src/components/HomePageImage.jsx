@@ -1,7 +1,7 @@
 import React from "react";
 function BackGroundImage() {
     return (
-        <div>
+        <div className="groomer-background-maincontainer">
                 <div className="background-data-container">
                     <h1 className="backgroung-header">Sharp Style Sharper Service</h1>
                     <p className="background-para">
