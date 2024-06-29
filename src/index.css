@@ -86,7 +86,7 @@ nav {
   height: 700px;
 }
 .groomer-background-img{
-  width: 100%!important;
+  width:  1440px !important;
   height: 700px !important;
 
 }
@@ -1227,6 +1227,9 @@ width: 270px;
   align-items: center;
   text-align: center;
 } 
+
+
+
 .filters-apply-button{
  margin-bottom: 30px;
 }
@@ -1333,8 +1336,14 @@ width: 270px;
   background-color: black;
  
  }
+  .salonpage-sexual-accordtion{
+    margin-left: 10px !important;
+  }
   
-
+  .salonpage-sexual-accordtion::after{
+    background-image: url('./components//images/Line\ 33\ \(1\).png');
+    
+  }
 
 
 
@@ -1948,6 +1957,7 @@ color: #CCBB8E;
   gap:15rem;
   background-color: black;
   color: white;
+  margin-left: 100px;
 }
 .t-1 {
   display: flex;
@@ -1955,7 +1965,7 @@ color: #CCBB8E;
 }
 .t-2 {
   display: flex;
-  gap:70px;
+  gap:80px;
 }
 .t-3 {
   display: flex;
@@ -1973,8 +1983,7 @@ color: #CCBB8E;
 }
 .d-2{
   display: flex;
-  gap:70px;
-  
+  gap: 20px;
 }
 .d-3{
   display: flex;
@@ -1985,6 +1994,24 @@ color: #CCBB8E;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+}
+.booking-history-accordtionmain{
+  background-color:  black !important;
+  color: white !important;
+  margin-left: 50px;
+}
+.bookinghistory-accordtion-name{
+  margin-left: 20px;
+  width: 200px;
+}
+.bookinghistory-accordtion-id{
+  width: 70px;
+}
+.bookinghistory-services{
+
+}
+.bookinghistory-servicemain{
+ margin-left: 60px;
 }
 .data-2{
   display: flex;
@@ -2184,10 +2211,49 @@ width: 357px;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  @media (max-width: 412px) {
   .navbar {
     position: fixed !important;
-    width: 360px !important;
+    width: 410px !important;
     z-index: 10 !important;
     padding: 1% 4% !important;
     margin-left: 0px;
@@ -2216,17 +2282,19 @@ width: 357px;
    transform: scale(1.0);
    margin-left: -730px;
    width: 1400px !important;
+   
    background-size: cover !important;
   }
   .card_1{
     width: 100px !important;
   }
   .groomer-background-container{
-    width: 360px !important;
+    width: 410px !important;
     background-size: cover;
   }
   .groomer-background-carousel{
     background-size: cover;
+    width: 410px !important;
     
   }
   .card-second-body-groomer{
@@ -2303,8 +2371,9 @@ width: 357px;
     z-index: 0;
   }
   .card_container{
-    width: 360px;
-  }
+    width: 410px; 
+  
+     }
   .goomer-3cards-para{
     font-size: 14px !important;
     position: relative;
@@ -2331,7 +2400,8 @@ width: 357px;
   }
   
   .content_and_cards{
-    width: 360px;
+   width: 410px; 
+
     
   }
   .card-main h1{
@@ -2488,7 +2558,7 @@ width: 357px;
   margin-top: 120px;
 }
 .quotation-place-container{
-  width: 360px;
+  width: 410px;
   height: 394px;
   margin-left: 0px;
 }
@@ -2966,7 +3036,7 @@ width: 357px;
   font-size: 14px !important;
 }
 .location-input{
-  margin-left: 0px;
+  margin-left: 20px;
   width: 320px;
   height: 42px;
 }
@@ -3014,6 +3084,9 @@ width: 357px;
   text-align: center !important;
   margin-top: -30px;
 }
+.filter-ratings-font{
+  font-size: 14px !important;
+}
 .ratings-star{
   margin-left: -130px;
 }
@@ -3034,7 +3107,7 @@ display: none;
 .sexual-orientation{
   margin-top: -45px;
   text-align: center !important;
-  margin-left: -160px;
+  margin-left: -170px;
   margin-bottom: 30px;
 }
 .salons-salonname{
@@ -3471,6 +3544,71 @@ width: 300px;
  .titles{
   display: none;
  }
+.booking-history-accordtionmain{
+  background-color: black !important;
+}
+.bookinghistory-accordtion-id{
+  margin-top: 100px;
+}
+.bookinghist{
+  margin-left: -220px;
+  font-size: 16px;
+  width: 200px;
+}
+.d-2{
+  margin-left: -370px;
+  margin-top: 100px;
+}
+.bookinghistory-servicemain{
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  height: 35px;
+  width: 40px;
+  margin-left: -70px;
+  margin-top: -65px;
+  width: 50x;
+}
+.bookinghistory-services{
+
+}
+.d-3{
+  margin-left: -300px;
+  margin-top: 30px;
+}
+.bookinghistory-appointmentstatus{
+  margin-top: -50px;
+ margin-left: 150px !important;
+ font-size: 12px !important;
+}
+.bookinghistory-toggledown{
+  margin-top: 30px;
+  margin-left: -90px;
+}
+.accordion-button:focus{
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: url('./components/images/Line\ 33\ \(1\).png');
+  transform: var(--bs-accordion-btn-icon-transform);
+  margin-left: -30px;
+}
+.accordion-button::after{
+  background-image: url('./components/images/Line\ 33\ \(1\).png');
+  margin-left: -30px;
+}
+.bookinghistory-price{
+  display: inline
+}
+
+
+
+
+
 
 
 }
+
+
+
+
+  

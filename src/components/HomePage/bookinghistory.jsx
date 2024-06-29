@@ -49,7 +49,7 @@ const Bookinghistory = () => {
       <div >
         <Navbar />
       </div>
-      <p className='bookinghistorypage-heading' style={{  fontSize: "64px", fontWeight: "400px", paddingTop: "100px", marginLeft: "400px" ,color:"white"}}>Bookings History</p>
+      <p className='bookinghistorypage-heading' style={{  fontSize: "64px", fontWeight: "400", paddingTop: "100px", marginLeft: "550px" ,color:"white"}}>Bookings History</p>
       <div className='titles'>
         <div className='t-1'>
           <h4>Booking Id</h4>
@@ -60,7 +60,7 @@ const Bookinghistory = () => {
           <h4>Services</h4>
         </div>
         <div className='t-3'>
-          <h4 style={{ marginLeft: '20px' }}>Pricing</h4>
+          <h4 style={{ marginLeft: '0px' }}>Pricing</h4>
           <h4 style={{ marginLeft: '20px' }}>Status</h4>
         </div>
       </div>
@@ -73,31 +73,31 @@ const Bookinghistory = () => {
 
 
 <div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id={`${item.appointment_booking_id}`}>
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+  <div class="accordion-item booking-history-accordtionmain">
+    <h2 class="accordion-header " id={item.appointment_uuid}>
+      <button class="accordion-button collapsed booking-history-accordtionmain" type="button" data-bs-toggle="collapse" data-bs-target={"#flush-" + item.appointment_booking_id} aria-expanded="false" aria-controls="flush-collapseOne">
       <div className='d-1'>
-                <p>{item.appointment_booking_id}</p>
-                    <p>{item.salon.salon_name}</p>
+                <p  className='bookinghistory-accordtion-id'>{item.appointment_booking_id}</p>
+                    <p className='bookinghist'>{item.salon.salon_name}</p>
         
               </div>
 
               <div className='d-2'>
-                <p style={{marginLeft:"200px"}}>{item.appointment_date}{item.appointment_timing}</p>
-       
+                <p style={{marginLeft:"170px"}}>{item.appointment_date}{item.appointment_timing}</p>
+                  <div className='bookinghistory-servicemain'>
                 { item.appointment_services.map((service, i) => (
-                  <p key={i} style={{ backgroundColor: '#474448', padding: '3px' }}>{service.service_name}</p>
-                ))}
+                  <p className='bookinghistory-services' key={i} style={{ backgroundColor: '#474448', padding: 'px' }}>{service.service_name}</p>
+                ))}</div>
               </div>
               <div className='d-3'>
-                <p style={{ marginLeft: '100px' }}><FontAwesomeIcon icon={faIndianRupeeSign} />{item.appointment_original_price}</p>
-                <p style={{ color: item.status === 'cancelled' ? 'red' : 'green' }}>{item.appointment_payment_status}</p>
-                <FontAwesomeIcon icon={faCaretDown} />
+                <p className='bookinghistory-price' style={{ marginLeft: '270px' }}> <FontAwesomeIcon icon={faIndianRupeeSign} /> {item.appointment_original_price}</p>
+                <p className='bookinghistory-appointmentstatus' style={{marginLeft:"50px", color: item.status === 'cancelled' ? 'red' : 'green' }}>{item.appointment_payment_status}</p>
+               
               </div>
 
       </button>
     </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby={`${item.appointment_booking_id}`} data-bs-parent="#accordionFlushExample">
+    <div id={"flush-" + item.appointment_booking_id} class="accordion-collapse collapse" aria-labelledby={"flush-" + item.appointment_uuid} data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <button>Cancelled</button>
       </div>

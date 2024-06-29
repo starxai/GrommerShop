@@ -172,40 +172,17 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
              
                 <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                 </ul>
-*/}
-                <li className="filteragegroup">
-                   {/* <a href="#submenu1-2" data-bs-toggle="collapse" className="nav-link px-0 align-middle mobile-agegroup"> */}
-                   <a href="#submenu1-2" data-bs-toggle="collapse" className='nav-link px-0 align-middle mobile-agegroup'>
-                     <span className="ms-1 d-sm-inline">   
-                    
-                            <p style={{ color: "white" }} className="afterhoveragegroup">Age Group</p>
-                        </span>
-                    </a>
-                    <ul className="collapse nav flex-column ms-1" id="submenu1-2" data-bs-parent="#menu">
-                        <li className="w-100">
-                            <a className="nav-link px-0 agegroup-display">
-                            
-                                 <span className="d-sm-inline"> 
-                           
-                                    <label htmlFor="customRange2" className="form-label text-white filter-agegroup-label">Less than five</label>
-                                    <input type="range" style={{ color: "white" }} className="form-range" min="0" max="5" id="customRange2"/>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+*/}                                                 
 
-                <li>
-                    <hr style={{ width: "250px", color: "gold" }} class="d-sm-inline"/>
-                </li>
 
-                <li>
+
+<li>
                     <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
                         <div className="accordion-item sexual-orientation" style={{ backgroundColor: "black", color: "white", border: "none" }}>
                             <span class='ms-1 d-sm-inline'>
                             <h2 className="accordion-header ">
                                 <button
-                                    className="accordion-button"
+                                    className="accordion-button salonpage-sexual-accordtion"
                                     type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne"
@@ -220,10 +197,95 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                                         boxShadow: "none",
                                     }}
                                 >
-                                    Sexual-orientation
+                                    Age Group
                                 </button>
                             </h2> </span>
                             <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div className="accordion-body">
+                                <a className="nav-link px-0 agegroup-display">
+                            
+                            <span className="d-sm-inline"> 
+                      
+                               <label htmlFor="customRange2" className="form-label text-white filter-agegroup-label">Less than five</label>
+                               <input type="range" style={{ color: "white" }} className="form-range" min="0" max="5" id="customRange2"/>
+                           </span>
+                       </a>
+                                    
+                                    
+                                      </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+
+
+
+
+
+        
+        
+        {/*        <li className="filteragegroup">*/}
+
+               
+
+
+
+                   {/* <a href="#submenu1-2" data-bs-toggle="collapse" className="nav-link px-0 align-middle mobile-agegroup"> */}
+                {/*   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                <a href="#submenu1-2" data-bs-toggle="collapse" className='nav-link px-0 align-middle mobile-agegroup'>
+                     <span className="ms-1 d-sm-inline">   
+                  
+                            <p style={{ color: "white" }} className="afterhoveragegroup">Age Group</p>
+                        </span>
+                    </a></button>
+                    <ul className="collapse nav flex-column ms-1" id="submenu1-2" data-bs-parent="#menu">
+                        <li className="w-100">
+                            <a className="nav-link px-0 agegroup-display">
+                            
+                                 <span className="d-sm-inline"> 
+                           
+                                    <label htmlFor="customRange2" className="form-label text-white filter-agegroup-label">Less than five</label>
+                                    <input type="range" style={{ color: "white" }} className="form-range" min="0" max="5" id="customRange2"/>
+                                </span>
+                            </a>
+                        </li>
+                    </ul> 
+                </li>
+
+                <li>
+                    <hr style={{ width: "250px", color: "gold" }} class="d-sm-inline"/>
+                </li>*/}
+
+                <li>
+                    <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
+                        <div className="accordion-item sexual-orientation" style={{ backgroundColor: "black", color: "white", border: "none" }}>
+                            <span class='ms-1 d-sm-inline'>
+                            <h2 className="accordion-header ">
+                                <button
+                                    className="accordion-button salonpage-sexual-accordtion"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapsetwo"
+                                    aria-expanded="true"
+                                    aria-controls="collapsetwo"
+                                    style={{
+                                        backgroundColor: "black",
+                                        color: "white",
+                                        border: "none",
+                                        borderBottom: "none",
+                                        outline: "none",
+                                        boxShadow: "none",
+                                    }}
+                                >
+                                    Sexual-orientation
+                                </button>
+                            </h2> </span>
+                            <div id="collapsetwo" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div className="accordion-body">
                                     <span class='d-sm-inline'>
                                     <input
@@ -253,11 +315,18 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                     <hr style={{ width: "250px", color: "gold" }} class="d-none d-sm-inline"/>
                 </li>
 
-                <li>
+
                 
-            <a href="#submenu2.2" data-bs-toggle="collapse" className="nav-link px-0 align-middle location-salons">
+
+
+
+
+
+            {/*    <li>
+                
+                <a href="#submenu2.2" data-bs-toggle="collapse" className="nav-link px-0 align-middle location-salons"> */}
                      {/*   <span className="ms-1 d-none d-sm-inline location-salons"> */}
-                     <span className='d-sm-inline'>
+                   {/*  <span className='d-sm-inline'>
                             <p className="location-salons" style={{ color: "white" }}>Location</p>
                         </span>
                        
@@ -288,7 +357,7 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>*/}
                 <li>
                     <hr style={{ width: "250px", color: "gold" }} class="d-sm-inline"/>
                 </li>
@@ -423,7 +492,7 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                 <li>
                     <a href="#submenu4" data-bs-toggle="collapse" className="nav-link px-0 align-middle filter-ratings">
                         <span className="ms-1 d-sm-inline">
-                            <p style={{ color: "white" }}>Rating</p>
+                            <p className="filter-ratings-font" style={{ color: "white" }}>Rating</p>
                         </span>
                     </a>
                     <ul className="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
