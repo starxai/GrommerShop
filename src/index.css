@@ -3085,7 +3085,7 @@ width: 357px;
 .displaysalonspage-salons{
   display: grid !important;
   grid-template-columns: repeat(2, 2fr) !important;
-  margin-left: 265px; 
+  margin-left: 280px; 
   margin-top: -40px; 
 }
   .salonspage-carousel-indicators{
