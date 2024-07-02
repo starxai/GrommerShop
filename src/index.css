@@ -3029,7 +3029,7 @@ width: 357px;
 
 /* Css for the second page */
  .saloon-listing-cover-image{
-  width: 360px;
+  width: 100%;
   height: 483px !important;
   margin-left: 0px;
   padding-top: 200px;
@@ -3040,7 +3040,7 @@ width: 357px;
 .saloon-listing-center-image {
   width: 230px;
   height: 307px;
-  margin-left: -30px;
+  margin-left: -40px;
   margin-top: 0px;
 }
 .cardcarousellitem{
@@ -3085,7 +3085,7 @@ width: 357px;
 .displaysalonspage-salons{
   display: grid !important;
   grid-template-columns: repeat(2, 2fr) !important;
-  margin-left: 285px; 
+  margin-left: 265px; 
   margin-top: -40px; 
 }
   .salonspage-carousel-indicators{
@@ -3301,11 +3301,11 @@ display: none;
   flex-direction: column;
 }
 .slotbooking-carousel{
-  width: 344px !important;
+  width: 100% !important;
   height: 466px;
 }
 .slotbooking-carouselimg{
-  width: 344px !important;
+  width: 100% !important;
   height: 466px;
  margin-top:25px;
 }
@@ -3463,7 +3463,7 @@ margin-top: 120px;
 }
 .salonbookingspage-timeslots{
   margin-top: 200px !important;
-  margin-left: -550px;
+  margin-left: -500px;
   font-size: 20px !important;
   margin-bottom: 60px;
 }
@@ -3477,6 +3477,7 @@ margin-top: 120px;
 
 .react-datepicker__month-container{
 width: 300px;
+margin-left: 70px;
 }
 .react-datepicker__day{
   width: 43px !important;
@@ -3484,6 +3485,11 @@ width: 300px;
 }
 .react-datepicker__header{
   width: 250px;
+  margin-left: 0px;
+}
+
+.react-datepicker__navigation{
+ margin-left: 100px;
 }
 .react-datepicker__day-names{
   background-color: rgb(13, 12, 13);
@@ -3491,6 +3497,9 @@ width: 300px;
   margin-bottom: -10px;
   display: grid;
   grid-template-columns: 45px 45px 45px 50px 48px 48px 48px;
+}
+.react-datepicker__current-month{
+  margin-left: 30px !important;
 }
 .salonedetailspage{
   width: 300px !important;
@@ -3909,7 +3918,14 @@ width: 300px;
 .get-image-container{
   width: 360px !important;
 }
-
+.slotbooking-carousel{
+  width: 100% !important;
+ 
+}
+.slotbooking-carouselimg{
+  width: 100% !important;
+ 
+}
 
 }
 
