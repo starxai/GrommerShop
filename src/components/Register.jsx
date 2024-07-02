@@ -90,7 +90,7 @@ const redirectFunc = () => {
             <Navbar></Navbar>
             <div className="register-Form-Container">
 
-                <div>
+                <div className="registerpage-maincontainer">
                     <img className="Register-image" src="https://i.ibb.co/Yh9jF7g/20240227-203542-1-4.jpg" alt="" />
 
                 </div>
@@ -98,13 +98,13 @@ const redirectFunc = () => {
                 <div className="Register-data-container">
 
                     <div>
-                        <h1 style={{ color: "white", fontSize: "80px", fontFamily: "Avegas Royale" }}>Register </h1>
+                        <h1 style={{ color: "white", fontSize: "80px", fontFamily: "Avegas Royale" }} className="header-registername">Register </h1>
                         <p style={{ color: "white", fontFamily: "Poppins" }}>Already have an account?  <Link to="/Login"><span style={{ color: " #CCBB8E" }}>Login</span></Link></p>
                     </div>
 
-                    <div>
+                    <div className="registerpage-formtag">
                     {!isRegistered && (
-                        <form action="" onSubmit={handleRegisterSubmit}>
+                        <form action="" onSubmit={handleRegisterSubmit} className="registerpage-formtag">
                             <input 
                               className="input-register-form" 
                               placeholder="Fullname" 

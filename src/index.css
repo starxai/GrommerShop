@@ -2982,7 +2982,9 @@ width: 357px;
 }
 .groomer-responsive-nav{
   display: grid;
- grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+ grid-template-columns: 1fr 1fr 1fr  1fr;
+ position: fixed !important;
+ background-color: black;
 }
 .ProfileContainer{
   position: relative;
@@ -2994,6 +2996,8 @@ width: 357px;
 .navbar-register-btn{
   color: white !important;
   width: 100px;
+  margin-left: 50px;
+  margin-top: 40px;
 }
 .card-body{
   width: 150px;
@@ -3805,6 +3809,91 @@ width: 300px;
 .groomer-background-maincontainer{
 
 }
+
+
+
+
+
+
+
+/*css for register page */
+.register-Form-Container{
+  display: grid;
+  grid-template-rows: 1fr 1fr ;
+}
+.Register-image{
+  width: 300px;
+  height: 200px;
+  margin-top: 100px;
+  margin-left: 40px;
+}
+.Register-data-container{
+  margin-top: -100px;
+  margin-left: 50px;
+  width: 300px !important;
+}
+.header-registername{
+  font-size: 34px !important;
+}
+.input-register-form{
+  width: 300px !important;
+}
+.registerpage-maincontainer{
+  width: 330px !important;
+}
+.registerpage-formtag{
+  width: 300px !important;
+}
+.checkbox-container{
+  width: 300px;
+}
+
+
+
+/* css for login page */
+
+.Parent-loginpage-container{
+  display:  grid;
+  grid-template-rows: 1fr 1fr;
+  margin-top: 100px;
+  margin-left: 20px;
+}
+.login-image{
+  width: 300px;
+  height: 300px;
+}
+.login-maincontainer{
+  width: 330px !important;
+}
+
+.Login-form-data-container{
+  width: 330px;
+  margin-top: -100px;
+}
+.Login-input{
+  width: 250px;
+}
+.profile-badge{
+  margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 @media (max-width:360px){
 .groomer-background-maincontainer{

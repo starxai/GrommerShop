@@ -102,7 +102,7 @@ function Login() {
     <div>
       <Navbar />
       <div className="Parent-loginpage-container">
-        <div>
+        <div className="login-maincontainer">
           <img className="login-image"
             src="https://i.ibb.co/Yh9jF7g/20240227-203542-1-4.jpg"
             alt="" />
