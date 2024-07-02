@@ -752,7 +752,7 @@ function SaloonList() {
 
                                
                                          
-                                <div className="displaysalonspage-mainsalons"  style={{marginLeft:"70px",display:"grid",gridTemplateColumns:"300px 300px 300px"}} >
+                                <div className="displaysalonspage-mainsalons"  style={{marginLeft:"20px",display:"grid",gridTemplateColumns:"300px 300px 300px"}} >
                                     
                                   
                           {/*      {salonnameloading ? (

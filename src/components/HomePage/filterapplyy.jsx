@@ -173,11 +173,11 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                                 <div class="accordion filterapply-accordionmain" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item filterapply-accordionmain">
                     <h2 class="accordion-header filterapply-accordionmain" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button filterapply-accordionmain" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    <button class="accordion-button filterapply-accordionmain filteraccordion-agegroup" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                     <p style={{ color: "white" }} className="afterhoveragegroup">Age Group</p>
                     </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
                     <li className="w-100">
                             <a className="nav-link px-0 agegroup-display">
@@ -194,7 +194,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                 </div>
                 <div class="accordion-item filterapply-accordionmain">
                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                    <button class="accordion-button collapsed filterapply-accordionmain" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    <button class="accordion-button collapsed filterapply-accordionmain filterapply-selectedcategory" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                     <p style={{ color: "white" }} className="afterhoveragegroup">  Sexual-orientation  </p>
                     
                     </button>
@@ -229,7 +229,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
 
                 <div class="accordion-item filterapply-accordionmain">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                    <button class="accordion-button collapsed filterapply-accordionmain" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    <button class="accordion-button collapsed filterapply-accordionmain filterapplyselect-location" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
                     <span className='d-sm-inline'>
                             <p className="location-salons" style={{ color: "white" }}>Location</p>
                         </span>
@@ -273,7 +273,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
 
                 <div class="accordion-item filterapply-accordionmain">
                     <h2 class="accordion-header " id="panelsStayOpen-headingfour">
-                    <button class="accordion-button collapsed filterapply-accordionmain" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefour" aria-expanded="false" aria-controls="panelsStayOpen-collapsefour">
+                    <button class="accordion-button collapsed filterapply-accordionmain filterapply-distance" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefour" aria-expanded="false" aria-controls="panelsStayOpen-collapsefour">
                     <p className="distance-salons" style={{ color: "white" }}>Distance</p>
                     </button>
                     </h2>
@@ -298,13 +298,13 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
 
                     <div class="accordion-item filterapply-accordionmain">
                     <h2 class="accordion-header" id="panelsStayOpen-headingfive">
-                    <button class="accordion-button collapsed filterapply-accordionmain" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
+                    <button class="accordion-button collapsed filterapply-accordionmain filterapply-services" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
                     <p className="groomer-services" style={{ color: "white" }}>Services</p>
                     </button>
                     </h2>
                     <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingfive">
                     <div class="accordion-body">
-                    <ul className=" services-list" id="submenu3" data-bs-parent="#menu">
+                    <ul className="services-list" id="submenu3" data-bs-parent="#menu">
                         {allservices.map(data => 
                              <li className="w-100">
                              <a href="#" className="nav-link px-0">
@@ -325,7 +325,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
 
                 <div class="accordion-item filterapply-accordionmain">
                 <h2 class="accordion-header" id="panelsStayOpen-headingsix">
-                <button class="accordion-button collapsed filterapply-accordionmain" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsesix" aria-expanded="false" aria-controls="panelsStayOpen-collapsesix">
+                <button class="accordion-button collapsed filterapply-accordionmain filterapply-prices" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsesix" aria-expanded="false" aria-controls="panelsStayOpen-collapsesix">
                 <p className="filter-price" style={{ color: "white" }}>price</p>
                 </button>
                 </h2>
@@ -352,7 +352,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
 
             <div class="accordion-item filterapply-accordionmain">
                 <h2 class="accordion-header" id="panelsStayOpen-headingseven">
-                <button class="accordion-button collapsed filterapply-accordionmain" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseseven" aria-expanded="false" aria-controls="panelsStayOpen-collapseseven">
+                <button class="accordion-button collapsed filterapply-accordionmain filterapply-rating" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseseven" aria-expanded="false" aria-controls="panelsStayOpen-collapseseven">
                 <p className="filter-ratings-font" style={{ color: "white" }}>Rating</p>
                 </button>
                 </h2>

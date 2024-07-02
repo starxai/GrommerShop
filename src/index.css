@@ -1300,7 +1300,7 @@ width: 270px;
     border: 1px solid #CCBB8E;
     border-top: none;
     border-bottom: none;
-    margin-left: 110px;
+    margin-left: 70px;
     border-left: none;
     outline: none;
     background-color: black;
@@ -2377,7 +2377,6 @@ width: 357px;
 
 
 
-
  @media (max-width: 600px) {
   .navbar {
     position: fixed !important;
@@ -3064,8 +3063,8 @@ width: 357px;
 .search-bar{
   height: 40px;
   width: 291px;
-  margin-top: -440px;
-  margin-left: -65px;
+  margin-top: -470px;
+  margin-left: -40px;
   display: block;
   position: relative;
   left: -110px;
@@ -3073,6 +3072,11 @@ width: 357px;
 .salonpage-maincontainer{
   width: 100px;
 }
+.accordion-main-container{
+  margin-left: -80px;
+  margin-top: 10px;
+}
+
 
 .displaysalonspage-salons{
   display: grid !important;
@@ -3081,9 +3085,11 @@ width: 357px;
   margin-top: -40px; 
 }
   .salonspage-carousel-indicators{
-  margin-top: -100px;
+   margin-bottom: 110px;
   }
-
+.carousel-indicators{
+  z-index: 1;
+}
 
 .displaysalonspage-mainsalons{
   display: grid !important;
@@ -3112,7 +3118,7 @@ width: 357px;
  display: block;
  background-color: white;
  margin-left: 300px;
- margin-top: 40px;
+ margin-top: 10px;
  cursor: pointer !important;
  position: relative;
  z-index: 3;
@@ -3121,16 +3127,15 @@ width: 357px;
   display: none;
 }
 .filteroption{
-  margin-top: 0px;
-  margin-left: 30px;
+ display: none;
 }
 .filter-options-distance{
   display: block;
   margin-top: -35px;
-  margin-left: 20px;
+  margin-left: 0px;
 }
 .filter-options-distanceinput{
-  margin-left: 15px !important;
+  margin-left: 0px !important;
   margin-top: 20px;
 }
 .mobile-agegroup{
@@ -3143,7 +3148,12 @@ width: 357px;
 .afterhoveragegroup{
   text-align: center;
  font-size: 14px !important;
- margin-left: -260px;
+ margin-left:0px;
+ z-index: 2;
+ width: 300px;
+}
+.filterapply-accordionmain{
+ 
 }
 .agegroup-display{
   margin-left: 30px;
@@ -3152,55 +3162,58 @@ width: 357px;
 }
 .filter-agegroup-label{
   display: block;
-  margin-left: -270px;
+  margin-left: -200px;
 }
 .accordion-button{
   /*margin-left: -90px; */
   width: 200px;
 }
 .location-salons{
-  margin-left: -130px;
+  margin-left: 0px;
   text-align:  center;
   font-size: 14px !important;
 }
 .location-input{
-  margin-left: 20px;
+  margin-left: 0px;
   width: 320px;
   height: 42px;
 }
 .distance-salons{
-  margin-left: -270px;
+  margin-left: 0px;
   text-align: center;
   font-size: 14px !important;
-  margin-top: -30px;
+  margin-top: -0px;
 }
 .form-range{
-  width: 340px;
+  width: 300px;
   margin-left: -25px;
 }
 .groomer-services{
   text-align: center;
   font-size: 14px;
-  margin-left: -270px;
-  margin-top: -30px;
+  margin-left: -0px;
+  margin-top: -0px;
 }
 .services-list{
-  margin-left: -150px !important;
+  margin-left: -30px !important;
 }
 .filtercard-position{
   background-color: black !important;
    width: 370px;
-    z-index: 2;
+    z-index: 2 !important;
     margin-top: -60px;
+}
+.filterapply-accordionmain{
+  z-index: 2;
 }
 .filter-price{
   text-align: center;
-  margin-left: -280px;
-  margin-top: -30px;
+  margin-left: -0px;
+  margin-top: -0px;
   font-size: 14px !important;
 }
 .pricesfromto{
-  margin-left: -110px !important;
+  margin-left: -20px !important;
 }
 .nav-pills .nav-link{
     background-color: black;
@@ -3216,16 +3229,19 @@ width: 357px;
   font-size: 14px !important;
 }
 .ratings-star{
-  margin-left: -130px;
+  margin-left: -0px;
 }
 .filtercard-position.show {
   display: block;
   position: static;
-  width: 380px;
-  margin-left: -205px;
+  width: 300px;
+  margin-left: -105px;
   height: auto;
   background-color: transparent;
-
+ z-index: 2;
+}
+.filteraccordion-agegroup{
+  width: 300px;
 }
 
 /* Styling for when toggle is false */
@@ -3265,7 +3281,7 @@ display: none;
 .carousel-control-next{
   height: 0px;
   margin-top: 160px;
-  z-index: 5;
+  z-index: 1;
 }
 
 
@@ -3283,7 +3299,6 @@ display: none;
 .slotbooking-carousel{
   width: 344px !important;
   height: 466px;
- 
 }
 .slotbooking-carouselimg{
   width: 344px !important;
@@ -3718,12 +3733,72 @@ width: 300px;
 .accordion-button:not(.collapsed)::after {
   background-image: url('./components/images/Line\ 33\ \(2\).png');
   transform: var(--bs-accordion-btn-icon-transform);
-  margin-left: -30px;
+  margin-left: 230px;
 }
 .accordion-button::after{
   background-image: url('./components/images/Line\ 33\ \(2\).png');
-  margin-left: -30px;
+  margin-left: 230px;
 }
+
+
+
+.filteraccordion-agegroup:not(.collapsed)::after {
+  background-image: url('./components/images/Line\ 33\ \(2\).png');
+  transform: var(--bs-accordion-btn-icon-transform);
+  margin-left: 260px;
+}
+.filteraccordion-agegroup::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png');
+  margin-left: 260px;
+  margin-top: -20px;
+}
+
+.filterapply-selectedcategory:not(.collapsed)::after {
+ margin-left: 235px !important;
+}
+.filterapply-selectedcategory::after{
+  margin-left: 235px;
+  margin-top: -20px;
+}
+
+
+.filterapplyselect-location::after{
+  margin-left: 245px;
+  margin-top: -20px;
+}
+.filterapply-selectedcategory:not(.collapsed)::after {
+  margin-left: 265px;
+ }
+.filterapply-distance::after{
+  margin-left: 245px;
+  margin-top: -20px;
+}
+.filterapply-distance:not(.collapsed)::after {
+  margin-left: 245px;
+ }
+
+
+.filterapply-services::after{
+  margin-left: 245px;
+}
+.filterapply-services:not(.collapsed)::after {
+  margin-left: 245px;
+ }
+.filterapply-prices::after{
+  margin-left: 265px;
+}
+.filterapply-prices:not(.collapsed)::after {
+  margin-left: 265px;
+ }
+.filterapply-rating::after{
+  margin-left: 255px;
+}
+.filterapply-rating:not(.collapsed)::after {
+  margin-left: 255px;
+ }
+
+
+
 .bookinghistory-price{
   display: inline
 }
