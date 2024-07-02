@@ -1341,10 +1341,138 @@ width: 270px;
   }
   
   .salonpage-sexual-accordtion::after{
-    background-image: url('./components//images/Line\ 33\ \(1\).png');
-    
+    background-image: url('./components/images/Line\ 33\ \(2\).png');
   }
+ .servicesselected-apply::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 125px !important;
 
+ }
+
+ .servicesselected-apply:not(.collapsed)::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 125px !important;
+  margin-top: -5px;
+ }
+
+
+
+ .sexual-selected-apply::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 50px !important;
+  
+ }
+
+ .sexual-selected-apply:not(.collapsed)::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 50px !important;
+  margin-top: -5px;
+ }
+
+ .agegroup-selected-apply::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 100px !important;
+  
+ }
+
+ .agegroup-selected-apply:not(.collapsed)::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 100px !important;
+  margin-top: -5px;
+ }
+ 
+ .distanceselected-apply::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 120px !important;
+  
+ }
+
+ .distanceselected-apply:not(.collapsed)::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 120px !important;
+  margin-top: -5px;
+ }
+
+ 
+ .pricesselected-apply::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 150px !important;
+  
+ }
+
+ .pricesselected-apply:not(.collapsed)::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 150px !important;
+  margin-top: -5px;
+ }
+
+ 
+
+ .registerselected-apply::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 140px !important;
+  
+ }
+
+ .registerselected-apply:not(.collapsed)::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png') !important;
+  margin-left: 140px !important;
+  margin-top: -5px;
+ }
+.accordion-main-container{
+  margin-left: -70px;
+  margin-top: -30px;
+  margin-right: 20px;
+}
+
+ .pricefilter-accordtionbody{
+  width: 200px;
+ }
+ .filterapply-accordionmain{
+  background-color: black !important;
+  border: none !important;
+  color: white !important;
+  width: 260px;
+ }
+ .filterapply-accordionmain:focus{
+  box-shadow: none !important;
+ }
+ .filterapply-accordionmain:not(.collapsed) {
+  box-shadow: none !important;
+ }
+
+ .accordion-button::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png');
+ }
+ .accordion-button:not(.collapsed)::after{
+  background-image: url('./components/images/Line\ 33\ \(2\).png');
+ }
+ .searching-salonname{
+  margin-left: -30px;
+  width: 260px;
+  height: 40px;
+  margin-top: 10px;
+ }
+ .salonpage-maincontainer{
+  
+ }
+.filtercard-positions{
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+.location-salons{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.location-input{
+  margin-left: 20px;
+}
 
 
  .radio-button {
@@ -2558,7 +2686,7 @@ width: 357px;
   margin-top: 120px;
 }
 .quotation-place-container{
-  width: 360px;
+  width: 400px;
   height: 394px;
   margin-left: 0px;
 }
@@ -2772,7 +2900,7 @@ width: 357px;
 .get-image-container{
   margin-top: 300px;
   margin-left: 0px;
-  width: 360px;
+  width: 400px;
   height: 288px;
 }
 .getintouch{
@@ -3588,12 +3716,12 @@ width: 300px;
   box-shadow: none;
 }
 .accordion-button:not(.collapsed)::after {
-  background-image: url('./components/images/Line\ 33\ \(1\).png');
+  background-image: url('./components/images/Line\ 33\ \(2\).png');
   transform: var(--bs-accordion-btn-icon-transform);
   margin-left: -30px;
 }
 .accordion-button::after{
-  background-image: url('./components/images/Line\ 33\ \(1\).png');
+  background-image: url('./components/images/Line\ 33\ \(2\).png');
   margin-left: -30px;
 }
 .bookinghistory-price{
@@ -3607,6 +3735,18 @@ width: 300px;
 .groomer-background-maincontainer{
   width: 360px !important;
 }
+.quotation-place-container{
+ width: 100% !important;
+}
+.groomer-homepage-quotes-maincontainer{
+  width: 360px !important;
+}
+
+.get-image-container{
+  width: 360px !important;
+}
+
+
 }
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 function ProductCard() {
     return (
-        <div>
+        <div >
             <h1 className="groomer-products" style={{ color: "white", textAlign: "center", paddingTop: "20px" ,
             fontFamily:"Avegas Royale",fontWeight:"700px",fontSize:"64px",marginTop:"150px",
             lineHeight:"64px",letterSpacing:"-4%" }}>Our Bestsellers</h1>

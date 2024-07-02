@@ -13,6 +13,7 @@ import Squarecard from "./squarecard";
 import { date } from "yup";
 import Filterapply from "./filterapply";
 import FilteredCards from "./filtercards";
+import Filterapplyy from "./filterapplyy";
 
 
 function SaloonList() {
@@ -471,8 +472,9 @@ function SaloonList() {
                                  
 
 
-                                <div className="one-side-border " > <button class="d-none d-sm-inline filters-apply-button" style={{color:"white",backgroundColor:"black",width:"100px"}} onClick={handleFilterApply}>Apply</button>
-                              <div className="filtercard-positions">  <Filterapply  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}/></div>
+                                <div className="one-side-border" > <button class="d-none d-sm-inline filters-apply-button" style={{color:"white",backgroundColor:"black",width:"100px"}} onClick={handleFilterApply}>Apply</button>
+                          {/*    <div className="filtercard-positions">  <Filterapply  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}/></div> */}
+                              <div className="filtercard-positions">  <Filterapplyy  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}/></div>
                             {console.log("salonname"+salonname)}{console.log(salonnameloading)}
                        {/*       <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 

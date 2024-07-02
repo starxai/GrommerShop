@@ -1,7 +1,7 @@
 import React from "react";
 function Quotations() {
     return (
-        <div>
+        <div className="groomer-homepage-quotes-maincontainer">
 
             <div id="carouselExampleCaptions" class="carousel slide">
                 <div class="carousel-indicators">

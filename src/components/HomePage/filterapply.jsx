@@ -172,11 +172,28 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
              
                 <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                 </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 */}                                                 
 
 
-
-<li>
+{/*
+                    <li>
                     <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
                         <div className="accordion-item sexual-orientation" style={{ backgroundColor: "black", color: "white", border: "none" }}>
                             <span class='ms-1 d-sm-inline'>
@@ -220,7 +237,52 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
 
 
 
+      */}             
 
+
+<li>
+                    <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
+                        <div className="accordion-item sexual-orientation" style={{ backgroundColor: "black", color: "white", border: "none" }}>
+                            <span class='ms-1 d-sm-inline'>
+                            <h2 className="accordion-header ">
+                                <button
+                                    className="accordion-button agegroup-selected-apply"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseeight"
+                                    aria-expanded="true"
+                                    aria-controls="collapsetwo"
+                                    style={{
+                                        backgroundColor: "black",
+                                        color: "white",
+                                        border: "none",
+                                        borderBottom: "none",
+                                        outline: "none",
+                                        boxShadow: "none",
+                                    }}
+                                >
+                                   <p style={{ color: "white" }} className="afterhoveragegroup">Age Group</p>
+                                </button>
+                            </h2> </span>
+                            <div id="collapseeight" className="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                                <div className="accordion-body">
+                                    <span class='d-sm-inline'>
+                                    <li className="w-100">
+                            <a className="nav-link px-0 agegroup-display">
+                            
+                                 <span className="d-sm-inline"> 
+                           
+                                    <label htmlFor="customRange2" className="form-label text-white filter-agegroup-label">Less than five</label>
+                                    <input type="range" style={{ color: "white" }} className="form-range" min="0" max="5" id="customRange2"/>
+                                </span>
+                            </a>
+                        </li>
+
+                                    </span>   </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
 
 
 
@@ -267,7 +329,7 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                             <span class='ms-1 d-sm-inline'>
                             <h2 className="accordion-header ">
                                 <button
-                                    className="accordion-button salonpage-sexual-accordtion"
+                                    className="accordion-button sexual-selected-apply"
                                     type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#collapsetwo"
@@ -285,7 +347,7 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                                     Sexual-orientation
                                 </button>
                             </h2> </span>
-                            <div id="collapsetwo" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div id="collapsetwo" className="accordion-collapse collapse " data-bs-parent="#accordionExample">
                                 <div className="accordion-body">
                                     <span class='d-sm-inline'>
                                     <input
@@ -316,17 +378,77 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                 </li>
 
 
+                                    
+          {/*      <li>
+                    <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
+                        <div className="accordion-item sexual-orientation" style={{ backgroundColor: "black", color: "white", border: "none" }}>
+                            <span class='ms-1 d-sm-inline'>
+                            <h2 className="accordion-header ">
+                                <button
+                                    className="accordion-button salonpage-sexual-accordtion"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapsethree"
+                                    aria-expanded="true"
+                                    aria-controls="collapsetwo"
+                                    style={{
+                                        backgroundColor: "black",
+                                        color: "white",
+                                        border: "none",
+                                        borderBottom: "none",
+                                        outline: "none",
+                                        boxShadow: "none",
+                                    }}
+                                >
+                                    Location
+                                </button>
+                            </h2> </span>
+                            <div id="collapsethree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div className="accordion-body">
+                                    <span class='d-sm-inline'>
+                                    <span className='d-sm-inline'>
+                                    <input placeholder="Enter Your location" type="text" value={inputValue} onChange={handleInputChange} className="location-input" />
+                                </span>
+                                    {isOpen && (
+                                    <div>
+                                        {filteredOptions.map((option) =>
+                                        <div
+                                        key={option}
+                                    className={`dropdown-option ${
+                                        selectedOption === option ? "selected" : "notselected"
+                                    }`} 
+                               onClick={() => handleSelect(option)}>
+                                            {option}
+                                        </div>
+                                        )}
+                                    </div>
+                                )}
+                                <span style={{ marginLeft: "5px" }} onClick={() => setIsOpen(!isOpen)}>
+                                    <i className={isOpen ? "arrow down" : "arrow up"}></i>
+                                    </span>
+                                    </span>   </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+*/}
+
+
                 
 
 
 
 
 
-            {/*    <li>
+                <li>
                 
-                <a href="#submenu2.2" data-bs-toggle="collapse" className="nav-link px-0 align-middle location-salons"> */}
+                <a href="#submenu2.2" data-bs-toggle="collapse" className="nav-link px-0 align-middle location-salons"> 
                      {/*   <span className="ms-1 d-none d-sm-inline location-salons"> */}
-                   {/*  <span className='d-sm-inline'>
+               <span className='d-sm-inline'>
                             <p className="location-salons" style={{ color: "white" }}>Location</p>
                         </span>
                        
@@ -357,15 +479,68 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                             </a>
                         </li>
                     </ul>
-                </li>*/}
+                </li>
+
+
+                
                 <li>
                     <hr style={{ width: "250px", color: "gold" }} class="d-sm-inline"/>
                 </li>
 
                 <li>
-                    <a href="#submenu1-4" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+                    <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
+                        <div className="accordion-item sexual-orientation" style={{ backgroundColor: "black", color: "white", border: "none" }}>
+                            <span class='ms-1 d-sm-inline'>
+                            <h2 className="accordion-header ">
+                                <button
+                                    className="accordion-button distanceselected-apply"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapsefour"
+                                    aria-expanded="true"
+                                    aria-controls="collapsetwo"
+                                    style={{
+                                        backgroundColor: "black",
+                                        color: "white",
+                                        border: "none",
+                                        borderBottom: "none",
+                                        outline: "none",
+                                        boxShadow: "none",
+                                    }}
+                                >
+                                    <p className="distance-salons" style={{ color: "white" }}>Distance</p>
+                                </button>
+                            </h2> </span>
+                            <div id="collapsefour" className="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                                <div className="accordion-body">
+                                   
+
+                        <li className="w-100">
+                            <a className="nav-link px-0">
+                                <span className="ms-1  d-sm-inline">
+                                    <label htmlFor="customRange2" className="form-label text-white filter-options-distance" >Less than {distance} km</label>
+                                    <input type="range" style={{ color: "white" }} className="form-range filter-options-distanceinput" min="0" max="5" id="customRange2"  value={distance} name="distance" onChange={handledistancechange}/> 
+                                </span>
+                            </a>
+                        </li>
+                
+                                       </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+
+
+                        {/*
+                <li>
+                    <a href="#submenu1-4" data-bs-toggle="collapse" className="nav-link px-0 align-middle">*/}
                      {/*   <span className="ms-1 d-none d-sm-inline"> */}
-                     <span className="ms-1 d-sm-inline">
+                  {/*   <span className="ms-1 d-sm-inline">
                             <p className="distance-salons" style={{ color: "white" }}>Distance</p>
                         </span>
                     </a>
@@ -379,12 +554,69 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                             </a>
                         </li>
                     </ul>
+                </li> */}
+
+
+
+                    <li>
+                    <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
+                        <div className="accordion-item servicesselected-apply" style={{ backgroundColor: "black", color: "white", border: "none" }}>
+                            <span class='ms-1 d-sm-inline'>
+                            <h2 className="accordion-header ">
+                                <button
+                                    className="accordion-button servicesselected-apply"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapsefive"
+                                    aria-expanded="true"
+                                    aria-controls="collapseOne"
+                                    style={{
+                                        backgroundColor: "black",
+                                        color: "white",
+                                        border: "none",
+                                        borderBottom: "none",
+                                        outline: "none",
+                                        boxShadow: "none",
+                                    }}
+                                >
+                                     <p className="groomer-services" style={{ color: "white" }}>Services</p>
+                                </button>
+                            </h2> </span>
+                            <div id="collapsefive" className="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                                <div className="accordion-body">
+                               
+                                <ul className=" services-list" id="submenu3" data-bs-parent="#menu">
+                        {allservices.map(data => 
+                             <li className="w-100">
+                             <a href="#" className="nav-link px-0">
+                                 <span className=" d-sm-inline">
+                                     <input type="checkbox" value={data} key={data} onChange={handlefilterservices} name="services"/>
+                                 </span>
+                                 <span style={{ color: "white" }} > {data}</span>
+                             </a>
+                         </li>
+                        )}
+                           </ul>
+                                    
+                                      </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
 
-                <li>
+
+
+
+
+
+
+
+
+
+           {/*     <li>
                     <hr style={{ width: "250px", color: "gold" }} class=" d-sm-inline"/>
                 </li>
-
+                    
                 <li>
                     <a href="#submenu3" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
                         <span className= "ms-1 d-sm-inline">
@@ -402,6 +634,8 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                              </a>
                          </li>
                         )}
+                           </ul>
+                           </li>*/}
                      {/*   <li className="w-100">
                             <a href="#" className="nav-link px-0">
                                 <span className="d-none d-sm-inline">
@@ -458,12 +692,12 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                                 <span style={{ color: "white" }}> shaving</span>
                             </a>
                                 </li> */}
-                    </ul>
-                </li>
+                 
 
                 <li>
                     <hr style={{ width: "250px", color: "gold" }} class=" d-sm-inline"/>
                 </li>
+                {/*
 
                 <li>
                     <a href="#submenu2" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
@@ -484,12 +718,219 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                         </li>
                     </ul>
                 </li>
+    */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <li>
                     <hr style={{ width: "250px", color: "gold" }} class=" d-sm-inline"/>
                 </li>
 
+
+
                 <li>
+                    <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
+                        <div className="accordion-item sexual-orientation" style={{ backgroundColor: "black", color: "white", border: "none" }}>
+                            <span class='ms-1 d-sm-inline'>
+                            <h2 className="accordion-header ">
+                                <button
+                                    className="accordion-button pricesselected-apply"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapsesix"
+                                    aria-expanded="true"
+                                    aria-controls="collapsetwo"
+                                    style={{
+                                        backgroundColor: "black",
+                                        color: "white",
+                                        border: "none",
+                                        borderBottom: "none",
+                                        outline: "none",
+                                        boxShadow: "none",
+                                    }}
+                                >
+                                   <p className="filter-price" style={{ color: "white" }}>price</p>
+                                </button>
+                            </h2> </span>
+                            <div id="collapsesix" className="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                                <div className="accordion-body pricefilter-accordtionbody">
+                                <ul className=" nav flex-column ms-1 pricesfromto" id="submenu2" data-bs-parent="#menu">
+                                <li className="w-100">
+                            <a className="nav-link px-0">
+                                <span className="ms-1 d-sm-inline">
+                                    <span style={{ color: "white" }}>From : </span>
+                                    <input className="cost-input" placeholder="₹200" type="text" onChange={handlelowprice} name="priceFrom"/>
+                                </span>
+                                <span style={{ color: "white" }}>To :</span>
+                                <input className="cost-input" placeholder="₹400" type="text" onChange={handlehighprice} name="priceTo"/>
+                            </a>
+                        </li>
+                                   </ul>
+                                     </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+
+
+                <li>
+                    <hr style={{ width: "250px", color: "gold" }} class=" d-sm-inline"/>
+                </li>
+
+
+
+
+
+
+                                    
+
+                <li>
+                    <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
+                        <div className="accordion-item sexual-orientation" style={{ backgroundColor: "black", color: "white", border: "none" }}>
+                            <span class='ms-1 d-sm-inline'>
+                            <h2 className="accordion-header ">
+                                <button
+                                    className="accordion-button registerselected-apply"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseseven"
+                                    aria-expanded="true"
+                                    aria-controls="collapsetwo"
+                                    style={{
+                                        backgroundColor: "black",
+                                        color: "white",
+                                        border: "none",
+                                        borderBottom: "none",
+                                        outline: "none",
+                                        boxShadow: "none",
+                                    }}
+                                >
+                                    <p className="filter-ratings-font" style={{ color: "white" }}>Rating</p>
+                                </button>
+                            </h2> </span>
+                            <div id="collapseseven" className="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                                <div className="accordion-body">
+                                   
+                                <li className="w-100 ratings-star">
+                            <a href="#" className="nav-link px-0">
+                                <span className=" d-sm-inline">
+                                    <input className="rating-input" type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                </span>
+                                <span>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li className="ratings-star">
+                            <a href="#" className="nav-link px-0">
+                                <span className="d-sm-inline">
+                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                </span>
+                                <span>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li className="ratings-star">
+                            <a href="#" className="nav-link px-0">
+                                <span className=" d-sm-inline">
+                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                </span>
+                                <span>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="#" className="nav-link px-0">
+                                <span className=" d-sm-inline">
+                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                </span>
+                                <span>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li className="ratings-star">
+                            <a href="#" className="nav-link px-0">
+                                <span className="d-sm-inline">
+                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                </span>
+                                <span>
+                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                    <i style={{ color: "white" }} className="bi bi-star"></i>
+                                </span>
+                            </a>
+                        </li>
+                                   
+                                      </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             {/*   <li>
                     <a href="#submenu4" data-bs-toggle="collapse" className="nav-link px-0 align-middle filter-ratings">
                         <span className="ms-1 d-sm-inline">
                             <p className="filter-ratings-font" style={{ color: "white" }}>Rating</p>
@@ -567,7 +1008,7 @@ function Filterapply({onChange, filterOptions,value,setFilteredCardsLocation,set
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> */}
             </ul>
             <hr class="d-sm-inline"/>
             </div>  </div>
