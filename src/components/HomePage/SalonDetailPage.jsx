@@ -90,7 +90,7 @@ function SalonMainPage() {
                         <span style={{ fontSize: "28px" }} className="bi bi-arrow-left-circle" aria-hidden="true"></span>
                         <span className="visually-hidden">Previous</span>
                     </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <button className="carousel-control-next salondetailspage-nextarrow" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                         <span style={{ fontSize: "28px" }} className="bi bi-arrow-right-circle" aria-hidden="true"></span>
                         <span className="visually-hidden">Next</span>
                     </button>
