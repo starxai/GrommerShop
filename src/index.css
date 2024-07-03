@@ -1810,7 +1810,9 @@ form{
 .react-datepicker__day--selected:hover{
   background-color: rgb(0, 17, 255) !important;
 }
-
+.react-datepicker__day--keyboard-selected{
+  background-color: blueviolet !important;
+}
 
 
 .react-datepicker__day--selected:hover,
@@ -3474,7 +3476,7 @@ margin-top: 120px;
   margin-left: 550px;
 }
 .salonbookingspage-timeslots{
-  margin-top: 200px !important;
+  margin-top: 100px !important;
   margin-left: -500px;
   font-size: 20px !important;
   margin-bottom: 60px;
@@ -3492,12 +3494,23 @@ margin-top: 120px;
 }
 .react-datepicker__header{
   width: 280px;
-  margin-left: 0px;
+}
+.react-datepicker__month-container{
+  margin-left: 10px;
+}
+.react-datepicker__navigation{
+  left: 320px;
+}
+.react-datepicker__day--selected{
+  background-color: #5B5441 !important;
+  width: 40px !important;
+  height: 30px !important;
 }
 
-.react-datepicker__navigation{
- 
+.react-datepicker__day--selected:hover{
+  background-color: #5B5441  !important;
 }
+
 .react-datepicker__day-names{
   background-color: rgb(13, 12, 13);
   color: var(--white) !important;
