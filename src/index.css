@@ -3838,8 +3838,14 @@ margin-top: 120px;
 .groomer-background-maincontainer{
 
 }
-
-
+.booking-history-accordtionmain::after{
+  margin-left: -30px;
+  margin-top: 30px;
+}
+.booking-history-accordtionmain:not(.collapsed)::after{
+ margin-left: -30px;
+ margin-top: 30px;
+}
 
 
 
