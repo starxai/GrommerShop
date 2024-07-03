@@ -3299,6 +3299,7 @@ display: none;
 .saloon-page-container{
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .slotbooking-carousel{
   width: 100% !important;
@@ -3361,11 +3362,13 @@ margin-top: 120px;
 }
 .booking-persons{
   margin-top: -140px;
- margin-left: -360px;
+ margin-left: -420px;
+ width: 100%;
 }
 .selecting-persons{
-  width: 330px;
+  width: 95%;
   margin-top: 10px;
+  
 }
 
 .salondetailspage-down{
@@ -3379,15 +3382,20 @@ margin-top: 120px;
 .salondetailspage-treatment{
  margin-top: -30px; 
  margin-left: 10px;
+ width: 100%;
 }
 .book-slot{
-  width: 330px;
+  width: 93%;
   margin-left: 10px;
   margin-top: -20px;
 }
 .dropdown-header{
-  width: 330px;
+  width: 94%;
 }
+.app{
+  width: 100%;
+}
+
 .salondetailspage-review{
   font-size: 16px !important;
   font-weight: 500 !important;
@@ -3409,6 +3417,7 @@ margin-top: 120px;
 .react-datepicker{
   width: 303px !important;
   height: 366px;
+  box-shadow: none !important;
 }
 
 
@@ -3443,6 +3452,9 @@ margin-top: 120px;
   display: inline-block;
   
 }
+.booking-purpse-container{
+  width: 100%;
+}
 .salondetailspage-time{
   margin-left: 180px !important;
   margin-top: -80px;
@@ -3459,7 +3471,7 @@ margin-top: 120px;
 }*/
 .time-slots{
   margin-top: 100px;
-  margin-left: 600px;
+  margin-left: 550px;
 }
 .salonbookingspage-timeslots{
   margin-top: 200px !important;
@@ -3474,22 +3486,17 @@ margin-top: 120px;
 }
 
 
-
-.react-datepicker__month-container{
-width: 300px;
-margin-left: 70px;
-}
 .react-datepicker__day{
   width: 43px !important;
   height: 35px;
 }
 .react-datepicker__header{
-  width: 250px;
+  width: 280px;
   margin-left: 0px;
 }
 
 .react-datepicker__navigation{
- margin-left: 100px;
+ 
 }
 .react-datepicker__day-names{
   background-color: rgb(13, 12, 13);
@@ -3502,7 +3509,7 @@ margin-left: 70px;
   margin-left: 30px !important;
 }
 .salonedetailspage{
-  width: 300px !important;
+  width: 100% !important;
 }
 
 
@@ -3924,8 +3931,17 @@ margin-left: 70px;
 }
 .slotbooking-carouselimg{
   width: 100% !important;
+}
+.selecting-persons{
+  width: 340px;
+  margin-top: 10px;
  
 }
+.booking-persons{
+  width: 100%;
+ 
+}
+
 
 }
 
