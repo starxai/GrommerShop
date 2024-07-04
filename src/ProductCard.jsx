@@ -58,7 +58,7 @@ function ProductCard() {
                         <div className="cards-positions-container productcard-cardspostion">
                         <img width={276} src="https://i.ibb.co/DQDhD65/lindsay-cash-Md-Dha-Fsn-CQ-unsplash-2-3.jpg" alt="..."   className="groomer-card1"/>
                         <span className="heart-icon"><i style={{ color: "white", fontSize: "20px" }} class="bi bi-heart"></i></span>
-                        <span className="location-icon">Concern :Patchy beard</span>
+                        <span className="location-icon product-locationicons">Concern :Patchy beard</span>
                         </div>
                         <div className="card-position">
                         <div class="card-body cardsposition-body">

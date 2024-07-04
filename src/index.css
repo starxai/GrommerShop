@@ -606,7 +606,8 @@ p.card-text {
   transform: rotate(-135deg) !important;
   -webkit-transform: rotate(-135deg) !important;
   position: relative;
-  left: -30px;
+  left: 0px;
+  top: -0px;
 }
 
 .down {
@@ -614,7 +615,7 @@ p.card-text {
   -webkit-transform: rotate(45deg);
   position: relative;
   top: -100px;
-  left: 150px;
+  left: 210px;
 }
 
 
@@ -675,7 +676,7 @@ p.card-text {
 .parent-card-container::after {
   position: absolute;
   content: '';
-  border: 2px solid #CCBB8E;
+  border: 0.5px solid #CCBB8E;
   border-top-left-radius: 120px;
   border-top-right-radius: 120px;
   height: 460px;
@@ -687,7 +688,7 @@ p.card-text {
 .card_heading {
   position: absolute;
   top: 95px;
-  left: 31%;
+  left: 25%;
   line-height: 76.8px;
   letter-spacing: -4%;
   font-size: 64px;
@@ -1271,7 +1272,7 @@ width: 270px;
   border-radius: 17px;
   padding: 5px;
   bottom: 159px;
-  left: 70px;
+  /* left: 70px; */
   color: #fff;
   background: rgba( 255, 255, 255, 0.25 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -2338,7 +2339,9 @@ width: 357px;
 .toggle-button-filters{
   display: none;
 }
-
+.product-locationicons{
+  margin-left: -260px;
+}
 
 
 
@@ -2536,7 +2539,7 @@ width: 357px;
   .card-main h1{
     font-size: 28px;
     width: 266px;
-    margin-left: -60px;
+    margin-left: -30px;
     height: 56px;
     font-family: Avegas Royale;
     font-weight: 700;
@@ -2579,7 +2582,8 @@ width: 357px;
     display: none;
   }
   .groomer-mainpagecards-locationicon{
-    margin-left: -60px;
+    margin-left: -0px;
+    
   }
   .groomer-mainpage-cardbody{
     margin-left: -130px;
@@ -2734,7 +2738,7 @@ width: 357px;
   margin-left: -200px;
 }
 .product-locationicons{
-  margin-left: -60px;
+  margin-left: -150px;
 }
 .homeservices-para1{
   margin-top: 350px;
@@ -3070,7 +3074,7 @@ width: 357px;
 .search-bar{
   height: 40px;
   width: 291px;
-  margin-top: -470px;
+  margin-top: -440px;
   margin-left: -40px;
   display: block;
   position: relative;
@@ -3125,7 +3129,7 @@ width: 357px;
  display: block;
  background-color: white;
  margin-left: 300px;
- margin-top: 10px;
+ margin-top: 40px;
  cursor: pointer !important;
  position: relative;
  z-index: 3;
