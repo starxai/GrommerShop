@@ -80,7 +80,7 @@ function SaloonList() {
 
     const [salonname,setsaloonname]=useState([])
     const [salonnameloading,setsalonnameloading]=useState(true)
-    console.log(allCards)
+    console.log("allcaeds"+allCards)
     console.log("crads")
     // ? ------------------------------------------------------------
     //  ?  ----------- Functions ---------------------
@@ -113,7 +113,7 @@ function SaloonList() {
      
       distance: "",
       priceFrom: "",
-      priceTo: 1000,
+      priceTo: 50,
       ratings: "",
       services: "",
       sort: "",
@@ -126,9 +126,13 @@ function SaloonList() {
     const [showFilters, setShowFilters] = useState(true); // State to control filter popup visibility
     // console.log(selectedLocation, "selected location");
     // console.log(filterOptions, "seethis");
-   
-    
-            
+
+
+    useEffect(()=>{
+      handleFilterApply()
+    },[filterOptions,showFilters])
+  
+
     const fetchSalons = async () => {
       console.log(getAllSalons)
       let response;
@@ -137,14 +141,15 @@ function SaloonList() {
       if (filterOptions && showFilters) {
         console.log("filteropetions opening")
         setloading(false);
-        response = await filterData(filterOptions);
-        console.log("excuting")
-        console.log("filter response" + response.data.salons )
-      } else {
-
-        response = await getAllSalons();
-        console.log("all salons")
+        response =  await filterData(filterOptions);
+        console.log("filterption")
         
+        console.log("excuting")
+        console.log(  response.data.salons )
+      } else {
+       // response = await getAllSalons();
+        console.log("all salons")
+
       }
 
   
@@ -221,18 +226,26 @@ function SaloonList() {
       setShowFilters(true);
     };
   */}
+  
     // Function to apply filter changes
-    const handleFilterApply = () => {
+    const handleFilterApply = async () => {
      // setFilteredCardsLocation(false)
     // setfileteredcardstatus(false)
+    console.log("filterling method is coming")
       setShowFilters(true);
-      handleApplyFilters();
      setsalonnameloading(false)
+     console.log("filterling method is coming")
+      handleApplyFilters();
+
     //  setShowFilters(false);
-    };
-    useEffect(() =>{
+    }; 
+
+ 
+    {/*useEffect(() =>{
       console.log(showFilters)
-    },[showFilters])
+    },[showFilters]) */}
+
+   
   
     // Function to apply filters and update displayed cards
     // const handleApplyFilters = () => {
@@ -329,11 +342,11 @@ function SaloonList() {
     //   }
     //   setallCards(filteredCards);
     // };
-    useEffect(() =>{
+  /*  useEffect(() =>{
 
-    },[salonname])
+    },[salonname])*/
   
-    const handleApplyFilters = () => {
+    const handleApplyFilters = async () => {
       fetchSalons();
     };
   
@@ -353,10 +366,11 @@ function SaloonList() {
     // console.log(filteredCardsLocation);
 
   
-  
+  {/*
    useEffect(() => {
       handleApplyFilters();
-    }, [selectedLocation]);
+      console.log(filterOptions)
+    }, [selectedLocation,filterOptions.manhood]); */}
   
     const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
    
@@ -474,7 +488,8 @@ function SaloonList() {
 
                                 <div className="one-side-border" > <button class="d-none d-sm-inline filters-apply-button" style={{color:"white",backgroundColor:"black",width:"100px"}} onClick={handleFilterApply}>Apply</button>
                           {/*    <div className="filtercard-positions">  <Filterapply  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}/></div> */}
-                              <div className="filtercard-positions">  <Filterapplyy  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}/></div>
+                            <div className="filtercard-positions">  <Filterapplyy  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}  handleFilterApply={()=>handleFilterApply()}/></div>   
+                         
                             {console.log("salonname"+salonname)}{console.log(salonnameloading)}
                        {/*       <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
@@ -774,17 +789,18 @@ function SaloonList() {
                     }):""
                   }
                     </div>
-                ) : (
+                ) : 
               <div></div>
                 )} */}   {console.log(cardData)}
                           {console.log("filteered cards")}
                           {console.log(filteredCardsLocation)}
                                  {
                                  
-
                                     filteredCardsLocation  ? (
                                             <div className="displaysalonspage-salons"  style={{display:"grid",gridTemplateColumns:"310px 310px 310px"}}>
+                                              {console.log("filteredcards in the salonpage")}
                                                 {
+
                                                     filteredCardsLocation.map((data,index) =>
                                                         <div key={index} > 
                                                         

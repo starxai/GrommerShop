@@ -74,7 +74,7 @@ function Squarecard({
                                             <button style={{ height: "9px", width: "11px", backgroundColor: "#fff", borderRadius: "50%" }} type="button" data-bs-target={"#"+`${id}`} data-bs-slide-to="1" aria-label="Slide 2" ></button>
                                             <button style={{ height: "9px", width: "11px", backgroundColor: "#fff", borderRadius: "50%" }} type="button" data-bs-target={"#"+`${id}`} data-bs-slide-to="2" aria-label="Slide 3" ></button>
                                         </div>  {/*{console.log(imageSrc)} */}
-                                        <div class="carousel-inner salonspage-image" style={{ width: "300px" }}>
+                                        <div class="carousel-inner salonspage-image" style={{ width: "300px" }} onClick={(id) =>handleonesalon(id)}>
                                         <div class="carousel-item active">
                                                {/* <img src={imageSrc} class="d-block w-100" alt="..." /> */}
                                               {
@@ -109,7 +109,7 @@ function Squarecard({
                                        <span onClick={()=>navigaettomaps(Location)} className="location-icon"><i style={{ color: "white" }} class="bi bi-geo-alt-fill"></i></span>
                                        
                                     </div>
-                                    <div className="card-position " >
+                                    <div className="card-position" onClick={(id) =>handleonesalon(id)} >
                                         <div class="card-body salons-display-cardbody" style={{position:"relative",top:"-30px"}}>
                                             <h5 style={{ color: "white",fontSize:"20px"}} class="card-title salons-salonname">{content}</h5>
                                         <div style={{display:"flex"}} >  {

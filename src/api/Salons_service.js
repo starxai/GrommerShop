@@ -11,7 +11,7 @@ import { getToken } from "../context/StorageToken";
  * will return the error response data.
  */
 
-const getLocation = () => {
+const getLocation = async () => {
   return new Promise((resolve, reject) => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -84,6 +84,7 @@ export const getAllSalons = async (limit = 12) => {
 };
 
 export const filterData = async (filterOptions) => {
+  console.log("salonfilter location data")
   let location = await getLocation();
   let apiFilter = {};
 
@@ -116,21 +117,35 @@ export const filterData = async (filterOptions) => {
       alert("First give the location access");
     }
   }
+{/*
+  if (filterOptions.priceFrom !== "") {
+    if (location) {
+      apiFilter.location = `${location.latitude},${location.longitude}`;
+      apiFilter.minServicePrice = filterOptions.priceFrom;
+    } else {
+      alert("First give the location access");
+      apiFilter.minServicePrice = filterOptions.priceFrom;
+    }
+  }*/}
 
-  // if (filterOptions.priceTo !== "") {
-  //   if (location) {
-  //     apiFilter.location = `${location.latitude},${location.longitude}`;
-  //     apiFilter.maxServicePrice = filterOptions.priceTo;
-  //   } else {
-  //     alert("First give the location access");
-  //     apiFilter.maxServicePrice = filterOptions.priceTo;
-  //   }
-  // }
+   if (filterOptions.priceFrom && filterOptions.priceTo !== "") {
+     if (location) {
+       apiFilter.location = `${location.latitude},${location.longitude}`;
+       apiFilter.minServicePrice = filterOptions.priceFrom;
+       apiFilter.maxServicePrice = filterOptions.priceTo;
+     } else {
+       alert("First give the location access");
+       apiFilter.minServicePrice = filterOptions.priceFrom;
+       apiFilter.maxServicePrice = filterOptions.priceTo;
+     }
+   }
+
+   
+  
 
   if (filterOptions.manhood !== "") {
     if (location) {
       apiFilter.location = `${location.latitude},${location.longitude}`;
-    
       apiFilter.sex = filterOptions.manhood;
      
     } else {

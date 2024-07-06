@@ -42,15 +42,14 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
         manhood: "",
     });
 */}
-
-    const handleFilterChange = async (event) => {
+    const handleFilterChange = (event) => {
         const { name, value } = event.target;
         setFilterOptions((prevOptions) => ({
             ...prevOptions,
             [name]: value,
         }));
         console.log("gender cofirmation is coming")
-   
+        handleFilterApply();
     };
    
 
@@ -74,7 +73,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
           //  setdistance(event.target.name)
           setFilterOptions((prevOptions) =>({
             ...prevOptions,
-            [name]:value+"km"
+            [name]:value
           }))
       
     }
@@ -95,7 +94,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
         }))
     }
 
-    const handlehighprice = async (event) =>{
+    const handlehighprice = (event) =>{
         const {name,value} = event.target
         setFilterOptions((prevOptions) =>({
             ...prevOptions,
@@ -128,44 +127,25 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
         }}
       };
 
-    const handlefilterservices = async (event) =>{
-        let update = [...selectedservices]
-        if(event.target.checked){
-            setischecked(!ischecked);
-            console.log(ischecked)
-            console.log(ischecked)
-            const{name,value} = event.target
-           
-            let checkservice = update.some((item) => item===value);
-            if(!checkservice){
-             update.push(value)
-            };
-            setselectedservices(update);
-            setFilterOptions((prevOptions) =>({
-                ...prevOptions,
-                [name]:update
-            }))
-        }
-       else{
-        
+    const handlefilterservices = (event) =>{
+        setischecked(!ischecked);
+        console.log(ischecked)
+        console.log(ischecked)
         const{name,value} = event.target
-      
-     update.pop(value)
-       console.log("selected services")
-       console.log(selectedservices)
+        let update = [...selectedservices]
+        let checkservice = update.some((item) => item===value);
+        if(!checkservice){
+         update.push(value)
+        };
+        setselectedservices(update);
         setFilterOptions((prevOptions) =>({
             ...prevOptions,
             [name]:update
         }))
-       }
     }
-        useEffect(()=>{
-            console.log("selected services")
-            console.log(selectedservices)
-        })
-            const handlerating = (event) =>{
+
+    const handlerating = (event) =>{
         const{name,value} = event.target
-        
         setFilterOptions((prevOptions) =>({
             ...prevOptions,
             [name]:value
@@ -230,11 +210,10 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                     <div class="accordion-body">
                     <span class='d-sm-inline'>
                                     <input
-                                      
                                         value="male"
                                         name="manhood"
                                         type="radio"
-                                        onChange={(event)=>handleFilterChange(event)}
+                                        onClick={handleFilterChange}
                                         
                                     />{" "}
                                     <label htmlFor="">male</label>
@@ -244,7 +223,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                                         value="female"
                                         name="manhood"
                                         type="radio"
-                                        onChange={(event)=>handleFilterChange(event)}
+                                        onChange={handleFilterChange}
                                     />{" "}
                                     <label htmlFor="">Female</label>
                                     </span>
@@ -255,7 +234,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
 
 
 
-         <div class="accordion-item filterapply-accordionmain">
+                <div class="accordion-item filterapply-accordionmain">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                     <button class="accordion-button collapsed filterapply-accordionmain filterapplyselect-location" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
                     <span className='d-sm-inline'>
@@ -337,7 +316,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                              <li className="w-100">
                              <a href="#" className="nav-link px-0">
                                  <span className=" d-sm-inline">
-                                     <input type="checkbox" value={data} key={data}  onChange={handlefilterservices} name="services"/>
+                                     <input type="checkbox" value={data} key={data} onChange={handlefilterservices} name="services"/>
                                  </span>
                                  <span style={{ color: "white" }} > {data}</span>
                              </a>
@@ -487,4 +466,4 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
 
 
 
-    export default Filterapplyy
+    
