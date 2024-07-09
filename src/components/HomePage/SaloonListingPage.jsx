@@ -14,6 +14,7 @@ import { date } from "yup";
 import Filterapply from "./filterapply";
 import FilteredCards from "./filtercards";
 import Filterapplyy from "./filterapplyy";
+import { data } from "jquery";
 
 
 function SaloonList() {
@@ -23,8 +24,8 @@ function SaloonList() {
     const [personGender,SetPersonGender] = React.useState("")
     const [dropDown,SetDropDown] = React.useState("")
     const [dummyvariable,setsammyvariable]=useState()
-    console.log(dropDown)
-    console.log(personGender)
+  {/*  console.log(dropDown)
+    console.log(personGender) */}
     // const images = [
     //     { url: 'https://i.pinimg.com/originals/9b/a2/57/9ba25796112cad616be27e473ae1e149.jpg', alt: 'Image 1' },
     //     { url: 'https://cdn.pixabay.com/photo/2018/12/03/21/22/cartoon-3854292_1280.png', alt: 'Image 2' },
@@ -76,12 +77,13 @@ function SaloonList() {
     const [currentPage, setCurrentPage] = useState(1);
     const [filteredCardsLocation, setFilteredCardsLocation] = useState(null);
     const [saloonlocationloading , setsaloonlocationloading] =useState(true)
+    const[salonsecondname,setsalonsecondname]=useState(true)
    // const [filtercardstatus,setfileteredcardstatus] = useState(true)
 
     const [salonname,setsaloonname]=useState([])
     const [salonnameloading,setsalonnameloading]=useState(true)
-    console.log("allcaeds"+allCards)
-    console.log("crads")
+   // console.log("allcaeds"+allCards)
+    //console.log("crads")
     // ? ------------------------------------------------------------
     //  ?  ----------- Functions ---------------------
     // ? -----------------------------------------------------------
@@ -106,8 +108,8 @@ function SaloonList() {
   
     // Generate unique location options for filtering
     const locations = ["All", ...new Set(CardData.map((card) => card.Location))]; 
-   console.log("locations")
-   console.log(locations)
+  // console.log("locations")
+   //console.log(locations)
     // State to manage filter options
     const [filterOptions, setFilterOptions] = useState({
      
@@ -134,21 +136,21 @@ function SaloonList() {
   
 
     const fetchSalons = async () => {
-      console.log(getAllSalons)
+    //  console.log(getAllSalons)
       let response;
       // console.log(filterOptions, "check");
   
       if (filterOptions && showFilters) {
-        console.log("filteropetions opening")
+      //  console.log("filteropetions opening")
         setloading(false);
         response =  await filterData(filterOptions);
-        console.log("filterption")
-        
-        console.log("excuting")
-        console.log(  response.data.salons )
+       // console.log("filterption")
+         
+       // console.log("excuting")
+       // console.log(  response.data.salons )
       } else {
-       // response = await getAllSalons();
-        console.log("all salons")
+        response = await getAllSalons();
+       // console.log("all salons")
 
       }
 
@@ -159,7 +161,7 @@ function SaloonList() {
 
       //  Success
       if (response.code === 200) {
-        console.log(response.data.salons)
+      //  console.log(response.data.salons)
        let update = response.data.salons.map((item, index) => ({
           id: item.salon_uuid,
           content: item.salon_name,
@@ -231,10 +233,10 @@ function SaloonList() {
     const handleFilterApply = async () => {
      // setFilteredCardsLocation(false)
     // setfileteredcardstatus(false)
-    console.log("filterling method is coming")
+   // console.log("filterling method is coming")
       setShowFilters(true);
      setsalonnameloading(false)
-     console.log("filterling method is coming")
+    // console.log("filterling method is coming")
       handleApplyFilters();
 
     //  setShowFilters(false);
@@ -351,14 +353,14 @@ function SaloonList() {
     };
   
     const handleLocationChange  = (location) => {
-      console.log(location);
+     // console.log(location);
       if (location === "All") {
        setFilteredCardsLocation(null);
       } else {
      // console.log(allCards)
       let update = allCards.filter((item) => item.Location === location);
        setFilteredCardsLocation(update);
-        console.log(filteredCardsLocation)
+      //  console.log(filteredCardsLocation)
         
       }
       // setSelectedLocation(location);
@@ -436,9 +438,11 @@ function SaloonList() {
         const [toggle,settoggle]= useState(false)
        const   handletoggle = () =>{
         settoggle(prevToggle => !prevToggle);
-            console.log("toggle"+toggle)
+           // console.log("toggle"+toggle)
           }
-          
+          useEffect(()=>{
+
+          },[salonsecondname])
            
 
 
@@ -488,9 +492,9 @@ function SaloonList() {
 
                                 <div className="one-side-border" > <button class="d-none d-sm-inline filters-apply-button" style={{color:"white",backgroundColor:"black",width:"100px"}} onClick={handleFilterApply}>Apply</button>
                           {/*    <div className="filtercard-positions">  <Filterapply  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}/></div> */}
-                            <div className="filtercard-positions">  <Filterapplyy  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}  handleFilterApply={()=>handleFilterApply()}/></div>   
+                            <div className="filtercard-positions">  <Filterapplyy  onChange={(value)=>handleLocationChange(value)} toggle={toggle} value={selectedLocation} setFilteredCardsLocation={setFilteredCardsLocation} options={locations}  setFilterOptions={setFilterOptions} setsaloonname={setsaloonname} setsalonnameloading={setsalonnameloading} setsaloonlocationloading={setsaloonlocationloading}  handleFilterApply={()=>handleFilterApply()}   setsalonsecondname={setsalonsecondname}/></div>   
                          
-                            {console.log("salonname"+salonname)}{console.log(salonnameloading)}
+                        {/*    {console.log("salonname"+salonname)}{console.log(salonnameloading)} */}
                        {/*       <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
 
@@ -750,10 +754,11 @@ function SaloonList() {
                             <div className="dropdown-box-container" >
     
                                 <select className="popular-dropdown-button"  onChange={(e)=>SetDropDown(e.target.value)}>
-                                    <option disabled selected value="">Sort by popular</option>
-                                    <option value="Hair cut"> Hair cut</option>
-                                    <option value="body massage">body massage</option>
-                                    <option value="Hair color">Hair color</option>
+                                <option disabled selected value="">Sort by popular</option>
+                                    <option value="Hair cut">sort by distance </option>
+                                    <option value="body massage">sort by ratings</option>
+                                    <option value="Hair color">sort by pricing(low to high)</option>
+                                    <option value="Hair color">sort by pricing(high to low)</option>
                                 </select>
                             </div>
 
@@ -791,19 +796,17 @@ function SaloonList() {
                     </div>
                 ) : 
               <div></div>
-                )} */}   {console.log(cardData)}
-                          {console.log("filteered cards")}
-                          {console.log(filteredCardsLocation)}
+                )} */}   
                                  {
                                  
-                                    filteredCardsLocation  ? (
+                                    filteredCardsLocation  && salonsecondname ? (
                                             <div className="displaysalonspage-salons"  style={{display:"grid",gridTemplateColumns:"310px 310px 310px"}}>
-                                              {console.log("filteredcards in the salonpage")}
+                                           
                                                 {
 
                                                     filteredCardsLocation.map((data,index) =>
                                                         <div key={index} > 
-                                                        
+                                                        {console.log("filtercards location excutinh")}
                                                         <Squarecard {...data} index={index}/> 
                                                     
 
@@ -819,13 +822,14 @@ function SaloonList() {
                                         :
                                     (
 
-
+                                      
                                <div style={{color:"white"}}>
-                                  
-                                  
+                                  {
+                                  saloonlocationloading ? (
                                     <div style={{color:"white"}}>
                                       {
                                      <div className="displaysalonspage-salons" style={{display:"grid",gridTemplateColumns:"310px 310px 310px"}}>
+                                     
                                      {
                                          cardData.map((data,index) =>
                                              <div key={index} > 
@@ -843,10 +847,21 @@ function SaloonList() {
                           </div> 
                                       }
                                     </div>
-                                   
+                                     ):(
+                                      <div>
+                                      
+                                        {
+                                          salonname.map((data,index)=>
+                                          <div>location data not coming</div>
+                                          )
+                                        }
+                                      </div>
+                                     )   
+                                     
+                                     }
                                </div>
                                       
-                                
+                                    
                                         )
                                     }   
                                  

@@ -3,11 +3,14 @@ import { Link, useLocation,useNavigate } from "react-router-dom";
 import Navbar from "./NavbarComponent";
 import ReactDatePicker from "./ReactDatePicker";
 import Context from "../../context/axiox";
-
-
+import Swal from "sweetalert2";
+import { getToken } from "../../context/StorageToken";
+import Rating from 'react-rating-stars-component';
+import reactstarcomponent from "./react-starcomponent";
+import { event } from "jquery";
 function SalonMainPage() {
     function ReviewData() {
-        alert("hi");
+        console.log(review)
     }
     const navigate = useNavigate()
     const location = useLocation();
@@ -16,6 +19,8 @@ function SalonMainPage() {
     const [service,setservice] = useState()
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedTreatments, setSelectedTreatments] = useState([]);
+    const[review,setreview]=useState("")
+    const[rating,setrating]=useState()
     // Destructure the data object and use optional chaining for salon_features
     const {
         salon_location,
@@ -34,9 +39,28 @@ function SalonMainPage() {
             response => response.json()
         ).then(data => setData(data.data.salon));
     }
+    const headerlist ={
+        Authorization:`Bearer ${getToken()}`
+    }
+   const bodycontent =JSON.stringify({
+    salon_uuid:id,
+    rating:rating,
+    message:review
+   })
+    const hanldecreatereview = async () =>{
+        let response = await fetch(`${Context}/user/feedback/create`,{
+            method:'POST',
+            body:bodycontent,
+            headers:headerlist
+        })
+
+        let data = await response.json()
+        console.log(data)
+    }
 
     const handlereview = async () =>{
-        let response = await fetch(`${Context}/user/feedback/getFeedback?salon_uuid={id}`)
+       
+        let response = await fetch(`${Context}/user/feedback/getFeedback?salon_uuid=${id}`)
 
         let code = await response.json()
         console.log(code)
@@ -45,9 +69,12 @@ function SalonMainPage() {
     useEffect(() => {
         if (id) {
             handleSalonProfile();
-            handlereview()
+          handlereview()
         }
     }, [id]);
+    useEffect(()=>{
+        console.log(review)
+    },[review])
 
                 function handleslotbooking(){
                     navigate('/booking',{state:{salon_name,salon_address,selectedTreatments,id}})
@@ -64,6 +91,41 @@ function SalonMainPage() {
                     setSelectedTreatments(newSelectedTreatments);
                   };
                   console.log(selectedTreatments)
+
+
+                 const sweeetalert = async ()=>{
+                  
+                    Swal.fire({
+                        title: 'please give me your review',
+                        input: 'text',
+                        inputPlaceholder: 'Enter your feedback',
+                        showCancelButton: true,
+                        inputValidator: (value) => {
+                          if (!value) {
+                            return 'You need to write something!';
+                          }
+                        }
+                      }).then((result) => {
+                        if (result.value) {
+                            setreview(result.value)
+                          Swal.fire(`Hello, ${result.value}!`);
+                      
+                        }
+                      })
+                
+                 }
+             
+                 useEffect(()=>{
+                    console.log(rating)
+                    hanldecreatereview()
+                 },[rating])
+             
+
+                 const handleRatingChange = async (newRating) => {
+                    setrating(newRating);
+
+                  };
+                
     return (
         <div>
             <Navbar />
@@ -221,9 +283,11 @@ function SalonMainPage() {
                     <div className="review-container">
                         <div>
                             <h1 className="salondetailspage-review" style={{ color: "white", fontFamily: "Poppins", fontWeight: 400, fontSize: "35px" }}>Reviews</h1>
+                            <Rating count={5} size="40" value={rating} onChange={(newRating)=>handleRatingChange(newRating)}/>
                         </div>
                         <div>
-                            <button className="review-butoon" onClick={ReviewData}>Write a review</button>
+                            <button className="review-butoon" onClick={sweeetalert}>Write a review </button>
+                            
                         </div>
                        
                     </div>

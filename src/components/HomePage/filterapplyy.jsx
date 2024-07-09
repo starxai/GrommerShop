@@ -2,9 +2,10 @@
 import { previousDay } from "date-fns";
 import React, { useEffect, useState } from "react";
 import Context from "../../context/axiox";
+import { faLadderWater } from "@fortawesome/free-solid-svg-icons";
 
 
-function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,setFilterOptions,setsaloonname,setsalonnameloading,setsaloonlocationloading,toggle,options,handleFilterApply}) {
+function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,setFilterOptions,setsaloonname,setsalonnameloading,setsaloonlocationloading,toggle,options,handleFilterApply,setsalonsecondname}) {
  //  console.log(filterOptions)
 
     const [personGender, SetPersonGender] = useState("");
@@ -107,24 +108,29 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
         const { name, value } = event.target;
        // setsalonname(value);
        if(value ===""){
-       setsaloonlocationloading(false)
+        console.log("salon searching non")
+        setsalonsecondname(true)
+       setsaloonlocationloading(true)
        }
        else{
+        console.log("all salons")
         try {
+          setsalonsecondname(false)
+            setsaloonlocationloading(false)
           let response = await fetch(`${Context}/user/search/salon?name=${value}`);
           if (response.ok) {
             let data = await response.json();
-            console.log("filtercompmnen"+data)
+         //   console.log("filtercompmnen"+data)
             setSalonResults(data);
             
             setsaloonname(data.data)
           //  setsalonnameloading(true)
           //  console.log(salonResults)
           } else {
-            console.error("Failed to fetch salon data");
+        //    console.error("Failed to fetch salon data");
           }
         } catch (error) {
-          console.error("Error fetching salon data:", error);
+         // console.error("Error fetching salon data:", error);
         }}
       };
 
@@ -132,8 +138,8 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
         let update = [...selectedservices]
         if(event.target.checked){
             setischecked(!ischecked);
-            console.log(ischecked)
-            console.log(ischecked)
+          //  console.log(ischecked)
+           // console.log(ischecked)
             const{name,value} = event.target
            
             let checkservice = update.some((item) => item===value);
@@ -149,10 +155,9 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
        else{
         
         const{name,value} = event.target
-      
-     update.pop(value)
-       console.log("selected services")
-       console.log(selectedservices)
+       update = update.filter((item)=>item!=value)
+       setselectedservices(update)
+       console.log(update)
         setFilterOptions((prevOptions) =>({
             ...prevOptions,
             [name]:update
@@ -160,17 +165,21 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
        }
     }
         useEffect(()=>{
-            console.log("selected services")
-            console.log(selectedservices)
+         //   console.log("selected services")
+          //  console.log(selectedservices)
         })
             const handlerating = (event) =>{
         const{name,value} = event.target
-        
+        if(event.target.checked){
         setFilterOptions((prevOptions) =>({
             ...prevOptions,
             [name]:value
-        })
-    )}
+                    })
+                )}
+                
+                else{
+                    console.log("rating is uncheck")
+                }}
 
     const handleSelect = (option) => {
         //setSelectedOption(option);
@@ -389,7 +398,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                 <li className="w-100 ratings-star">
                             <a href="#" className="nav-link px-0">
                                 <span className=" d-sm-inline">
-                                    <input className="rating-input" type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                    <input className="rating-input" type="checkbox" value='1' name="ratings" onChange={handlerating}/>
                                 </span>
                                 <span>
                                     <i style={{ color: "white" }} className="bi bi-star-fill"></i>
@@ -403,7 +412,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                         <li className="ratings-star">
                             <a href="#" className="nav-link px-0">
                                 <span className="d-sm-inline">
-                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                    <input type="checkbox" value='2' name="ratings" onChange={handlerating}/>
                                 </span>
                                 <span>
                                     <i style={{ color: "white" }} className="bi bi-star-fill"></i>
@@ -417,7 +426,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                         <li className="ratings-star">
                             <a href="#" className="nav-link px-0">
                                 <span className=" d-sm-inline">
-                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                    <input type="checkbox" value='3' name="ratings" onChange={handlerating}/>
                                 </span>
                                 <span>
                                     <i style={{ color: "white" }} className="bi bi-star-fill"></i>
@@ -431,7 +440,7 @@ function Filterapplyy({onChange, filterOptions,value,setFilteredCardsLocation,se
                         <li >
                             <a href="#" className="nav-link px-0">
                                 <span className=" d-sm-inline">
-                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
+                                    <input type="checkbox" value='4' name="ratings" onChange={handlerating}/>
                                 </span>
                                 <span>
                                     <i style={{ color: "white" }} className="bi bi-star-fill"></i>

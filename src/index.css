@@ -1191,7 +1191,7 @@ width: 270px;
 
 .review-container {
   display: flex;
-  gap: 30%;
+  gap: 0%;
 }
 
 .review-butoon {
@@ -1322,13 +1322,14 @@ width: 270px;
 
 .dropdown-box-container {
   padding-bottom: 50px;
+  color: white;
 }
 
 .popular-dropdown-button {
   width: 247px;
   height: 36px;
   background-color: black;
-  color: #CCBB8E;
+  color: white;
   float: right;
   margin-right: 50px;
 }
@@ -2342,7 +2343,12 @@ width: 357px;
 .product-locationicons{
   margin-left: -260px;
 }
-
+div:where(.swal2-container) div:where(.swal2-popup){
+  background-color: #000 !important;
+}
+div:where(.swal2-container) h2:where(.swal2-title){
+  color: white !important;
+}
 
 
 

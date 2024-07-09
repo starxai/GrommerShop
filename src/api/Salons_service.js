@@ -164,6 +164,13 @@ export const filterData = async (filterOptions) => {
     }
   }
 
+  if(filterOptions.ratings!==""){
+    if(location){
+      apiFilter.location = `${location.latitude},${location.longitude}`;
+      apiFilter.minRating=filterOptions.ratings
+    }
+  }
+
   const queryString = Object.keys(apiFilter)
     .map(
       (key) =>
