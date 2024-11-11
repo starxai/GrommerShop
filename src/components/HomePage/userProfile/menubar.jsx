@@ -1,23 +1,23 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { Store } from "../../../App";
 import { removeToken } from "../../../context/StorageToken";
 import { Link } from "react-router-dom";
 
 function MenuBar() {
-    const navigate = useNavigate();
-    const [isAuth, setisAuth] = useContext(Store);
+  const navigate = useNavigate();
+  const [isAuth, setisAuth] = useContext(Store);
 
-    const logoutHandler = () => {
-        removeToken();
-        setisAuth(null);
-        navigate("/");
-    };
+  const logoutHandler = () => {
+    removeToken();
+    setisAuth(null);
+    navigate("/");
+  };
 
-    return (
-        <>
-            <style>
-                {`
+  return (
+    <>
+      <style>
+        {`
                 .menu-bar {
                     position: absolute;
                      top: 20px;
@@ -53,14 +53,26 @@ function MenuBar() {
                 //     color: #4CAF50;        /* Changes text color on hover */
                 // }
                 `}
-            </style>
-            <ul className="menu-bar">
-               <Link  to="/bookinghistory">  <li className="menu-item"><a>Bookings</a></li>   </Link> 
-             <Link to="/wishlist"> <li className="menu-item"><a>Wishlist</a></li></Link>  
-                <li className="menu-item"><a onClick={logoutHandler}>Logout</a></li>
-            </ul>
-        </>
-    );
+      </style>
+      <ul className="menu-bar">
+        <Link to="/bookinghistory">
+          {" "}
+          <li className="menu-item">
+            <a>Bookings</a>
+          </li>{" "}
+        </Link>
+        <Link to="/wishlist">
+          {" "}
+          <li className="menu-item">
+            <a>Wishlist</a>
+          </li>
+        </Link>
+        <li className="menu-item">
+          <a onClick={logoutHandler}>Logout</a>
+        </li>
+      </ul>
+    </>
+  );
 }
 
 export default MenuBar;

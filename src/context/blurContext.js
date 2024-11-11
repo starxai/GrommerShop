@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 // Create a context for managing blur state
 const BlurContext = createContext();
@@ -9,7 +9,7 @@ export function BlurProvider({ children }) {
 
   // Function to toggle the blur state
   const toggleBlur = () => {
-    setIsBlur(prevIsBlur => !prevIsBlur);
+    setIsBlur((prevIsBlur) => !prevIsBlur);
   };
 
   return (

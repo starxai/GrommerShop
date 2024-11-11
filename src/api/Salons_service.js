@@ -64,19 +64,16 @@ export const getAllSalons = async (limit = 12) => {
       location.latitude !== undefined &&
       location.longitude !== undefined
     ) {
-            apiUrl = `${Context}/user/salons?city=nellore&&location=14.435850156136668,79.97795134195518&&limit=${limit}`;
+      apiUrl = `${Context}/user/salons?city=nellore&&location=14.435850156136668,79.97795134195518&&limit=${limit}`;
       //apiUrl = `${Context}/user/salons?city=Hyderabad&&location=${location.latitude},${location.longitude}&&limit=${limit}`;
-    } 
-    else {
-      
+    } else {
       apiUrl = `${Context}/user/salons?city=nellore&&limit=${limit}`;
     }
-        
+
     const { data } = await axios.get(apiUrl);
     // console.log("newData",data)
-    
-    return data;
 
+    return data;
   } catch (error) {
     console.error("Error fetching salon data:", error);
     return error.response.data;
@@ -84,7 +81,7 @@ export const getAllSalons = async (limit = 12) => {
 };
 
 export const filterData = async (filterOptions) => {
-  console.log("salonfilter location data")
+  console.log("salonfilter location data");
   let location = await getLocation();
   let apiFilter = {};
 
@@ -97,7 +94,7 @@ export const filterData = async (filterOptions) => {
   //     apiFilter.minServicePrice = filterOptions.priceFrom;
   //   }
   // }
-  console.log("coming")
+  console.log("coming");
 
   if (filterOptions.ratings !== "") {
     if (location) {
@@ -117,7 +114,8 @@ export const filterData = async (filterOptions) => {
       alert("First give the location access");
     }
   }
-{/*
+  {
+    /*
   if (filterOptions.priceFrom !== "") {
     if (location) {
       apiFilter.location = `${location.latitude},${location.longitude}`;
@@ -126,28 +124,25 @@ export const filterData = async (filterOptions) => {
       alert("First give the location access");
       apiFilter.minServicePrice = filterOptions.priceFrom;
     }
-  }*/}
+  }*/
+  }
 
-   if (filterOptions.priceFrom && filterOptions.priceTo !== "") {
-     if (location) {
-       apiFilter.location = `${location.latitude},${location.longitude}`;
-       apiFilter.minServicePrice = filterOptions.priceFrom;
-       apiFilter.maxServicePrice = filterOptions.priceTo;
-     } else {
-       alert("First give the location access");
-       apiFilter.minServicePrice = filterOptions.priceFrom;
-       apiFilter.maxServicePrice = filterOptions.priceTo;
-     }
-   }
-
-   
-  
+  if (filterOptions.priceFrom && filterOptions.priceTo !== "") {
+    if (location) {
+      apiFilter.location = `${location.latitude},${location.longitude}`;
+      apiFilter.minServicePrice = filterOptions.priceFrom;
+      apiFilter.maxServicePrice = filterOptions.priceTo;
+    } else {
+      alert("First give the location access");
+      apiFilter.minServicePrice = filterOptions.priceFrom;
+      apiFilter.maxServicePrice = filterOptions.priceTo;
+    }
+  }
 
   if (filterOptions.manhood !== "") {
     if (location) {
       apiFilter.location = `${location.latitude},${location.longitude}`;
       apiFilter.sex = filterOptions.manhood;
-     
     } else {
       alert("First give the location access");
       apiFilter.sex = filterOptions.manhood;
@@ -164,10 +159,10 @@ export const filterData = async (filterOptions) => {
     }
   }
 
-  if(filterOptions.ratings!==""){
-    if(location){
+  if (filterOptions.ratings !== "") {
+    if (location) {
       apiFilter.location = `${location.latitude},${location.longitude}`;
-      apiFilter.minRating=filterOptions.ratings
+      apiFilter.minRating = filterOptions.ratings;
     }
   }
 
@@ -180,8 +175,8 @@ export const filterData = async (filterOptions) => {
 
   try {
     const { data } = await axios.get(
-     // `${Context}/user/salons?city=Hyderabad&limit=12&${queryString}`
-     `${Context}/user/salons?city=nellore&limit=12&${queryString}`
+      // `${Context}/user/salons?city=Hyderabad&limit=12&${queryString}`
+      `${Context}/user/salons?city=nellore&limit=12&${queryString}`
     );
     return data;
   } catch (error) {
@@ -242,7 +237,7 @@ export const getReviewsApi = async (uuid) => {
       `${Context}/user/feedback/getFeedback?salon_uuid=${uuid}`,
       config
     );
-    console.log(data,"data")
+    console.log(data, "data");
     return data;
   } catch (error) {
     return error.response.data;

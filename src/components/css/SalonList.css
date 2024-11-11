@@ -1,0 +1,415 @@
+.salon-list-page {
+  color: white;
+}
+.salon-list-page-image-container {
+  width: 100%;
+  height: 500px;
+}
+.salon-list-page-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+}
+.salon-list-page-heading-container {
+  position: relative;
+  z-index: 1;
+}
+.salon-list-page-heading-container img {
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  z-index: -1;
+}
+
+.salon-list-page-heading-container h2 {
+  color: white;
+  margin: 0;
+  font-family: Avegas Royale;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin: 100px;
+}
+.filters-form {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  position: relative;
+  background-color: black;
+}
+.filters-form > div {
+  width: 100%;
+}
+.search-btn {
+  border: 1px solid #ccbb8e;
+  background-color: black;
+  color: #ccbb8e;
+  /* flex-grow: 1; */
+  width: 44px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.form-element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 15px;
+  cursor: pointer;
+}
+
+.form-element-title {
+  margin: 0;
+}
+
+.filter {
+  height: 0px;
+  overflow: hidden;
+  transition: height 200ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  justify-content: center;
+  gap: 15px;
+}
+
+.chevron {
+  transition: transform 200ms ease-in-out;
+  color: #ccbb8e;
+  font-size: 20px;
+}
+
+.salon-list-and-fiter-container {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+.salon-list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: max-content;
+  gap: 50px 10px;
+}
+.form-field-divider {
+  width: 100%;
+  border: none;
+  height: 0.5px;
+  margin: 0;
+  background-color: #ccbb8e;
+}
+.form-title {
+  font-weight: 300;
+}
+.apply-filters-btn {
+  border: 1px solid #ccbb8e;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #5b5441;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 20px;
+  background: #ccbb8e;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 8px;
+  height: 20px;
+  background: #ccbb8e;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+}
+.sortBy-one {
+  display: none;
+}
+
+/* .slider::-moz-range-progress {
+  background: #ccbb8e;
+} */
+
+.radio-button {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: black;
+  border-radius: 50%;
+  border: 1px solid #ccbb8e;
+}
+
+.radio-button:checked {
+  width: 15px;
+  height: 15px;
+  background-color: #ccbb8e;
+}
+
+.text-input {
+  border: 1px solid #ccbb8e;
+  background-color: black;
+  outline: none;
+  color: #ccbb8e;
+  padding: 5px;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid #ccbb8e;
+  width: 15px;
+  height: 15px;
+  background-color: black;
+}
+.checkbox:checked {
+  background-image: url('data:image/svg+xml;utf8,<svg  xmlns="http://www.w3.org/2000/svg" viewBox="1 1 34 32"  fill="burlywood"><path  d="M36 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v28z"/><path fill="black"  d="M29.28 6.362a2.502 2.502 0 0 0-3.458.736L14.936 23.877l-5.029-4.65a2.5 2.5 0 1 0-3.394 3.671l7.209 6.666c.48.445 1.09.665 1.696.665c.673 0 1.534-.282 2.099-1.139c.332-.506 12.5-19.27 12.5-19.27a2.5 2.5 0 0 0-.737-3.458z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.sorting-dropdown-container {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+.sortBy-dropdown {
+  margin-right: 80px;
+}
+.toggle-filters {
+  padding: 0;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.search-by-name-two {
+  display: none;
+}
+.sortBy-two {
+  height: 50px;
+  z-index: 3;
+  background-color: black;
+}
+.sortBy-two > div {
+  background-color: black;
+}
+.sortBy-form-element {
+  border: 1px solid #ccbb8e;
+  padding-inline: 20px;
+  width: 250px;
+  font-size: 14px;
+  margin-right: 100px;
+  padding-block: 10px;
+}
+.sortBy-filter {
+  border: 1px solid #ccbb8e;
+  border-top: 0px;
+  width: 250px;
+}
+.search-by-name-one {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.sortBy-divider {
+  display: none;
+}
+.verical-divider {
+  height: 100%;
+  border: none;
+  width: 0.5px;
+  background-color: #ccbb8e;
+  position: absolute;
+  right: -20px;
+  top: 0px;
+}
+@media (max-width: 1230px) {
+  .filters-form {
+    width: 200px;
+  }
+  .salon-list-container {
+    grid: 10px 10px;
+  }
+  .salon-card {
+    width: 240px;
+  }
+  .salon-card-title {
+    font-size: 16px;
+  }
+  .salon-card-details {
+    font-size: 12px;
+  }
+  .wishlist-button-salon-card {
+    padding: 4px;
+    right: 20px;
+  }
+  .salon-card-location {
+    padding: 4px;
+    gap: 3px;
+  }
+
+  .salon-card-select-button {
+    padding: 4px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .salon-card {
+    width: 200px;
+  }
+  .salon-card-title {
+    font-size: 12px;
+  }
+  .salon-card-details {
+    font-size: 10px;
+  }
+  .salon-card-location {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .filters-form {
+    z-index: 3;
+    background-color: black;
+    width: 70%;
+    margin: auto;
+  }
+  .filter-wrapper {
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    z-index: 3;
+    height: 0px;
+
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+  }
+  .salon-card {
+    width: 240px;
+  }
+  .salon-card-title {
+    font-size: 16px;
+  }
+  .salon-card-details {
+    font-size: 12px;
+  }
+  .wishlist-button-salon-card {
+    padding: 4px;
+    right: 20px;
+  }
+  .salon-card-location {
+    padding: 4px;
+    gap: 3px;
+  }
+
+  .salon-card-select-button {
+    padding: 4px;
+  }
+  .search-by-name-two {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .search-by-name-one {
+    display: none;
+  }
+  .sortBy-two {
+    display: none;
+  }
+  .sortBy-one {
+    display: block;
+  }
+  .sortBy-divider {
+    display: block;
+  }
+  .search-by-name-two {
+    justify-content: center;
+  }
+  .verical-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .salon-card {
+    width: 200px;
+  }
+  .salon-card-title {
+    font-size: 12px;
+  }
+  .salon-card-details {
+    font-size: 10px;
+  }
+  .salon-card-location {
+    font-size: 8px;
+  }
+  .salon-list-page-heading-container h2 {
+    font-size: 38px;
+    padding: 0;
+    width: 100%;
+    margin: 20px auto;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 620px) {
+  .salon-list-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 0px;
+  }
+  .salon-card {
+    width: 180px;
+  }
+  .salon-card-title {
+    font-size: 12px;
+  }
+  .salon-card-details {
+    font-size: 10px;
+  }
+  .salon-card-location {
+    font-size: 8px;
+  }
+  .filters-form {
+    width: 90%;
+  }
+  .salon-list-page-heading-container h2 {
+    font-size: 28px;
+    padding: 0;
+    width: 100%;
+    margin: 20px auto;
+    margin-bottom: 50px;
+  }
+  .salon-card-location {
+    left: 12px;
+    padding: 2px;
+  }
+}

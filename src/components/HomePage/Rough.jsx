@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const GroomerLayout = () => {
@@ -9,11 +9,17 @@ const GroomerLayout = () => {
         {/* Repeat this block for each groomer */}
         <div className="col-md-4">
           <div className="card mb-4">
-            <img src="https://i.ibb.co/GR0RH5x/20240227-203542-1.jpg" className="card-img-top" alt="Groomer" />
+            <img
+              src="https://i.ibb.co/GR0RH5x/20240227-203542-1.jpg"
+              className="card-img-top"
+              alt="Groomer"
+            />
             <div className="card-body">
               <h5 className="card-title">Groomer Name & Spa</h5>
               <p className="card-text">$price/person</p>
-              <a href="#" className="btn btn-primary">Book Now</a>
+              <a href="#" className="btn btn-primary">
+                Book Now
+              </a>
             </div>
           </div>
         </div>

@@ -5,17 +5,17 @@ import { Store } from "../../App";
 import Profile from "./userProfile/Profile";
 
 function Navbar() {
-    const [isAuth] = useContext(Store);
-    const [isDevDropdownVisible, setIsDevDropdownVisible] = useState(false);
+  const [isAuth] = useContext(Store);
+  const [isDevDropdownVisible, setIsDevDropdownVisible] = useState(false);
 
-    const toggleDevDropdown = () => {
-        setIsDevDropdownVisible(!isDevDropdownVisible);
-    };
+  const toggleDevDropdown = () => {
+    setIsDevDropdownVisible(!isDevDropdownVisible);
+  };
 
-    return (
-        <div>
-            <style>
-                {`
+  return (
+    <div>
+      <style>
+        {`
                     .ProfileContainer {
                         margin-left: 50px;
                     }
@@ -44,13 +44,16 @@ function Navbar() {
                         background-color: #ddd;
                     }
                 `}
-            </style>
-            <nav className="navbar navbar-expand-lg navbar-light d-flex flex-row justify-content-between">
-                <div>
-                    <a className="navbar-brand text-white header-navbargroomerimg" href="#">
-                        <img width={100} src="https://i.ibb.co/sgNfKkB/Logo-1.png" alt="" />
-                    </a>
-                 {/*   <button
+      </style>
+      <nav className="navbar navbar-expand-lg navbar-light d-flex flex-row justify-content-between">
+        <div>
+          <a
+            className="navbar-brand text-white header-navbargroomerimg"
+            href="#"
+          >
+            <img width={100} src="https://i.ibb.co/sgNfKkB/Logo-1.png" alt="" />
+          </a>
+          {/*   <button
                         className="navbar-toggler"
                         type="button"
                         data-toggle="collapse"
@@ -61,35 +64,38 @@ function Navbar() {
                     >
                         <span className="navbar-toggler-icon"></span>
                 </button> */}
-                </div>
-            {/*    <div className="collapse navbar-collapse navbar-items" id="navbarSupportedContent">   */}
-            <div className="groomer-responsive-navv navbar-collapse navbar-items" id="navbarSupportedContent"> 
-                    <ul className="navbar-nav mr-auto groomer-responsive-nav">
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">
-                                Home
-                            </a>
-                        </li>
+        </div>
+        {/*    <div className="collapse navbar-collapse navbar-items" id="navbarSupportedContent">   */}
+        <div
+          className="groomer-responsive-navv navbar-collapse navbar-items"
+          id="navbarSupportedContent"
+        >
+          <ul className="navbar-nav mr-auto groomer-responsive-nav">
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Home
+              </a>
+            </li>
 
-                        <li className="nav-item active">
-                            <Link to="/menu" className="nav-link">
-                                Saloon
-                            </Link>
-                        </li>
+            <li className="nav-item active">
+              <Link to="/menu" className="nav-link">
+                Saloon
+              </Link>
+            </li>
 
-                        <li className="nav-item">
-                            <Link to="/shop" className="nav-link">
-                                Shop
-                            </Link>
-                        </li>
+            <li className="nav-item">
+              <Link to="/shop" className="nav-link">
+                Shop
+              </Link>
+            </li>
 
-                        <li className="collapse navbar-collapse nav-item">
-                            <Link to="/About" className="nav-link">
-                                About us
-                            </Link>
-                        </li>
+            <li className="collapse navbar-collapse nav-item">
+              <Link to="/About" className="nav-link">
+                About us
+              </Link>
+            </li>
 
-                        {/* <li className="nav-item dropdown" onClick={toggleDevDropdown}>
+            {/* <li className="nav-item dropdown" onClick={toggleDevDropdown}>
                             <a className="nav-link" href="#">Dev</a>
                             {isDevDropdownVisible && (
                                 <ul className="dropdown-menu">
@@ -99,20 +105,22 @@ function Navbar() {
                                 </ul>
                             )}
                         </li> */}
-                    </ul>
-                    <div className="ProfileContainer">
-                        {isAuth ? (
-                            <Profile />
-                        ) : (
-                            <Link to="/Register" className="nav-link">
-                                <button className="btn btn-light bg-transparent navbar-register-btn">Register</button>
-                            </Link>
-                        )}
-                    </div>
-                </div>
-            </nav>
+          </ul>
+          <div className="ProfileContainer">
+            {isAuth ? (
+              <Profile />
+            ) : (
+              <Link to="/Register" className="nav-link">
+                <button className="btn btn-light bg-transparent navbar-register-btn">
+                  Register
+                </button>
+              </Link>
+            )}
+          </div>
         </div>
-    );
+      </nav>
+    </div>
+  );
 }
 
 export default Navbar;

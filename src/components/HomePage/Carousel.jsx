@@ -1,18 +1,107 @@
-import React, { useState } from 'react';
-import Carousel from './Carousel';
+import { useEffect, useState, useRef } from "react";
 
-function App() {
-  const images = [
-    "https://pngfre.com/wp-content/uploads/ben-10-poster.png",
-    "https://img.freepik.com/free-vector/cute-koala-hanging-tree-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated_138676-8369.jpg?size=338&ext=jpg&ga=GA1.1.867424154.1713571200&semt=sph"
-    ,"https://pngfre.com/wp-content/uploads/ben-10-poster.png"
-]
+export default function Carousel({ children: slides, position = 1 }) {
+  const [pos, setPos] = useState(position);
+  const imageSliderRef = useRef(null);
+  const totalSlides = slides.length - 2;
+  function next() {
+    if (pos === totalSlides) {
+      imageSliderRef.current.style.transition = "transform 600ms ease-in-out";
+      setPos(pos + 1);
+      setTimeout(() => {
+        imageSliderRef.current.style.transition = "none";
+        setPos(1);
+      }, 700);
+      return;
+    }
+    imageSliderRef.current.style.transition = "transform 600ms ease-in-out";
+    setPos(pos + 1);
+  }
+  function previous() {
+    if (pos === 1) {
+      imageSliderRef.current.style.transition = "transform 600ms ease-in-out";
+      setPos(pos - 1);
+      setTimeout(() => {
+        imageSliderRef.current.style.transition = "none";
+        setPos(totalSlides);
+      }, 700);
+      return;
+    }
+    imageSliderRef.current.style.transition = "transform 600ms ease-in-out";
+    setPos(pos - 1);
+  }
+
+  useEffect(() => {
+    let autoScroll;
+    let timeout;
+    if (imageSliderRef.current) {
+      autoScroll = setInterval(() => {
+        setPos((prevPos) => {
+          if (prevPos === totalSlides) {
+            imageSliderRef.current.style.transition =
+              "transform 600ms ease-in-out";
+            timeout = setTimeout(() => {
+              if (imageSliderRef.current) {
+                imageSliderRef.current.style.transition = "none";
+              }
+              setPos(1);
+            }, 700);
+            return prevPos + 1;
+          } else {
+            imageSliderRef.current.style.transition =
+              "transform 600ms ease-in-out";
+            return prevPos + 1;
+          }
+        });
+      }, 4000);
+    }
+    return () => {
+      clearInterval(autoScroll);
+      clearTimeout(timeout);
+    };
+  }, [totalSlides]);
 
   return (
-    <div className="App">
-      <Carousel images={images} />
+    <div className="carousel">
+      <div
+        ref={imageSliderRef}
+        className="image-slider"
+        style={{ transform: `translate(-${pos * 100}%)` }}
+      >
+        {slides}
+      </div>
+      {/* <button className="carousel-button carousel-right-btn" onClick={next}>
+        <TbSquareRoundedChevronRightFilled size={40} />
+      </button>
+      <button className="carousel-button carousel-left-btn" onClick={previous}>
+        <TbSquareRoundedChevronLeftFilled size={40} />
+      </button> */}
+      <div className="carousel-indicator-container">
+        {Array(totalSlides)
+          .fill(null)
+          .map((_, index) => {
+            return (
+              <button
+                className="carousel-indicators"
+                onClick={() => {
+                  imageSliderRef.current.style.transition =
+                    "transform 600ms ease-in-out";
+                  setPos(index + 1);
+                }}
+                style={
+                  pos === index + 1
+                    ? {
+                        backgroundColor: "orange",
+                      }
+                    : {
+                        backgroundColor: "rgb(255,255,255,0.75)",
+                      }
+                }
+                key={index}
+              ></button>
+            );
+          })}
+      </div>
     </div>
   );
 }
-
-export default App;

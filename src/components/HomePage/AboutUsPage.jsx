@@ -1,108 +1,229 @@
-import React from "react"
+import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "../Footer";
+// import Footer from "../Footer";
 import Navbar from "./NavbarComponent";
+import home_salon from "../images/home_salon.png";
+import about_us_img from "../images/about_us_img.png";
+import about_us_img_one from "../images/about_us_img_one.png";
+import about_us_img_two from "../images/about_us_img_two.png";
+import about_us_img_three from "../images/about_us_img_three.png";
+import Carousel from "./Carousel.jsx";
+import Footer from "../Footer.jsx";
+import "../css/AboutUs.css";
+
 function AboutPage() {
-    return (
-        <div>
-           <Navbar></Navbar>
-            <div className="About-page-img">
-                <div className="about-header">
-                    <h1 className="about-header-text" >The Story Behind Our Scissors' Symphony</h1>
-                </div>
-            </div>
-            <div className="img-container-both">
-                <div>
-                    <img className="presons-img" src="https://i.ibb.co/TK8kTM8/beautiful-woman-purple-sweater-skirt-1.jpg" alt="" />
-                    <div class="text-center">
-                        <h3 style={{ color: "white", fontStyle:"Poppins"}}>Sumanth  Vartha</h3>
-                        <h5 style={{ color: "white" ,fontStyle:'Poppins'}}>Founder and CEO</h5>
-                        <p style={{ color: "white",fontStyle:'Poppins',fontWeight:300 }}>Marketeer | Businesswoman</p>
-                    </div>
-                </div>
+  return (
+    <div>
+      <div className="about-us-img-container">
+        <h2 className="about-us-heading">
+          The Story Behind Our Scissors' Symphony
+        </h2>
+        <img src={about_us_img} alt="groomer" className="about-us-main-img" />
+      </div>
+      <div className="fancy-card-container container">
+        <div className="fancy-card">
+          <h2 className="fancy-card-heading-two">what is groomer?</h2>
+          <div className="fancy-card-img-conainer">
+            <svg
+              className="fancy-card-svg"
+              width="87"
+              height="87"
+              viewBox="0 0 87 87"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="38.5" width="8" height="87" fill="white" />
+              <rect
+                y="48.5"
+                width="8"
+                height="87"
+                transform="rotate(-90 0 48.5)"
+                fill="white"
+              />
+              <rect
+                x="9.20508"
+                y="16.2764"
+                width="8"
+                height="87"
+                transform="rotate(-45 9.20508 16.2764)"
+                fill="white"
+              />
+              <rect
+                width="8"
+                height="87"
+                transform="matrix(0.707107 0.707107 0.707107 -0.707107 9.20508 70.7236)"
+                fill="white"
+              />
+            </svg>
 
-                <div class="text-center about-secondimages">
-                    <img className="presons-img" src="https://i.ibb.co/HK9kzX5/stylish-handsome-indian-man-tshirt-pastel-wall-1.jpg" alt="" />
-                    <div>
-                        <h3 style={{ color: "white",fontStyle:'Poppins' }}>Praveen Ruperi</h3>
-                        <h5 style={{ color: "white",fontStyle:'Poppins' }}>Co-Founder</h5>
-                        <p style={{ color: "white",fontStyle:'Poppins',fontWeight:300 }}>Veteran Hairdresser</p>
-                    </div>
-                </div>
-            </div>
-            {/* <center><div className="image-place-holder"></div></center> */}
-            <div className="about-carousel">
-                <div id="carouselExampleCaptions" class="carousel slide aboutpage-carousel1">
-                    <div class="carousel-indicators">
-                        <button  style={{height: "13px", width: "13px",borderRadius: "50%"}} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button style={{height: "13px", width: "13px",borderRadius: "50%"}} className="indicate-button" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button style={{height: "13px", width: "13px",borderRadius: "50%"}}  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active aboutpage-carousel1" style={{height: "585px"}}>
-
-                            <div className="quotation-container aboutpage-carousel1">
-
-                                <div className="quote-symbol">
-                                    <center><h1 style={{textAlign:'center',width:"410px",fontFamily:'Avegas Royale',fontSize:"64px"}}>A word By The Founders</h1></center>
-                                </div>
-                                <div className="quote-data aboutpage-quotedata">
-                                    "Incredibly welcoming salon with attentive staff and stylish ambiance. My stylist understood my needs perfectly, delivering an exceptional haircut that exceeded expectations. The attention to detail and precision were impressive, leaving me feeling confident and rejuvenated. This salon is a true gem for top-notch grooming services. Highly recommend!"                            </div>
-                                <div className="quote-generator">
-                                    - Praveen
-                                </div>
-                            </div>
-
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div className="quotation-container">
-
-                                <div className="quote-symbol">
-                                <center><h1 style={{textAlign:'center',width:"410px",fontFamily:'Avegas Royale',fontSize:"64px"}}>A word By The Founders</h1></center>
-                                </div>
-                                <div className="quote-data aboutpage-quotedata">
-                                    "Incredibly welcoming salon with attentive staff and stylish ambiance. My stylist understood my needs perfectly, delivering an exceptional haircut that exceeded expectations. The attention to detail and precision were impressive, leaving me feeling confident and rejuvenated. This salon is a true gem for top-notch grooming services. Highly recommend!"                            </div>
-                                <div className="quote-generator">
-                                    - Praveen
-                                </div>
-                            </div>
-
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-
-                            <div className="quotation-container">
-                                <div className="quote-symbol">
-                                <center><h1 style={{textAlign:'center',width:"410px",fontFamily:'Avegas Royale',fontSize:"64px"}}>A word By The Founders</h1></center>
-                                </div>
-                                <div className="quote-data aboutpage-quotedata">
-                                    "Incredibly welcoming salon with attentive staff and stylish ambiance. My stylist understood my needs perfectly, delivering an exceptional haircut that exceeded expectations. The attention to detail and precision were impressive, leaving me feeling confident and rejuvenated. This salon is a true gem for top-notch grooming services. Highly recommend!"                            </div>
-                                <div className="quote-generator">
-                                    - Praveen
-                                </div>
-                            </div>
-
-
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-
-            <Footer></Footer>
+            <img
+              src={about_us_img_one}
+              alt="groomer"
+              className="fancy-card-img"
+            />
+          </div>
+          <div className="fancy-card-text">
+            <h2 className="fancy-card-heading">what is groomer?</h2>
+            <p className="fancy-card-para">
+              Groomer is revolutionizing India's salon industry by seamlessly
+              connecting consumers and service providers through a hassle-free
+              mobile app. Our platform simplifies appointment scheduling, making
+              personal care routines more efficient and enjoyable.
+            </p>
+          </div>
         </div>
-    )
+      </div>
+      <div className="fancy-card-container container">
+        <div className="fancy-card inverted-fancy-card">
+          <h2 className="fancy-card-heading-two">
+            What are we trying to achieve?
+          </h2>
+          <div className="fancy-card-img-conainer inverted-card-img-container">
+            <svg
+              className="fancy-card-svg inverted-card-svg"
+              width="87"
+              height="87"
+              viewBox="0 0 87 87"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="38.5" width="8" height="87" fill="white" />
+              <rect
+                y="48.5"
+                width="8"
+                height="87"
+                transform="rotate(-90 0 48.5)"
+                fill="white"
+              />
+              <rect
+                x="9.20508"
+                y="16.2764"
+                width="8"
+                height="87"
+                transform="rotate(-45 9.20508 16.2764)"
+                fill="white"
+              />
+              <rect
+                width="8"
+                height="87"
+                transform="matrix(0.707107 0.707107 0.707107 -0.707107 9.20508 70.7236)"
+                fill="white"
+              />
+            </svg>
+
+            <img
+              src={about_us_img_two}
+              alt="groomer"
+              className="fancy-card-img"
+            />
+          </div>
+          <div className="fancy-card-text inverted-card-text">
+            <h2 className="fancy-card-heading">
+              What are we trying to achieve?
+            </h2>
+            <p className="fancy-card-para">
+              We aim to be a resource for salon owners and customers,
+              establishing a seamless platform for business growth and a
+              hassle-free customer experience. Our mission is to make beauty
+              accessible, reliable, and enjoyable for all.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="fancy-card-container container">
+        <div className="fancy-card">
+          <h2 className="fancy-card-heading-two">Vision of groomer!</h2>
+          <div className="fancy-card-img-conainer">
+            <svg
+              className="fancy-card-svg"
+              width="87"
+              height="87"
+              viewBox="0 0 87 87"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="38.5" width="8" height="87" fill="white" />
+              <rect
+                y="48.5"
+                width="8"
+                height="87"
+                transform="rotate(-90 0 48.5)"
+                fill="white"
+              />
+              <rect
+                x="9.20508"
+                y="16.2764"
+                width="8"
+                height="87"
+                transform="rotate(-45 9.20508 16.2764)"
+                fill="white"
+              />
+              <rect
+                width="8"
+                height="87"
+                transform="matrix(0.707107 0.707107 0.707107 -0.707107 9.20508 70.7236)"
+                fill="white"
+              />
+            </svg>
+
+            <img
+              src={about_us_img_three}
+              alt="groomer"
+              className="fancy-card-img"
+            />
+          </div>
+          <div className="fancy-card-text">
+            <h2 className="fancy-card-heading">Vision of groomer!</h2>
+            <p className="fancy-card-para">
+              Our vision is to revolutionise salon bookings in India with
+              Groomer, making every salon visit stress-free. Our
+              technology-driven solutions aim to broaden salon owners' reach and
+              enhance their business. We foresee a future where everyone can
+              access beauty services and support local salons easily.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="carousel-container-about-us">
+        <h2 className="word-by-founders">A Word By The Founders</h2>
+        <Carousel>
+          {[
+            {
+              review:
+                '"Incredibly welcoming salon with attentive staff and stylish ambiance. My stylist understood my needs perfectly, delivering an exceptional haircut that exceeded expectations. The attention to detail and precision were impressive, leaving me feeling confident and rejuvenated. This salon is a true gem for top-notch grooming services. Highly recommend!"',
+              user: "Praveen",
+            },
+            {
+              review:
+                '"Incredibly welcoming salon with attentive staff and stylish ambiance. My stylist understood my needs perfectly, delivering an exceptional haircut that exceeded expectations. The attention to detail and precision were impressive, leaving me feeling confident and rejuvenated. This salon is a true gem for top-notch grooming services. Highly recommend!"',
+              user: "Praveen",
+            },
+            {
+              review: '"Amazing user experience"',
+              user: "Sumanth",
+            },
+            {
+              review:
+                '"Incredibly welcoming salon with attentive staff and stylish ambiance. My stylist understood my needs perfectly, delivering an exceptional haircut that exceeded expectations. The attention to detail and precision were impressive, leaving me feeling confident and rejuvenated. This salon is a true gem for top-notch grooming services. Highly recommend!"',
+              user: "Praveen",
+            },
+            {
+              review:
+                '"Incredibly welcoming salon with attentive staff and stylish ambiance. My stylist understood my needs perfectly, delivering an exceptional haircut that exceeded expectations. The attention to detail and precision were impressive, leaving me feeling confident and rejuvenated. This salon is a true gem for top-notch grooming services. Highly recommend!"',
+              user: "Praveen",
+            },
+          ].map((data, index) => {
+            return (
+              <div key={index} className="review-home-page">
+                <p className="review-text">{data.review}</p>
+                <p className="review-user">-{data.user}</p>
+              </div>
+            );
+          })}
+        </Carousel>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 export default AboutPage;

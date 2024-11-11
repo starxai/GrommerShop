@@ -1,0 +1,45 @@
+.salon-page {
+  display: flex;
+}
+.salon-page-carousel {
+  width: 40%;
+}
+.salon-details {
+  padding-top: 150px;
+  color: white;
+  width: 60%;
+  padding-inline: 50px;
+}
+.salon-title-location-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.salon-title {
+  font-family: Avegas Royale;
+  font-size: 32px;
+  letter-spacing: -0.04em;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.salon-location {
+  font-size: 16px;
+}
+
+.salon-description {
+  font-size: 14px;
+  margin-block: 50px;
+}
+.salon-amenities-list {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 12px;
+}
+.salon-amenity {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

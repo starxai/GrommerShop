@@ -1,0 +1,963 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.image-slider {
+  width: 100%;
+  white-space: nowrap;
+  /* overflow: auto; */
+  /* display: flex; */
+}
+.carousel-image {
+  width: 100%;
+  display: inline-block;
+}
+
+.carousel-indicator-container {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+}
+.carousel-indicators {
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 5px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+/* .carousel-button {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  height: 100px;
+  width: 100px;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.carousel-right-btn {
+  right: 0;
+} */
+
+.carousel-text-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-text {
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 600px;
+}
+.carousel-heading {
+  font-family: Avegas Royale;
+  font-size: 80px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin: 0;
+}
+.carousel-paragraph {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin: 0;
+}
+.book-salon-btn-carousel {
+  font-family: Poppins;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  line-height: 21px;
+  font-size: 14px;
+  padding: 15px 50px;
+  border-radius: 28px 28px 28px 0px;
+  border: 1px solid white;
+  color: white;
+}
+
+.what-is-groomer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-color: black;
+  color: white;
+  padding-top: 150px;
+  padding-bottom: 250px;
+  padding-inline: 100px;
+}
+
+.what-is-groomer-image {
+  width: 100%;
+}
+
+.what-is-groomer-title {
+  position: absolute;
+  z-index: 2;
+  font-family: Avegas Royale;
+  font-size: 4em;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  top: -2.5em;
+  white-space: nowrap;
+}
+
+.poster-small {
+  width: 350px;
+  position: relative;
+}
+
+.poster-two {
+  width: 550px;
+  z-index: 1;
+}
+
+.what-is-groomer-paragraph {
+  position: absolute;
+  font-family: Poppins;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 275;
+  text-align: left;
+}
+
+.what-is-groomer-btn {
+  background-color: #ccbb8e;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 240px;
+  height: 60px;
+  bottom: 100px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.salon-list {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.salon-list-heading {
+  width: 850px;
+  margin: 0 auto;
+  margin-bottom: -12px;
+  font-family: Avegas Royale;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: white;
+  border: 1px solid burlywood;
+  border-radius: 150px 150px 0 0;
+  border-bottom: 0;
+  padding-block: 76px;
+}
+
+.salon-list-container-home-page {
+  display: flex;
+  padding-bottom: 120px;
+  overflow-x: scroll;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 16px;
+  position: relative;
+  padding-inline: 50px;
+}
+
+.salon-list-container-home-page::-webkit-scrollbar {
+  display: none;
+}
+
+.salon-card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  flex-shrink: 0;
+  padding: 12px;
+  gap: 12px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.salon-card:hover {
+  background-color: rgba(222, 184, 135, 0.5);
+}
+
+.salon-card-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  gap: 5px;
+  position: relative;
+  font-family: Poppins;
+  font-size: 14px;
+  color: white;
+  letter-spacing: -0.04em;
+}
+.salon-card-title {
+  font-size: 20px;
+  margin: 0;
+}
+.salon-card-services-list {
+  display: flex;
+  gap: 5px;
+}
+.salon-card-pricing {
+  margin: 0;
+}
+
+.wishlist-button-salon-card {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1.5px solid white;
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  right: 24px;
+  top: 24px;
+  cursor: pointer;
+}
+
+.salon-card-select-button {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1.5px solid white;
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  right: 0px;
+  bottom: 0px;
+  cursor: pointer;
+}
+
+.salon-card-location {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1.5px solid white;
+  border-radius: 30px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  left: 24px;
+  top: 24px;
+  cursor: pointer;
+  color: white;
+  width: fit-content;
+  margin: 0;
+  font-family: Poppins;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  display: flex;
+  gap: 5px;
+}
+
+.salon-card-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.more-groomers-button {
+  font-family: Poppins;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  line-height: 21px;
+  font-size: 14px;
+  padding: 15px 50px;
+  border-radius: 28px 28px 28px 0px;
+  border: 1px solid white;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+}
+
+.reasons-groomer {
+  background-color: black;
+  color: white;
+  display: grid;
+  padding-block: 100px;
+  padding-left: 60px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 200px 550px;
+}
+.reasons-to-use-image {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.reasons-to-use-image-container {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+.reasons-img-svg {
+  z-index: 1;
+  position: absolute;
+  left: 30%;
+  transform: translateY(-50%);
+}
+.reasons-list {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.reasons-to-use-heading {
+  width: 70%;
+  font-family: Avegas Royale;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.reasons-list-item {
+  width: 85%;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.review-home-page {
+  width: 100%;
+  height: 500px;
+  display: inline-block;
+  color: black;
+  background-color: #ccbb8e;
+  text-align: center;
+  padding: 100px;
+  font-family: Poppins;
+  text-align: center;
+  position: relative;
+}
+.review-text {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  white-space: wrap;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+.review-user {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.quotations-svg {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+}
+
+.home-salon {
+  padding: 100px;
+}
+
+.home-salon-services {
+  width: 80%;
+  border: 1px solid burlywood;
+  margin: 0 auto;
+  height: 500px;
+  transform: translateX(10%);
+  border-radius: 0 250px 250px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.home-salon-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 70%;
+  border-radius: 0 275px 275px 0;
+  transform: translate(-120px);
+  gap: 20px;
+}
+
+.home-salon-img-conainer {
+  width: 400px;
+  transform: translate(-50%);
+}
+
+.home-salon-img {
+  width: 100%;
+}
+
+.home-salon-heading {
+  border-radius: 0 275px 275px 0;
+  font-family: Avegas Royale;
+  font-size: 50px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: left;
+  margin: 0;
+}
+.home-salon-heading-two {
+  display: none;
+}
+.home-salon-para {
+  border-radius: 0 275px 275px 0;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: left;
+  margin: 0;
+}
+
+.home-salon-btn {
+  position: static;
+  transform: translateX(0%);
+}
+
+.home-salon-svg {
+  position: absolute;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+}
+.get-in-touch {
+  display: flex;
+  overflow: hidden;
+  /* height: 500px; */
+}
+.get-in-touch-img-container {
+  width: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.get-in-touch-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0;
+}
+.get-in-touch-form {
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-between;
+  color: white;
+  gap: 20px;
+}
+.get-it-touch-submit-btn {
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: black;
+  border: 1px solid burlywood;
+  color: white;
+  font-family: Poppins;
+}
+.form-fields {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid burlywood;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  text-align: left;
+  padding-block: 10px;
+}
+.form-input {
+  flex-grow: 1;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+}
+.text-area-form {
+  border: 1px solid burlywood;
+  outline: none;
+  background-color: black;
+  resize: none;
+  font-family: Poppins;
+  padding: 5px;
+  color: white;
+}
+
+.form-heading-one {
+  margin: 0;
+  font-family: Avegas Royale;
+  font-size: 38px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+.form-heading-two {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .carousel-heading {
+    font-size: 70px;
+  }
+  .carousel-paragraph {
+    font-size: 18px;
+  }
+  .book-salon-btn-carousel {
+    font-size: 14px;
+  }
+  .what-is-groomer {
+    gap: 20px;
+  }
+  .what-is-groomer-title {
+    font-size: 3em;
+    top: -120px;
+  }
+  .what-is-groomer-paragraph {
+    font-size: 0.75em;
+  }
+  .reasons-img-svg {
+    width: 50px;
+  }
+  .salon-list-heading {
+    width: 650px;
+    font-size: 48px;
+    border-radius: 120px 120px 0 0;
+    padding-block: 56px;
+  }
+  .reasons-groomer {
+    grid-template-columns: 40% 60%;
+  }
+  .reasons-to-use-heading {
+    width: 100%;
+    font-size: 48px;
+  }
+  .reasons-list-item {
+    font-size: 10px;
+  }
+  .review-home-page {
+    height: 350px;
+    padding: 50px;
+  }
+  .review-text {
+    font-size: 20px;
+  }
+  .review-user {
+    font-size: 14px;
+  }
+  .quotations-svg {
+    position: absolute;
+    top: 12px;
+    width: 35px;
+  }
+  .home-salon {
+    padding-inline: 50px;
+  }
+
+  .home-salon-services {
+    height: 400px;
+  }
+
+  .home-salon-text {
+    transform: translate(-80px);
+    gap: 15px;
+  }
+  .home-salon-img-conainer {
+    width: 300px;
+    transform: translate(-50%);
+  }
+  .home-salon-heading {
+    font-size: 38px;
+  }
+  .home-salon-para {
+    font-size: 12px;
+  }
+  .home-salon-btn {
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+  }
+  .home-salon-svg {
+    width: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-text {
+    width: 400px;
+  }
+  .carousel-heading {
+    font-size: 60px;
+  }
+  .carousel-paragraph {
+    font-size: 16px;
+  }
+  .carousel-indicators {
+    padding: 3px;
+  }
+
+  .book-salon-btn-carousel {
+    font-size: 12px;
+  }
+  .what-is-groomer {
+    gap: 0px;
+    padding-inline: 16px;
+    padding-bottom: 300px;
+  }
+  .poster-small {
+    position: static;
+  }
+  .para-one {
+    display: none;
+  }
+  .what-is-groomer-paragraph {
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    bottom: 180px;
+    text-align: center;
+    font-size: 16px;
+    width: 70%;
+  }
+  .what-is-groomer-title {
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 38px;
+  }
+  .what-is-groomer-btn {
+    bottom: 80px;
+  }
+  .salon-list-heading {
+    width: 450px;
+    font-size: 38px;
+    border-radius: 80px 80px 0 0;
+    padding-block: 40px;
+  }
+  .reasons-groomer {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 0px;
+    gap: 50px;
+    padding-block: 80px;
+  }
+  .reasons-to-use-heading {
+    font-size: 48px;
+    text-align: center;
+  }
+  .reasons-list-item {
+    width: 80%;
+  }
+  .reasons-list {
+    justify-content: center;
+    padding-inline: 100px;
+    gap: 10px 50px;
+  }
+  .reasons-img-svg {
+    width: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .salon-card {
+    width: 240px;
+  }
+  .salon-card-title {
+    font-size: 16px;
+  }
+  .salon-card-details {
+    font-size: 12px;
+  }
+  .wishlist-button-salon-card {
+    padding: 4px;
+    right: 20px;
+  }
+  .salon-card-location {
+    padding: 4px;
+    gap: 3px;
+  }
+  .salon-list-container-home-page {
+    padding-inline: 15px;
+  }
+  .salon-card-select-button {
+    padding: 4px;
+  }
+  .review-home-page {
+    height: 250px;
+    padding: 25px;
+  }
+  .review-text {
+    font-size: 16px;
+  }
+  .review-user {
+    font-size: 10px;
+  }
+  .quotations-svg {
+    position: absolute;
+    top: 0px;
+    width: 20px;
+  }
+  .home-salon {
+    padding-inline: 30px;
+  }
+  .home-salon-services {
+    height: 300px;
+  }
+  .home-salon-text {
+    transform: translate(-80px);
+    gap: 15px;
+  }
+  .home-salon-img-conainer {
+    width: 300px;
+    transform: translate(-50%);
+  }
+  .home-salon-heading {
+    font-size: 28px;
+  }
+  .home-salon-para {
+    font-size: 10px;
+  }
+  .home-salon-btn {
+    width: 140px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .home-salon-svg {
+    width: 40px;
+  }
+  .get-in-touch {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-heading-one {
+    display: none;
+  }
+  .form-heading-two {
+    display: block;
+    color: white;
+    font-size: 48px;
+    font-weight: 400;
+    padding-bottom: 30px;
+  }
+  .get-in-touch-img-container {
+    width: 100%;
+    height: 250px;
+  }
+  .get-in-touch-img {
+    object-position: 0 40%;
+  }
+  .get-in-touch-form {
+    width: 80%;
+  }
+  .get-it-touch-submit-btn {
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-salon {
+    padding-block: 50px;
+  }
+  .home-salon-services {
+    transform: translate(0px);
+    flex-direction: column;
+    height: auto;
+    border-radius: 0;
+    border: 0;
+    margin: 0 auto;
+  }
+  .home-salon-text {
+    width: 100%;
+    transform: translate(0px);
+    border-radius: 0;
+    gap: 30px;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-salon-img-conainer {
+    width: 280px;
+    transform: translate(0%);
+  }
+  .home-salon-heading {
+    display: none;
+  }
+  .home-salon-heading-two {
+    display: block;
+    border-radius: 0;
+    font-size: 34px;
+    width: 100%;
+    font-family: Avegas Royale;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+  .home-salon-para {
+    text-align: center;
+    border-radius: 0;
+    font-size: 14px;
+    width: 100%;
+  }
+  .home-salon-btn {
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+  }
+  .home-salon-svg {
+    display: none;
+  }
+  .home-salon-heading-two {
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 450px) {
+  .carousel-text {
+    width: 250px;
+    gap: 32px;
+  }
+  .carousel-heading {
+    font-size: 32px;
+  }
+  .carousel-paragraph {
+    font-size: 14px;
+  }
+  .book-salon-btn-carousel {
+    font-size: 14px;
+  }
+  .poster-one {
+    width: 400px;
+    margin-right: -50px;
+  }
+  .poster-three {
+    width: 400px;
+    margin-left: -50px;
+  }
+  .what-is-groomer-title {
+    top: 50px;
+    font-size: 28px;
+  }
+  .what-is-groomer-paragraph {
+    font-size: 14px;
+    width: 80%;
+  }
+  .salon-list-heading {
+    width: 300px;
+    font-size: 28px;
+    border-radius: 60px 60px 0 0;
+    padding-block: 30px;
+  }
+  .reasons-list-item {
+    width: 100%;
+    padding-inline: 60px;
+  }
+  .reasons-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    justify-content: center;
+    padding: 0;
+  }
+  .reasons-to-use-heading {
+    font-size: 28px;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    letter-spacing: -0.02em;
+  }
+  .reasons-img-svg {
+    width: 20px;
+  }
+  .salon-list-container-home-page {
+    gap: 2px;
+  }
+  .salon-card {
+    width: 200px;
+  }
+  .salon-card-title {
+    font-size: 12px;
+  }
+  .salon-card-details {
+    font-size: 10px;
+  }
+  .salon-card-location {
+    font-size: 8px;
+  }
+  .review-home-page {
+    height: 200px;
+    padding: 20px;
+  }
+  .review-text {
+    font-size: 10px;
+  }
+  .review-user {
+    font-size: 8px;
+  }
+  .quotations-svg {
+    position: absolute;
+    top: -10px;
+    width: 12px;
+  }
+  .form-heading-two {
+    font-size: 28px;
+  }
+  .get-in-touch-form {
+    width: 100%;
+  }
+}

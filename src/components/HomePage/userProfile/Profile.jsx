@@ -16,7 +16,7 @@ function Profile() {
   const handleCircleClick = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    setIsDropdownVisible(prev => !prev);
+    setIsDropdownVisible((prev) => !prev);
   };
 
   useEffect(() => {
@@ -38,7 +38,9 @@ function Profile() {
     async function fetchBookings() {
       let response = await getAppointmentsApi(15, 1);
       if (response.code === 200) {
-        let count = response.data.appointments.filter(item => item.appointment_status === "booked").length;
+        let count = response.data.appointments.filter(
+          (item) => item.appointment_status === "booked"
+        ).length;
         setBookingCount(count);
       } else if (response.code === 401) {
         removeToken();
@@ -92,16 +94,19 @@ function Profile() {
           }
         `}
       </style>
-      <div className={`profile-container ${isBlur ? 'blur-sm' : ''}`}>
-        <div className="profile-badge" ref={dropdownRef} onClick={handleCircleClick}>
+      <div className={`profile-container ${isBlur ? "blur-sm" : ""}`}>
+        <div
+          className="profile-badge"
+          ref={dropdownRef}
+          onClick={handleCircleClick}
+        >
           <img src={manCircle} alt="user" className="profile-image" />
           {/* <span className="notification-badge">
             {bookingCount}
           </span> */}
         </div>
-        
+
         {isDropdownVisible && <MenuBar />}
-        
       </div>
     </>
   );

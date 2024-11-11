@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import OtpInput from "./OTPInputfiled";
- import "../../helper/css/login.css";
- import { useLocation } from "react-router-dom";  // Import useLocation
+import "../../helper/css/login.css";
+import { useLocation } from "react-router-dom"; // Import useLocation
 // import MetaData from "../context/MetaData";
 // import { Alert, Snackbar } from "@mui/material";
 import { loginUserAPI } from "../../api/User_Login_Auth";
@@ -12,16 +12,18 @@ import {
   WRONG_OTP_3_TIMES,
 } from "../../context/ErrorCodes";
 import Navbar from "./NavbarComponent";
-
+import "../css/RegisterPage.css";
 
 const Otp = () => {
   const location = useLocation(); // Use the useLocation hook
-  const { email, AccountType } = location.state || { email: '', AccountType: 'login' }; // Default values if state is not available
+  const { email, AccountType } = location.state || {
+    email: "",
+    AccountType: "login",
+  }; // Default values if state is not available
 
   //const { email, AccountType } = props;
- console.log(email)
-  console.log(AccountType)
-
+  console.log(email);
+  console.log(AccountType);
 
   // State variable to track whether the entered OTP is incorrect
   const [isincorrect, setIsIncorrect] = useState(false);
@@ -81,26 +83,31 @@ const Otp = () => {
 
   return (
     <>
-      <div >
-        <Navbar/>
+      <div>
+        {/* <Navbar/> */}
         <div className="Parent-loginpage-container">
           <div>
-            <img className="login-image" src="https://i.ibb.co/Yh9jF7g/20240227-203542-1-4.jpg" alt="" />
+            <img
+              className="login-image"
+              src="https://i.ibb.co/Yh9jF7g/20240227-203542-1-4.jpg"
+              alt=""
+            />
           </div>
           <div className="Login-form-data-container">
             <div>
-              <h1 style={{ color: "white", fontSize: "70px" }}>OTP Verification </h1>
-              <p>A 6 digit code has been sent to 
+              <h1 style={{ color: "white", fontSize: "70px" }}>
+                OTP Verification{" "}
+              </h1>
+              <p>
+                A 6 digit code has been sent to
                 {/* <Link to="/Register"> */}
-                  <span style={{ color: "gold" }}>
-                    +91 9256770831
-                  </span>
+                <span style={{ color: "gold" }}>+91 9256770831</span>
                 {/* </Link> */}
               </p>
             </div>
-            
+
             {/* OTP container */}
-             
+
             {sendLoading ? (
               <div className="otp-boxes">
                 {[1, 2, 3, 4, 5, 6].map((index) => (
@@ -151,30 +158,26 @@ const Otp = () => {
 
             {/* Call handleVerify on button click */}
             <div className="login-button-container">
-              <button 
-                className="btn-Login" 
+              <button
+                className="btn-Login"
                 //onClick={handleVerify}
               >
                 Verify
-              </button> 
+              </button>
             </div>
             <div className="resend-code">
               <p style={{ color: "white" }}>
-                Didn’t get the code?{" "} 
+                Didn’t get the code?{" "}
                 {showSend && (
                   <span className="register" onClick={sendAgainOTPHandler}>
-                   Resend
-                 </span>
+                    Resend
+                  </span>
                 )}
               </p>{" "}
             </div>
-
           </div>
         </div>
-        
       </div>
-
-      
     </>
   );
 };

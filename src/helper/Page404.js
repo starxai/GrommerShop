@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/HomePage/NavbarComponent";
 const NotFound = () => {
   return (
-    <>
-      <Navbar />
+    <div>
+      {/* <Navbar /> */}
       <div
         style={{
           backgroundColor: "#000",
@@ -26,7 +26,7 @@ const NotFound = () => {
           </Link> */}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

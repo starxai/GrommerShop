@@ -6,6 +6,7 @@ import { loginUserAPI } from "../../api/User_Login_Auth";
 import { Link } from "react-router-dom";
 import OTPPage from "../HomePage/OTPpage";
 import OTPPages from "./SamplePages/SampleOtpPage";
+import "../css/LoginPage.css";
 
 function Login() {
   let location = useLocation();
@@ -17,9 +18,6 @@ function Login() {
   const [otpSent, setOtpSent] = useState(false);
   const [isRegistered, setisRegistered] = useState(false);
 
-
-
-  
   const redirectFunc = () => {
     let redirect = location.search.replace("?redirect=", "");
     if (redirect) {
@@ -60,7 +58,9 @@ function Login() {
     } else {
       setisRegistered(true);
       setloading(false);
-      navigate(`/otp?email=${email}`, { state: { email: email, AccountType: "login" } });
+      navigate(`/otp?email=${email}`, {
+        state: { email: email, AccountType: "login" },
+      });
     }
     // if (code === 200) {
     //   setisRegistered(true);
@@ -100,43 +100,60 @@ function Login() {
   // }
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="Parent-loginpage-container">
         <div className="login-maincontainer">
-          <img className="login-image"
+          <img
+            className="login-image"
             src="https://i.ibb.co/Yh9jF7g/20240227-203542-1-4.jpg"
-            alt="" />
+            alt=""
+          />
         </div>
         <div className="Login-form-data-container">
           <div>
-            <h1 style={{ color: "white", fontSize: "70px", fontFamily: "Avegas Royale" }}>Login</h1>
-            <p style={{ fontFamily: "Poppins" }}>Don’t have an account? <Link to="/Register"><span style={{ color: "#CCBB8E", fontFamily: 'Poppins' }}>Register</span></Link></p>
+            <h1
+              style={{
+                color: "white",
+                fontSize: "70px",
+                fontFamily: "Avegas Royale",
+              }}
+            >
+              Login
+            </h1>
+            <p style={{ fontFamily: "Poppins" }}>
+              Don’t have an account?{" "}
+              <Link to="/Register">
+                <span style={{ color: "#CCBB8E", fontFamily: "Poppins" }}>
+                  Register
+                </span>
+              </Link>
+            </p>
           </div>
           <div>
-          {!isRegistered && (
-            <form onSubmit={loginCheckSubmit}>
-              <input
-                type="email"
-                className="Login-input"
-                placeholder="Enter Your Email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <br />
-              <div className="login-button-container">
-                <button
-                  className="btn-Login"
-                  type="submit"
-                  style={{ fontFamily: "Poppins" }}
-                >
-                  Get OTP
-                </button>
-              </div>
-            </form>
-          )}
+            {!isRegistered && (
+              <form onSubmit={loginCheckSubmit}>
+                <input
+                  type="email"
+                  className="Login-input"
+                  placeholder="Enter Your Email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <br />
+                <div className="login-button-container">
+                  <button
+                    className="btn-Login"
+                    type="submit"
+                    style={{ fontFamily: "Poppins" }}
+                  >
+                    Get OTP
+                  </button>
+                </div>
+              </form>
+            )}
             {/* {isRegistered && <OTPPage  email={email} AccountType="login" />} */}
           </div>
         </div>

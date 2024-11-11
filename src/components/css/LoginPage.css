@@ -1,0 +1,59 @@
+.login-image {
+  width: 655px;
+  height: 960px;
+}
+
+.Parent-loginpage-container {
+  display: flex;
+  gap: 150px;
+}
+
+.Login-form-data-container {
+  color: white;
+  width: 1007px;
+  height: 400px;
+  margin-top: 310px;
+}
+
+.Login-input {
+  color: #fff;
+  background-color: #000;
+  font-size: 15px;
+  padding-top: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  width: 550px;
+}
+
+.login-button-container {
+  padding-top: 60px;
+}
+
+@media (max-width: 450px) {
+  .Parent-loginpage-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 100px;
+    margin-left: 20px;
+  }
+  .login-image {
+    width: 300px;
+    height: 300px;
+  }
+  .login-maincontainer {
+    width: 330px !important;
+  }
+
+  .Login-form-data-container {
+    width: 330px;
+    margin-top: -100px;
+  }
+  .Login-input {
+    width: 250px;
+  }
+  .profile-badge {
+    margin-top: 50px;
+  }
+}
