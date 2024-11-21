@@ -1,0 +1,8 @@
+.checkout-page {
+  display: flex;
+  margin-top: 97px;
+}
+.checkout-page > div {
+  width: 50%;
+  flex-shrink: 0;
+}

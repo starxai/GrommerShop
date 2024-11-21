@@ -1,26 +1,25 @@
-
 import { previousDay } from "date-fns";
 import React, { useState } from "react";
 import Context from "../../context/axiox";
 
+function Filterapply({ filterOptions, setFilterOptions }) {
+  console.log(filterOptions);
 
-function Filterapply({ filterOptions,setFilterOptions}) {
-   console.log(filterOptions)
-
-    const [personGender, SetPersonGender] = useState("");
-    const[distance, setdistance] = useState(0)
-    const [selectedservices,setselectedservices]=useState([])
-    const [salonname,setsalonname]=useState()
-    const allservices = [
-        "All",
-        "Face pointing",
-        "Facial",
-        "Haircut",
-        "Manicure",
-        "pedicure",
-        "shaving"
-    ]
-  {/*  const [filterState, setFilterState] = useState({
+  const [personGender, SetPersonGender] = useState("");
+  const [distance, setdistance] = useState(0);
+  const [selectedservices, setselectedservices] = useState([]);
+  const [salonname, setsalonname] = useState();
+  const allservices = [
+    "All",
+    "Face pointing",
+    "Facial",
+    "Haircut",
+    "Manicure",
+    "pedicure",
+    "shaving",
+  ];
+  {
+    /*  const [filterState, setFilterState] = useState({
         distance: "",
         priceFrom: "",
         priceTo: 1000,
@@ -31,235 +30,336 @@ function Filterapply({ filterOptions,setFilterOptions}) {
         combos: "",
         manhood: "",
     });
-*/}
-    const handleFilterChange = (event) => {
-        const { name, value } = event.target;
-        setFilterOptions((prevOptions) => ({
-            ...prevOptions,
-            [name]: value,
-        }));
-    };
+*/
+  }
+  const handleFilterChange = (event) => {
+    const { name, value } = event.target;
+    setFilterOptions((prevOptions) => ({
+      ...prevOptions,
+      [name]: value,
+    }));
+  };
 
-    const handledistancechange = (event) =>{
-            const {name,value} = event.target;
-            setdistance(value)
-         //   console.log(event.target.value)
-           // console.log(event.target.name)
-          //  setdistance(event.target.name)
-          setFilterOptions((prevOptions) =>({
-            ...prevOptions,
-            [name]:value
-          }))
-      
+  const handledistancechange = (event) => {
+    const { name, value } = event.target;
+    setdistance(value);
+    //   console.log(event.target.value)
+    // console.log(event.target.name)
+    //  setdistance(event.target.name)
+    setFilterOptions((prevOptions) => ({
+      ...prevOptions,
+      [name]: value,
+    }));
+  };
+
+  const [inputValue, setInputValue] = useState("");
+  const locationInputChange = (event) => {
+    setInputValue(event.target.value);
+    // handleLocationChange(inputValue);
+  };
+
+  function genderConfirmation(gender) {
+    SetPersonGender(gender);
+  }
+
+  const handlelowprice = (event) => {
+    const { name, value } = event.target;
+
+    setFilterOptions((prevOptions) => ({
+      ...prevOptions,
+      [name]: value,
+    }));
+  };
+
+  const handlehighprice = (event) => {
+    const { name, value } = event.target;
+    setFilterOptions((prevOptions) => ({
+      ...prevOptions,
+      [name]: value,
+    }));
+  };
+
+  const handlesalonname = async (event) => {
+    const { name, value } = event.target;
+    setsalonname(value);
+
+    let resonse = await fetch(`${Context}/user/search/salon?name=${value}`);
+
+    let code = await resonse.json();
+    console.log(code);
+  };
+
+  const handlefilterservices = (event) => {
+    const { name, value } = event.target;
+    let update = [...selectedservices];
+    let checkservice = update.some((item) => item === value);
+    if (!checkservice) {
+      update.push(value);
     }
+    setselectedservices(update);
+    setFilterOptions((prevOptions) => ({
+      ...prevOptions,
+      [name]: update,
+    }));
+  };
 
-    const [inputValue, setInputValue] = useState("");
-    const locationInputChange = (event) => {
-        setInputValue(event.target.value);
-        // handleLocationChange(inputValue);
-    };
+  const handlerating = (event) => {
+    const { name, value } = event.target;
+    setFilterOptions((prevOptions) => ({
+      ...prevOptions,
+      [name]: value,
+    }));
+  };
 
-    function genderConfirmation(gender) {
-        SetPersonGender(gender);
-    }
+  return (
+    <div>
+      <a
+        href="/"
+        className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+      >
+        <span className="fs-5 d-none d-sm-inline">Filters</span>
+      </a>
+      <ul
+        className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+        id="menu"
+      >
+        <a
+          href="#submenu1"
+          data-bs-toggle="collapse"
+          className="nav-link px-0 align-middle"
+        ></a>
+        <input
+          className="search-bar"
+          placeholder="Search Here"
+          name="salonname"
+          onChange={handlesalonname}
+        />
 
-    const handlelowprice = (event) =>{
-        const {name,value} = event.target
-      
-        setFilterOptions((prevOptions) =>({
-            ...prevOptions,
-            [name]:value
-        }))
-    }
+        <ul
+          className="collapse show nav flex-column ms-1"
+          id="submenu1"
+          data-bs-parent="#menu"
+        ></ul>
 
-    const handlehighprice = (event) =>{
-        const {name,value} = event.target
-        setFilterOptions((prevOptions) =>({
-            ...prevOptions,
-            [name]:value
-        }))
-    }
+        <li>
+          <a
+            href="#submenu1-2"
+            data-bs-toggle="collapse"
+            className="nav-link px-0 align-middle"
+          >
+            <span className="ms-1 d-none d-sm-inline">
+              <p style={{ color: "white" }}>Age Group</p>
+            </span>
+          </a>
+          <ul
+            className="collapse nav flex-column ms-1"
+            id="submenu1-2"
+            data-bs-parent="#menu"
+          >
+            <li className="w-100">
+              <a className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <label
+                    htmlFor="customRange2"
+                    className="form-label text-white"
+                  >
+                    Less than five
+                  </label>
+                  <input
+                    type="range"
+                    style={{ color: "white" }}
+                    className="form-range"
+                    min="0"
+                    max="5"
+                    id="customRange2"
+                  />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
 
-    const handlesalonname = async (event) =>{
-        const {name,value} = event.target
-       setsalonname(value)
+        <li>
+          <hr style={{ width: "250px", color: "gold" }} />
+        </li>
 
-       let resonse = await fetch(`${Context}/user/search/salon?name=${value}`)
+        <li>
+          <div
+            className="accordion"
+            id="accordionExample"
+            style={{ backgroundColor: "black" }}
+          >
+            <div
+              className="accordion-item"
+              style={{
+                backgroundColor: "black",
+                color: "white",
+                border: "none",
+              }}
+            >
+              <h2 className="accordion-header">
+                <button
+                  className="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    border: "none",
+                    borderBottom: "none",
+                    outline: "none",
+                    boxShadow: "none",
+                  }}
+                >
+                  Sexual-orientation
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                className="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div className="accordion-body">
+                  <input
+                    onClick={(e) => genderConfirmation(e.target.value)}
+                    value="male"
+                    name="manhood"
+                    type="radio"
+                    onChange={handleFilterChange}
+                  />{" "}
+                  <label htmlFor="">male</label>
+                  <br />
+                  <input
+                    onClick={(e) => genderConfirmation(e.target.value)}
+                    value="Female"
+                    name="manhood"
+                    type="radio"
+                    onChange={handleFilterChange}
+                  />{" "}
+                  <label htmlFor="">Female</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
-       let code = await resonse.json()
-       console.log(code)
-    }
+        <li>
+          <hr style={{ width: "250px", color: "gold" }} />
+        </li>
 
-    const handlefilterservices = (event) =>{
-        const{name,value} = event.target
-        let update = [...selectedservices]
-        let checkservice = update.some((item) => item===value);
-        if(!checkservice){
-         update.push(value)
-        };
-        setselectedservices(update);
-        setFilterOptions((prevOptions) =>({
-            ...prevOptions,
-            [name]:update
-        }))
-    }
+        <li>
+          <a
+            href="#submenu2.2"
+            data-bs-toggle="collapse"
+            className="nav-link px-0 align-middle"
+          >
+            <span className="ms-1 d-none d-sm-inline">
+              <p style={{ color: "white" }}>Location</p>
+            </span>
+          </a>
+          <ul
+            className="collapse nav flex-column ms-1"
+            id="submenu2.2"
+            data-bs-parent="#menu"
+          >
+            <li>
+              <a className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <input
+                    placeholder="Enter Your location"
+                    type="text"
+                    onChange={locationInputChange}
+                    className="location-input"
+                  />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <hr style={{ width: "250px", color: "gold" }} />
+        </li>
 
-    const handlerating = (event) =>{
-        const{name,value} = event.target
-        setFilterOptions((prevOptions) =>({
-            ...prevOptions,
-            [name]:value
-        })
-    )}
+        <li>
+          <a
+            href="#submenu1-4"
+            data-bs-toggle="collapse"
+            className="nav-link px-0 align-middle"
+          >
+            <span className="ms-1 d-none d-sm-inline">
+              <p style={{ color: "white" }}>Distance</p>
+            </span>
+          </a>
+          <ul
+            className="collapse nav flex-column ms-1"
+            id="submenu1-4"
+            data-bs-parent="#menu"
+          >
+            <li className="w-100">
+              <a className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <label
+                    htmlFor="customRange2"
+                    className="form-label text-white"
+                  >
+                    Less than {distance} km
+                  </label>
+                  <input
+                    type="range"
+                    style={{ color: "white" }}
+                    className="form-range"
+                    min="0"
+                    max="5"
+                    id="customRange2"
+                    value={distance}
+                    name="distance"
+                    onChange={handledistancechange}
+                  />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
 
+        <li>
+          <hr style={{ width: "250px", color: "gold" }} />
+        </li>
 
-    return (
-        <div>
-            <a href="/" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span className="fs-5 d-none d-sm-inline">Filters</span>
-            </a>
-            <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+        <li>
+          <a
+            href="#submenu3"
+            data-bs-toggle="collapse"
+            className="nav-link px-0 align-middle"
+          >
+            <span className="ms-1 d-none d-sm-inline">
+              <span style={{ color: "white" }}>Services</span>
+            </span>
+          </a>
+          <ul
+            className="collapse nav flex-column ms-1"
+            id="submenu3"
+            data-bs-parent="#menu"
+          >
+            {allservices.map((data) => (
+              <li className="w-100">
+                <a href="#" className="nav-link px-0">
+                  <span className="d-none d-sm-inline">
+                    <input
+                      type="checkbox"
+                      value={data}
+                      key={data}
+                      onChange={handlefilterservices}
+                      name="services"
+                    />
+                  </span>
+                  <span style={{ color: "white" }}> {data}</span>
                 </a>
-                <input className="search-bar" placeholder="Search Here" name="salonname" onChange={handlesalonname}/>
-
-                <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                </ul>
-
-                <li>
-                    <a href="#submenu1-2" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                        <span className="ms-1 d-none d-sm-inline">
-                            <p style={{ color: "white" }}>Age Group</p>
-                        </span>
-                    </a>
-                    <ul className="collapse nav flex-column ms-1" id="submenu1-2" data-bs-parent="#menu">
-                        <li className="w-100">
-                            <a className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <label htmlFor="customRange2" className="form-label text-white">Less than five</label>
-                                    <input type="range" style={{ color: "white" }} className="form-range" min="0" max="5" id="customRange2"/>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <hr style={{ width: "250px", color: "gold" }} />
-                </li>
-
-                <li>
-                    <div className="accordion" id="accordionExample" style={{ backgroundColor: "black" }}>
-                        <div className="accordion-item" style={{ backgroundColor: "black", color: "white", border: "none" }}>
-                            <h2 className="accordion-header">
-                                <button
-                                    className="accordion-button"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne"
-                                    aria-expanded="true"
-                                    aria-controls="collapseOne"
-                                    style={{
-                                        backgroundColor: "black",
-                                        color: "white",
-                                        border: "none",
-                                        borderBottom: "none",
-                                        outline: "none",
-                                        boxShadow: "none",
-                                    }}
-                                >
-                                    Sexual-orientation
-                                </button>
-                            </h2>
-                            <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
-                                    <input
-                                        onClick={(e) => genderConfirmation(e.target.value)}
-                                        value="male"
-                                        name="manhood"
-                                        type="radio"
-                                        onChange={handleFilterChange}
-                                    />{" "}
-                                    <label htmlFor="">male</label>
-                                    <br />
-                                    <input
-                                        onClick={(e) => genderConfirmation(e.target.value)}
-                                        value="Female"
-                                        name="manhood"
-                                        type="radio"
-                                        onChange={handleFilterChange}
-                                    />{" "}
-                                    <label htmlFor="">Female</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <hr style={{ width: "250px", color: "gold" }} />
-                </li>
-
-                <li>
-                    <a href="#submenu2.2" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                        <span className="ms-1 d-none d-sm-inline">
-                            <p style={{ color: "white" }}>Location</p>
-                        </span>
-                    </a>
-                    <ul className="collapse nav flex-column ms-1" id="submenu2.2" data-bs-parent="#menu">
-                        <li>
-                            <a className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <input placeholder="Enter Your location" type="text" onChange={locationInputChange} className="location-input" />
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <hr style={{ width: "250px", color: "gold" }} />
-                </li>
-
-                <li>
-                    <a href="#submenu1-4" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                        <span className="ms-1 d-none d-sm-inline">
-                            <p style={{ color: "white" }}>Distance</p>
-                        </span>
-                    </a>
-                    <ul className="collapse nav flex-column ms-1" id="submenu1-4" data-bs-parent="#menu">
-                        <li className="w-100">
-                            <a className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <label htmlFor="customRange2" className="form-label text-white" >Less than {distance} km</label>
-                                    <input type="range" style={{ color: "white" }} className="form-range" min="0" max="5" id="customRange2"  value={distance} name="distance" onChange={handledistancechange}/> 
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <hr style={{ width: "250px", color: "gold" }} />
-                </li>
-
-                <li>
-                    <a href="#submenu3" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                        <span className="ms-1 d-none d-sm-inline">
-                            <span style={{ color: "white" }}>Services</span>
-                        </span>
-                    </a>
-                    <ul className="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                        {allservices.map(data =>
-                             <li className="w-100">
-                             <a href="#" className="nav-link px-0">
-                                 <span className="d-none d-sm-inline">
-                                     <input type="checkbox" value={data} key={data} onChange={handlefilterservices} name="services"/>
-                                 </span>
-                                 <span style={{ color: "white" }} > {data}</span>
-                             </a>
-                         </li>
-                        )}
-                     {/*   <li className="w-100">
+              </li>
+            ))}
+            {/*   <li className="w-100">
                             <a href="#" className="nav-link px-0">
                                 <span className="d-none d-sm-inline">
                                     <input type="checkbox" />
@@ -267,7 +367,7 @@ function Filterapply({ filterOptions,setFilterOptions}) {
                                 <span style={{ color: "white" }}> All</span>
                             </a>
                     </li>*/}
-                       {/* <li>
+            {/* <li>
                             <a href="#" className="nav-link px-0">
                                 <span className="d-none d-sm-inline">
                                     <input type="checkbox" />
@@ -315,120 +415,174 @@ function Filterapply({ filterOptions,setFilterOptions}) {
                                 <span style={{ color: "white" }}> shaving</span>
                             </a>
                                 </li> */}
-                    </ul>
-                </li>
+          </ul>
+        </li>
 
-                <li>
-                    <hr style={{ width: "250px", color: "gold" }} />
-                </li>
+        <li>
+          <hr style={{ width: "250px", color: "gold" }} />
+        </li>
 
-                <li>
-                    <a href="#submenu2" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                        <span className="ms-1 d-none d-sm-inline">
-                            <p style={{ color: "white" }}>price</p>
-                        </span>
-                    </a>
-                    <ul className="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                        <li className="w-100">
-                            <a className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <span style={{ color: "white" }}>From : </span>
-                                    <input className="cost-input" placeholder="₹200" type="text" onChange={handlelowprice} name="priceFrom"/>
-                                </span>
-                                <span style={{ color: "white" }}>To :</span>
-                                <input className="cost-input" placeholder="₹400" type="text" onChange={handlehighprice} name="priceTo"/>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+        <li>
+          <a
+            href="#submenu2"
+            data-bs-toggle="collapse"
+            className="nav-link px-0 align-middle"
+          >
+            <span className="ms-1 d-none d-sm-inline">
+              <p style={{ color: "white" }}>price</p>
+            </span>
+          </a>
+          <ul
+            className="collapse nav flex-column ms-1"
+            id="submenu2"
+            data-bs-parent="#menu"
+          >
+            <li className="w-100">
+              <a className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <span style={{ color: "white" }}>From : </span>
+                  <input
+                    className="cost-input"
+                    placeholder="₹200"
+                    type="text"
+                    onChange={handlelowprice}
+                    name="priceFrom"
+                  />
+                </span>
+                <span style={{ color: "white" }}>To :</span>
+                <input
+                  className="cost-input"
+                  placeholder="₹400"
+                  type="text"
+                  onChange={handlehighprice}
+                  name="priceTo"
+                />
+              </a>
+            </li>
+          </ul>
+        </li>
 
-                <li>
-                    <hr style={{ width: "250px", color: "gold" }} />
-                </li>
+        <li>
+          <hr style={{ width: "250px", color: "gold" }} />
+        </li>
 
-                <li>
-                    <a href="#submenu4" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                        <span className="ms-1 d-none d-sm-inline">
-                            <p style={{ color: "white" }}>Rating</p>
-                        </span>
-                    </a>
-                    <ul className="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
-                        <li className="w-100">
-                            <a href="#" className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <input className="rating-input" type="checkbox" value='5' name="ratings" onChange={handlerating}/>
-                                </span>
-                                <span>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
-                                </span>
-                                <span>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
-                                </span>
-                                <span>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
-                                </span>
-                                <span>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="nav-link px-0">
-                                <span className="d-none d-sm-inline">
-                                    <input type="checkbox" value='5' name="ratings" onChange={handlerating}/>
-                                </span>
-                                <span>
-                                    <i style={{ color: "white" }} className="bi bi-star-fill"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                    <i style={{ color: "white" }} className="bi bi-star"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <hr />
-        </div>
-    );
+        <li>
+          <a
+            href="#submenu4"
+            data-bs-toggle="collapse"
+            className="nav-link px-0 align-middle"
+          >
+            <span className="ms-1 d-none d-sm-inline">
+              <p style={{ color: "white" }}>Rating</p>
+            </span>
+          </a>
+          <ul
+            className="collapse nav flex-column ms-1"
+            id="submenu4"
+            data-bs-parent="#menu"
+          >
+            <li className="w-100">
+              <a href="#" className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <input
+                    className="rating-input"
+                    type="checkbox"
+                    value="5"
+                    name="ratings"
+                    onChange={handlerating}
+                  />
+                </span>
+                <span>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <input
+                    type="checkbox"
+                    value="5"
+                    name="ratings"
+                    onChange={handlerating}
+                  />
+                </span>
+                <span>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <input
+                    type="checkbox"
+                    value="5"
+                    name="ratings"
+                    onChange={handlerating}
+                  />
+                </span>
+                <span>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <input
+                    type="checkbox"
+                    value="5"
+                    name="ratings"
+                    onChange={handlerating}
+                  />
+                </span>
+                <span>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link px-0">
+                <span className="d-none d-sm-inline">
+                  <input
+                    type="checkbox"
+                    value="5"
+                    name="ratings"
+                    onChange={handlerating}
+                  />
+                </span>
+                <span>
+                  <i style={{ color: "white" }} className="bi bi-star-fill"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                  <i style={{ color: "white" }} className="bi bi-star"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <hr />
+    </div>
+  );
 }
 
 export default Filterapply;

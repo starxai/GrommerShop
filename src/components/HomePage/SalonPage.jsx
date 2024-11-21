@@ -7,15 +7,18 @@ import img_2 from "../images/img2.jpg";
 import img_3 from "../images/img3.jpg";
 import img_4 from "../images/img4.jpg";
 import "../css/SalonPage.css";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
 
 function SalonPage() {
   const location = useLocation();
   const { salon_uuid } = location.state || "";
   const [salonData, setSalonData] = useState(null);
-  const [number, setNumber] = useState(1);
-  useLayoutEffect(() => {
+  const [services, setServices] = useState([]);
+  const [customerCount, setCustomerCount] = useState(1);
+  const navigate = useNavigate();
+
+  useEffect(() => {
     const fetchSalonData = async () => {
       try {
         const { data } = await axios(
@@ -28,8 +31,29 @@ function SalonPage() {
     fetchSalonData();
   }, [salon_uuid]);
   const images = [img_4, img_1, img_2, img_3, img_4, img_1];
-  console.log(salon_uuid);
+  console.log(services, customerCount);
 
+  function bookTimeSlot() {
+    navigate("/booking", {
+      state: {
+        salonData: {
+          salon_name: salonData.salon_name,
+          salon_address: salonData.salon_city + ", " + salonData.salon_area,
+          salon_uuid: salonData.salon_uuid,
+        },
+        services,
+        customerCount,
+      },
+    });
+  }
+
+  function isChecked(service) {
+    let checked = false;
+    services.forEach((serObj) => {
+      if (service._id === serObj._id) checked = true;
+    });
+    return checked;
+  }
   return (
     <div className="salon-page">
       <div className="salon-page-carousel">
@@ -40,7 +64,7 @@ function SalonPage() {
                 key={index}
                 src={img}
                 alt="barber"
-                className="carousel-image"
+                className="salon-page-carousel-image"
               />
             );
           })}
@@ -54,7 +78,14 @@ function SalonPage() {
                 <h2 className="salon-title">{salonData.salon_name}</h2>
                 <p className="salon-location">
                   {salonData.salon_area + " " + salonData.salon_city} |{" "}
-                  <a href="https://www.google.com/maps">view on map</a>
+                  <a
+                    href="https://www.google.com/maps"
+                    style={{
+                      color: "#ccbb8e",
+                    }}
+                  >
+                    view on map
+                  </a>
                 </p>
               </div>
               <div>
@@ -244,7 +275,234 @@ function SalonPage() {
               )}
             </div>
             <hr></hr>
-            <form></form>
+            <form className="salon-page-form">
+              <div className="salon-form-field-container">
+                <div>
+                  <h4 style={{ fontWeight: "normal" }}>Service</h4>
+                  <div
+                    className="salon-form-field"
+                    onClick={() => {
+                      let element = document.getElementById(
+                        "salon-form-services"
+                      );
+                      let chevron = document.getElementById(
+                        "salon-form-chevron-services"
+                      );
+                      if (element.style.height !== "150px") {
+                        chevron.style.transform = "rotate(180deg)";
+                        element.style.height = "150px";
+                      } else {
+                        chevron.style.transform = "rotate(0deg)";
+                        element.style.height = "0px";
+                      }
+                    }}
+                  >
+                    <p>Select service</p>
+                    <span style={{ display: "flex" }}>
+                      <FiChevronDown
+                        id="salon-form-chevron-services"
+                        className="chevron"
+                      />
+                    </span>
+                  </div>
+                  <div className="salon-form-filter" id="salon-form-services">
+                    {salonData.salon_services.map((service, index) => {
+                      return (
+                        <div>
+                          <input
+                            className="checkbox"
+                            type="checkbox"
+                            name="service"
+                            value={index}
+                            checked={isChecked(service)}
+                            onChange={(event) => {
+                              console.log("event", event.target.value);
+
+                              setServices((prevService) => {
+                                let service_exists = false;
+                                let newService = [...prevService];
+                                prevService.forEach((serObj, index) => {
+                                  if (
+                                    salonData.salon_services[event.target.value]
+                                      ._id === serObj._id
+                                  ) {
+                                    service_exists = true;
+                                    newService.splice(index, 1);
+                                  }
+                                });
+                                if (!service_exists) {
+                                  newService.push(
+                                    salonData.salon_services[event.target.value]
+                                  );
+                                }
+                                return newService;
+                              });
+                            }}
+                          />
+                          <label
+                            style={{
+                              flexGrow: "1",
+                              display: "flex",
+                              justifyContent: "space-between",
+                            }}
+                          >
+                            {service.service_name}
+                            <span>₹ {service.service_original_price}</span>
+                          </label>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div>
+                  <h4 style={{ fontWeight: "normal" }}>Booking for</h4>
+                  <div
+                    className="salon-form-field"
+                    onClick={() => {
+                      let element = document.getElementById(
+                        "salon-form-customerCount"
+                      );
+                      let chevron = document.getElementById(
+                        "chevron-customerCount"
+                      );
+                      if (element.style.height !== "200px") {
+                        chevron.style.transform = "rotate(180deg)";
+                        element.style.height = "200px";
+                      } else {
+                        chevron.style.transform = "rotate(0deg)";
+                        element.style.height = "0px";
+                      }
+                    }}
+                  >
+                    <p>{customerCount} persons</p>
+                    <span style={{ display: "flex" }}>
+                      <FiChevronDown
+                        id="chevron-customerCount"
+                        className="chevron"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    className="salon-form-filter"
+                    id="salon-form-customerCount"
+                  >
+                    {[1, 2, 3, 4].map((personCount) => {
+                      return (
+                        <div>
+                          <input
+                            className="radio-button"
+                            type="radio"
+                            name="customerCount"
+                            value={personCount}
+                            onChange={(event) => {
+                              setCustomerCount(event.target.value);
+                            }}
+                          />
+                          <label>{personCount} persons</label>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+              <button
+                className="button-one salon-form-btn"
+                onClick={(event) => {
+                  event.preventDefault();
+                  if (services.length > 0) bookTimeSlot();
+                }}
+              >
+                Book Time Slot
+              </button>
+            </form>
+            <hr></hr>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <h3 style={{ fontWeight: "normal" }}>Reviews</h3>
+              <button className="button-two salon-page-review-btn">
+                Write a review
+              </button>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+                paddingBlock: "20px",
+              }}
+            >
+              {[
+                {
+                  user: "Suri Babu",
+                  review:
+                    "Service was very good however the behavior of the dresser was a bit rude.",
+                },
+                {
+                  user: "Appal Rao",
+                  review:
+                    "The interior was very nice. Excellent service and hosting. Would definitely recommend.",
+                },
+              ].map((reviewObj, index) => {
+                return (
+                  <div
+                    key={reviewObj.user + index}
+                    className="salon-page-reviews"
+                    style={{ backgroundColor: "#222222", padding: "1em 1.5em" }}
+                  >
+                    <div style={{ display: "flex", gap: "20px" }}>
+                      <span
+                        style={{
+                          borderRadius: "50%",
+                          backgroundColor: "#5b5441",
+                          padding: "0.5em 1.1em",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        {reviewObj.user[0]}
+                      </span>
+                      <div>
+                        <p style={{ margin: "0" }}>{reviewObj.user}</p>
+                        <svg
+                          width="112"
+                          height="17"
+                          viewBox="0 0 112 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8 0.0380859L9.88091 5.44923L15.6085 5.56595L11.0434 9.02694L12.7023 14.5102L8 11.2381L3.29772 14.5102L4.95662 9.02694L0.391548 5.56595L6.11909 5.44923L8 0.0380859Z"
+                            fill="white"
+                          />
+                          <path
+                            d="M32 0.0380859L33.8809 5.44923L39.6085 5.56595L35.0434 9.02694L36.7023 14.5102L32 11.2381L27.2977 14.5102L28.9566 9.02694L24.3915 5.56595L30.1191 5.44923L32 0.0380859Z"
+                            fill="white"
+                          />
+                          <path
+                            d="M56 0.0380859L57.8809 5.44923L63.6085 5.56595L59.0434 9.02694L60.7023 14.5102L56 11.2381L51.2977 14.5102L52.9566 9.02694L48.3915 5.56595L54.1191 5.44923L56 0.0380859Z"
+                            fill="white"
+                          />
+                          <path
+                            d="M80 0.0380859L81.8809 5.44923L87.6085 5.56595L83.0434 9.02694L84.7023 14.5102L80 11.2381L75.2977 14.5102L76.9566 9.02694L72.3915 5.56595L78.1191 5.44923L80 0.0380859Z"
+                            fill="white"
+                          />
+                          <path
+                            d="M104 1.56094L105.409 5.6134L105.523 5.94204L105.871 5.94913L110.16 6.03654L106.741 8.6285L106.464 8.83871L106.565 9.17173L107.807 13.2782L104.286 10.8277L104 10.6289L103.714 10.8277L100.193 13.2782L101.435 9.17173L101.536 8.83871L101.259 8.6285L97.8399 6.03654L102.129 5.94913L102.477 5.94204L102.591 5.6134L104 1.56094Z"
+                            stroke="white"
+                          />
+                          <path
+                            d="M99.2968 14.5102L103.999 11.2381V0.0380859L102.118 5.44923L96.3906 5.56595L100.956 9.02694L99.2968 14.5102Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <p style={{ margin: "0", marginTop: "1em" }}>
+                      {reviewObj.review}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </>
         )}
       </div>

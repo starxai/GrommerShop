@@ -12,7 +12,7 @@ import Login from "./components/HomePage/LoginPage";
 import SaloonList from "./components/HomePage/SaloonListingPage";
 // import SalonMainPage from "./components/HomePage/SalonDetailPage";
 import Register from "./components/Register";
-import Home from "./components/HomePage/Homepage";
+import Home from "./components/HomePage/Homepage.jsx";
 import Notfound from "./helper/Page404";
 import OTP from "./components/HomePage/OTPpage";
 import MenuBar from "./components/HomePage/userProfile/menubar";
@@ -26,7 +26,12 @@ import Wishlist from "./components/HomePage/wishlist";
 import MainLayout from "./components/HomePage/MainLayout";
 import SalonList from "./components/HomePage/SalonList.jsx";
 import SalonPage from "./components/HomePage/SalonPage.jsx";
-
+import LoginPage from "./components/pages/LoginPage.js";
+import RegisterPage from "./components/pages/RegisterPage.js";
+import OtpPage from "./components/pages/OtpPage.js";
+import AccountPage from "./components/pages/AccountPage.js";
+import BookingPage from "./components/pages/BookingPage.js";
+import CheckoutPage from "./components/pages/CheckoutPage.js";
 // import Register from "./Components/Register";
 // import Bookings from "./Components/Bookings";
 // import Wishlist from "./Components/Wishlist";
@@ -91,7 +96,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Store.Provider value={[isAuth, setisAuth]}>
+      <Store.Provider value={{ isAuth, setisAuth }}>
         <Store2.Provider
           value={{
             bookingDetails,
@@ -112,11 +117,15 @@ function App() {
               {/* <Route path="/ranu" element={<PayementFail />} /> */}
               <Route path="/menu" element={<SalonList />} />
               <Route path="/About" element={<AboutPage />} />
+              {/* <Route path="/login2" element={<LoginPage />} /> */}
+              {/* <Route path="/register2" element={<RegisterPage />} /> */}
+              {/* <Route path="/otp2" element={<OtpPage />} /> */}
+              <Route path="/account" element={<AccountPage />} />
               <Route
                 path="/login"
                 element={
                   <PublicRoute>
-                    <Login />
+                    <LoginPage />
                   </PublicRoute>
                 }
               />
@@ -124,7 +133,15 @@ function App() {
                 path="/register"
                 element={
                   <PublicRoute>
-                    <Register />
+                    <RegisterPage />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/otp"
+                element={
+                  <PublicRoute>
+                    <OtpPage />
                   </PublicRoute>
                 }
               />
@@ -144,7 +161,15 @@ function App() {
                 path="/booking"
                 element={
                   //  <PublicRoute>
-                  <PageBooking />
+                  <BookingPage />
+                  //   </PublicRoute>
+                }
+              />
+              <Route
+                path="/account"
+                element={
+                  //  <PublicRoute>
+                  <AccountPage />
                   //   </PublicRoute>
                 }
               />
@@ -152,7 +177,7 @@ function App() {
                 path="/checkout"
                 element={
                   //   <PublicRoute>
-                  <PaymentPage />
+                  <CheckoutPage />
                   //   </PublicRoute>
                 }
               />
@@ -165,14 +190,6 @@ function App() {
                  </PublicRoute>
                  }
                  /> */}
-              <Route
-                path="/otp"
-                element={
-                  <PublicRoute>
-                    <OTP />
-                  </PublicRoute>
-                }
-              />
 
               {/* <Route
               path="/saloon"

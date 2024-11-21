@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import "../css/Carousel.css";
 
 export default function Carousel({ children: slides, position = 1 }) {
   const [pos, setPos] = useState(position);

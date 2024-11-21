@@ -7,11 +7,10 @@ import { Store, Store2 } from "../../App";
 import { verifyLoginOtpAPI } from "../../api/User_Login_Auth";
 import { WRONG_OTP, WRONG_OTP_3_TIMES } from "../../context/ErrorCodes";
 
-
 const OTPInput = ({
   setIsIncorrect,
   email,
-  AccountType , // Default value if not provided
+  AccountType, // Default value if not provided
   setTimer,
   setshowSend,
   seterrorSnack,
@@ -48,7 +47,7 @@ const OTPInput = ({
   useEffect(() => {
     const otpString = otp.join("");
     console.log(`Current OTP: ${otpString}`); // Debug: Log the full OTP string
-    console.log(AccountType)
+    console.log(AccountType);
 
     // TODO : redirecting function depending upon came from salon or from menu
     const redirectFunc = () => {
@@ -116,14 +115,14 @@ const OTPInput = ({
       setloading(true);
       console.log("Calling backend API with AccountType:", AccountType);
       if (AccountType === "register") {
-          fetchRegisterApi();
+        fetchRegisterApi();
       } else if (AccountType === "login") {
-          fetchLoginOtp();
+        fetchLoginOtp();
       } else {
-          console.error("Unhandled AccountType:", AccountType);
-          // Optionally set an error state here
+        console.error("Unhandled AccountType:", AccountType);
+        // Optionally set an error state here
       }
-  }
+    }
   }, [
     otp,
     AccountType,

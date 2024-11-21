@@ -9,6 +9,8 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
 import { RiArrowUpSLine } from "react-icons/ri";
 import "../css/ProfileDropdown.css";
+import { Store } from "../../App";
+import { useContext } from "react";
 
 function Profile() {
   const navigate = useNavigate();
@@ -59,12 +61,13 @@ function Profile() {
 }
 
 function MenuBar2() {
+  const { setisAuth } = useContext(Store);
   const navigate = useNavigate();
   //   const [isAuth, setisAuth] = useContext(Store);
 
   const logoutHandler = () => {
-    // removeToken();
-    // setisAuth(null);
+    localStorage.removeItem("salon_user_token");
+    setisAuth(null);
     navigate("/");
   };
 
@@ -75,6 +78,9 @@ function MenuBar2() {
       </li>
       <li className="profile-dropdown-link">
         <NavLink to="/wishlist">Wishlist</NavLink>
+      </li>
+      <li className="profile-dropdown-link">
+        <NavLink to="/account">Account</NavLink>
       </li>
       <li className="profile-dropdown-link" onClick={logoutHandler}>
         Logout

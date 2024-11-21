@@ -3,13 +3,24 @@
 }
 .salon-page-carousel {
   width: 40%;
+  height: 100vh;
+}
+.salon-page-carousel-image {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: 0 0;
 }
 .salon-details {
-  padding-top: 150px;
+  padding: 150px;
   color: white;
   width: 60%;
   padding-inline: 50px;
+  height: 100vh;
+  overflow: auto;
 }
+
 .salon-title-location-rating {
   display: flex;
   justify-content: space-between;
@@ -42,4 +53,65 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+.salon-page-form {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.salon-form-field-container {
+  display: flex;
+  justify-content: space-between;
+}
+.salon-form-field-container > div {
+  width: 45%;
+}
+.salon-form-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #ccbb8e;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+}
+.salon-form-field > p {
+  margin: 0;
+}
+.salon-form-filter {
+  height: 0px;
+  transition: height 250ms ease-in-out;
+  overflow: hidden;
+  /* border: 1px solid #ccbb8e; */
+}
+
+.salon-form-filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.salon-form-filter > div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  padding: 0.5em 2em;
+}
+.salon-form-btn {
+  align-self: flex-start;
+}
+.salon-page-review-btn {
+  align-self: center;
+}
+
+.button-two {
+  background-color: black;
+  border: 1px solid burlywood;
+  color: white;
+  font-family: Poppins;
+  padding: 0.5em 1em;
+  font-size: 12px;
+  cursor: pointer;
 }

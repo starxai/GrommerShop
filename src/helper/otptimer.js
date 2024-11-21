@@ -27,33 +27,6 @@ const OTPTimer = ({ onTimeout, expirationTime }) => {
 
 export default OTPTimer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // // OTPTimer.js
 // import React, { useEffect } from "react";
 

@@ -186,7 +186,7 @@ function SalonListPage() {
             }}
           >
             <p className="form-element-title">Sort By</p>
-            <span style={{ display: "flex", placeItems: "center" }}>
+            <span style={{ display: "flex" }}>
               <FiChevronDown id="chevron-sortBy-two" className="chevron" />
             </span>
           </div>
@@ -347,7 +347,7 @@ function SalonListPage() {
                 }}
               >
                 <p className="form-element-title">Age Group</p>
-                <span style={{ display: "flex", placeItems: "center" }}>
+                <span style={{ display: "flex" }}>
                   <FiChevronDown id="chevron-age-group" className="chevron" />
                 </span>
               </div>
@@ -386,7 +386,7 @@ function SalonListPage() {
                 }}
               >
                 <p className="form-element-title">Sex</p>
-                <span style={{ display: "flex", placeItems: "center" }}>
+                <span style={{ display: "flex" }}>
                   <FiChevronDown id="chevron-sex" className="chevron" />
                 </span>
               </div>
@@ -449,7 +449,7 @@ function SalonListPage() {
                 }}
               >
                 <p className="form-element-title">Location</p>
-                <span style={{ display: "flex", placeItems: "center" }}>
+                <span style={{ display: "flex" }}>
                   <FiChevronDown id="chevron-location" className="chevron" />
                 </span>
               </div>
@@ -483,7 +483,7 @@ function SalonListPage() {
                 }}
               >
                 <p className="form-element-title">Distance</p>
-                <span style={{ display: "flex", placeItems: "center" }}>
+                <span style={{ display: "flex" }}>
                   <FiChevronDown id="chevron-distance" className="chevron" />
                 </span>
               </div>
@@ -518,7 +518,7 @@ function SalonListPage() {
                 }}
               >
                 <p className="form-element-title">Service</p>
-                <span style={{ display: "flex", placeItems: "center" }}>
+                <span style={{ display: "flex" }}>
                   <FiChevronDown id="chevron-service" className="chevron" />
                 </span>
               </div>
@@ -723,7 +723,7 @@ function SalonListPage() {
                 }}
               >
                 <p className="form-element-title">Price</p>
-                <span style={{ display: "flex", placeItems: "center" }}>
+                <span style={{ display: "flex" }}>
                   <FiChevronDown id="chevron-price" className="chevron" />
                 </span>
               </div>
@@ -792,7 +792,7 @@ function SalonListPage() {
                 }}
               >
                 <p className="form-element-title">Rating</p>
-                <span style={{ display: "flex", placeItems: "center" }}>
+                <span style={{ display: "flex" }}>
                   <FiChevronDown id="chevron-rating" className="chevron" />
                 </span>
               </div>
@@ -936,7 +936,7 @@ function SalonListPage() {
                 }}
               >
                 <p className="form-element-title">Sort By</p>
-                <span style={{ display: "flex", placeItems: "center" }}>
+                <span style={{ display: "flex" }}>
                   <FiChevronDown id="chevron-sortBy" className="chevron" />
                 </span>
               </div>

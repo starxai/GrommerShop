@@ -1,0 +1,90 @@
+.accound-page-img-container {
+  position: relative;
+  margin-bottom: 150px;
+}
+.account-page-img {
+  width: 100%;
+}
+.account-page-profile-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 47%);
+  width: 200px;
+}
+
+.account-page-form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.account-page-form {
+  color: white;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-form-field {
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.7em;
+  gap: 10px;
+  letter-spacing: -0.04em;
+}
+.account-form-double-field {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+}
+.account-form-double-field > div {
+  flex-grow: 1;
+}
+.account-form-input {
+  border: none;
+  outline: none;
+  background-color: black;
+  color: #ccbb8e;
+  flex-grow: 1;
+  border: 1px solid #ccbb8e;
+  padding-block: 0.5em;
+  text-indent: 1em;
+}
+.account-form-textarea {
+  width: 100%;
+  flex-grow: 1;
+  background-color: black;
+  color: #ccbb8e;
+  resize: none;
+  border: 1px solid #ccbb8e;
+  /* text-indent: 1rem; */
+  padding: 1em;
+  outline: none;
+}
+
+.account-form-sub-btn {
+  margin-top: 50px;
+  align-self: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .account-page-profile-img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 650px) {
+  .account-form-double-field {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .account-page-profile-img {
+    width: 100px;
+  }
+  .accound-page-img-container {
+    margin-bottom: 80px;
+  }
+}

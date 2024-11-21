@@ -2,12 +2,12 @@
   position: relative;
   margin: 0;
   padding: 0;
-  background-color: black;
 }
 .main-container {
+  background-color: black;
   position: relative;
-  height: 100vh;
-  overflow-y: scroll;
+  /* height: 100vh; */
+  /* overflow-y: scroll; */
 }
 
 .main-container::-webkit-scrollbar {
@@ -18,4 +18,13 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: #ccbb8e;
+}
+
+@media (max-width: 800px) {
+  .main-container {
+    padding-bottom: 100px;
+  }
+  .outer-container {
+    padding-bottom: 120px;
+  }
 }
