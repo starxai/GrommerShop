@@ -1,58 +1,47 @@
 import { useState, useRef, useEffect } from "react";
 import { NavLink, Navigate, useNavigate } from "react-router-dom";
-import axios from "axios";
-// import Quotations from "./Qutoes";
+import {
+  addWishlistApi,
+  deleteWishlistApi,
+  getWishlistApi,
+} from "../../api/Wishlist_service.js";
 import Footer from "../Footer";
-// import GetInTouch from "./GetInTouch";
-// import ReasonToUseGroomer from "../ReasonToUseGroomer";
-// import NewCard from "./CardsMain";
-// import Card from "./Card";
-// import GroomerCard from "./GroomerCard";
-// import HomeSaloon from "../HomeSallonService";
-// import Login from "./LoginPage";
-// import { Link, Outlet } from "react-router-dom";
-// import RegisterFormPage from "../Register";
-// import AboutPage from "./AboutUsPage";
-// import SalonMainPage from "./SalonDetailPage";
-// import GroomerLayout from "./Rough";
-// import ProductCard from "../../ProductCard";
-// import PageBooking from "./SaloonBookingPage";
-// import Navbar from "./NavbarComponent";
-// import NavBar2 from "./NavbarComponent2";
-// import BackGroundImage from "../HomePageImage";
-// import image_one from "../images/image_slider_image.jpg";
+import { getAllSalons } from "../../api/Salons_service.js";
 import Carousel from "./Carousel";
-
 import poster_small_1 from "../images/homepage-poster-1.png";
 import poster_small_2 from "../images/homepage-poster-2.png";
 import poster_big from "../images/homepage-poster-3.png";
-
 import img_1 from "../images/img1.jpg";
 import img_2 from "../images/img2.jpg";
 import img_3 from "../images/img3.jpg";
 import img_4 from "../images/img4.jpg";
-
 import slider_img_landscape from "../images/image_slider_image.jpg";
 import slider_img_portrait from "../images/slider_image_portrait.png";
 import reasons_to_use from "../images/reasons-to-use.png";
 import reasons_to_use2 from "../images/image_slider_image.jpg";
 import home_salon from "../images/home_salon.png";
-import get_in_touch from "../images/get_in_touch_img.png";
-
+import GetInTouch from "./GetInTouch.jsx";
 import "../css/HomePage.css";
 
 function HomePage() {
   const [salons, setSalons] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [wishlistData, setWishlistData] = useState([]);
+  const [wishlistLoading, setWishlistLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     async function fetchSalons() {
       try {
-        const { data } = await axios.get(
-          "http://127.0.0.1:8000/user/salons?city=nellore"
-        );
+        const data = await getAllSalons();
         setLoading(false);
-        setSalons(data.data.salons);
+        if (data.data.salons) {
+          setError(null);
+          setSalons(data.data.salons);
+        } else {
+          setError(data);
+          setLoading(false);
+        }
       } catch (error) {
         setLoading(false);
         setError(error);
@@ -62,6 +51,20 @@ function HomePage() {
     fetchSalons();
   }, []);
 
+  useEffect(() => {
+    async function loadWishlistData() {
+      try {
+        const data = await getWishlistApi();
+        if (data.data) {
+          setWishlistData(data.data);
+        } else {
+          setWishlistData([]);
+        }
+        setWishlistLoading(false);
+      } catch (error) {}
+    }
+    loadWishlistData();
+  }, []);
   const images =
     window.innerWidth < 700
       ? [
@@ -82,6 +85,7 @@ function HomePage() {
         ];
   const reasons_to_use_img =
     window.innerWidth <= 768 ? reasons_to_use2 : reasons_to_use;
+
   return (
     <div className="home-page">
       {/* Main carousel*/}
@@ -96,8 +100,39 @@ function HomePage() {
               Your go-to platform for finding and booking trusted salons and
               barbershops
             </p>
-            <NavLink to="/menu" className="book-salon-btn-carousel">
+            <NavLink
+              to="/menu"
+              className="book-salon-btn-carousel"
+              style={{ position: "relative" }}
+              onMouseEnter={() => {
+                const element = document.getElementById("book-salon-btn-svg");
+                element.style.transition = "all 120ms ease-in-out";
+                element.style.transform = "translateX(50%)";
+              }}
+              onMouseLeave={() => {
+                document.getElementById("book-salon-btn-svg").style.transform =
+                  "translateX(0%)";
+              }}
+            >
               BOOK SALON NOW
+              <span
+                id="book-salon-btn-svg"
+                style={{
+                  position: "absolute",
+                  left: "95%",
+                  top: "20%",
+                }}
+              >
+                <svg
+                  width="86"
+                  height="12"
+                  viewBox="0 0 86 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 11H84L74.4828 1" stroke="white" />
+                </svg>
+              </span>
             </NavLink>
           </div>
         </div>
@@ -156,21 +191,58 @@ function HomePage() {
 
       {/* salon-list Home page */}
       <div className="salon-list container">
-        <h2 className="salon-list-heading">
-          Get The Best<br></br> Groomer In The City
-        </h2>
         {loading ? (
           <p>Loading</p>
         ) : error ? (
           <p>{error.message}</p>
         ) : (
-          <div className="salon-list-container-home-page">
-            <SalonList salons={salons} />
-          </div>
+          <>
+            <h2 className="salon-list-heading">
+              Get The Best<br></br> Groomer In The City
+            </h2>
+            <div className="salon-list-container-home-page">
+              <SalonList
+                salons={salons}
+                wishlistData={wishlistData}
+                wishlistLoading={wishlistLoading}
+                setWishlistLoading={setWishlistLoading}
+              />
+            </div>
+            <NavLink
+              to="/menu"
+              className="more-groomers-button"
+              style={{ position: "relative" }}
+              onMouseEnter={() => {
+                const element = document.getElementById(
+                  "more-groomers-button-arrow"
+                );
+                element.style.transition = "all 120ms ease-in-out";
+                element.style.transform = "translateX(50%)";
+              }}
+              onMouseLeave={() => {
+                document.getElementById(
+                  "more-groomers-button-arrow"
+                ).style.transform = "translateX(0%)";
+              }}
+            >
+              MORE GROOMERS
+              <span
+                id="more-groomers-button-arrow"
+                style={{ position: "absolute", left: "95%", top: "20%" }}
+              >
+                <svg
+                  width="86"
+                  height="12"
+                  viewBox="0 0 86 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 11H84L74.4828 1" stroke="white" />
+                </svg>
+              </span>
+            </NavLink>
+          </>
         )}
-        <NavLink to="/menu" className="more-groomers-button">
-          MORE GROOMERS
-        </NavLink>
       </div>
       {/* salon-list Home page */}
 
@@ -361,7 +433,7 @@ function HomePage() {
 
       {/* Groomer Top Reviews Home page */}
       <div className="reviews-home container">
-        <Carousel>
+        <Carousel type="reviews">
           {[
             {
               review:
@@ -463,7 +535,7 @@ function HomePage() {
               leaving home!
             </p>
             <NavLink
-              to="/home-salon-service"
+              to="/home-service"
               className="what-is-groomer-btn home-salon-btn"
             >
               Book Now
@@ -474,35 +546,7 @@ function HomePage() {
       {/* Home-salon Banner home page*/}
 
       {/*Get in touch form home page*/}
-      <div className="get-in-touch container">
-        <h2 className="form-heading-two">Get In Touch With Us</h2>
-        <div className="get-in-touch-img-container">
-          <img src={get_in_touch} alt="groomer" className="get-in-touch-img" />
-        </div>
-        <form className="get-in-touch-form">
-          <h2 className="form-heading-one">Get In Touch With Us</h2>
-          <div className="form-fields">
-            <label>Name</label>
-            <input className="form-input"></input>
-          </div>
-          <div className="form-fields">
-            <label>Mobile No.</label>
-            <input className="form-input"></input>
-          </div>
-          <div className="form-fields">
-            <label>Email</label>
-            <input className="form-input"></input>
-          </div>
-          <textarea
-            name=""
-            id=""
-            className="text-area-form"
-            rows={4}
-            placeholder="Write what you feel like..."
-          ></textarea>
-          <button className="get-it-touch-submit-btn">Submit</button>
-        </form>
-      </div>
+      <GetInTouch />
       {/*Get in touch form home page*/}
 
       {/*Footer */}
@@ -514,101 +558,165 @@ function HomePage() {
 
 export default HomePage;
 
-export function SalonList({ salons }) {
-  const navigate = useNavigate();
+export function SalonList({ salons, wishlistData, wishlistLoading }) {
+  function checkWishlisted(salon_id) {
+    let wishlisted = false;
+    for (let i in wishlistData) {
+      if (wishlistData[i].wishlist_salon_uuid === salon_id) {
+        wishlisted = true;
+      }
+    }
+    return wishlisted;
+  }
+
   return (
     <>
-      {salons.map((salonData, index) => {
-        return (
-          <div
-            className="salon-card"
-            key={salonData.salon_name}
-            onClick={() => {
-              navigate("/salon-details", {
-                state: { salon_uuid: salonData.salon_uuid },
-              });
-            }}
-          >
-            <p className="salon-card-location">
-              <svg
-                width="14"
-                height="15"
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11.5554 6.05556C11.5554 7.29023 10.9104 8.62735 9.93572 9.96835C9.07232 11.1562 7.99335 12.2901 6.99989 13.2916C6.00644 12.2901 4.92747 11.1562 4.06407 9.96835C3.08938 8.62735 2.44434 7.29023 2.44434 6.05556C2.44434 3.53959 4.48393 1.5 6.99989 1.5C9.51586 1.5 11.5554 3.53959 11.5554 6.05556Z"
-                  stroke="white"
-                />
-                <circle
-                  cx="7"
-                  cy="6"
-                  r="1.56"
-                  stroke="white"
-                  strokeWidth="0.88"
-                />
-              </svg>{" "}
-              {[" ", salonData.salon_area]}, {salonData.salon_city}
-            </p>
-            <button className="wishlist-button-salon-card">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.64457 2.29931L8 2.65853L8.35542 2.29931C9.01725 1.63043 9.88962 1.20115 10.8332 1.0895C11.9331 0.959346 13.0396 1.27145 13.9094 1.95716C14.7791 2.64287 15.3409 3.64601 15.471 4.7459C15.6001 5.8361 15.2946 6.93284 14.6214 7.79906L8 14.3872L1.37858 7.79907C0.705442 6.93284 0.399945 5.8361 0.528951 4.7459C0.659104 3.64601 1.22086 2.64287 2.09063 1.95716C2.9604 1.27145 4.06695 0.959346 5.16684 1.0895C6.11038 1.20115 6.98274 1.63043 7.64457 2.29931Z"
-                  stroke="white"
-                />
-              </svg>
-            </button>
-            <div style={{ maxWidth: "276px", margin: "auto" }}>
-              <Carousel position={index + 1}>
-                {[img_4, img_1, img_2, img_3, img_4, img_1].map(
-                  (img, index) => {
-                    return (
-                      <img
-                        src={img}
-                        key={index}
-                        alt="salon"
-                        className="salon-card-image"
-                      />
-                    );
-                  }
-                )}
-              </Carousel>
-            </div>
-            <div className="salon-card-details">
-              <NavLink className="salon-card-select-button">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M8.96974 4.94629H0V6.94629H9.0708L6.38086 9.63623L7.79507 11.0504L11.8992 6.94629H12V4.94629H11.7982L7.79817 0.946289L6.38395 2.3605L8.96974 4.94629Z"
-                    fill="white"
-                  />
-                </svg>
-              </NavLink>
-              <p className="salon-card-title">{salonData.salon_name}</p>
-              <div className="salon-card-services-list">
-                {salonData.salon_services.map((service, index) => {
-                  return <span key={index}> {service.service_name} |</span>;
-                })}
-              </div>
-              <p className="salon-card-pricing">Starts from ₹ 360 / person</p>
-            </div>
-          </div>
-        );
-      })}
+      {!wishlistLoading &&
+        salons.map((salonData, index) => {
+          return (
+            <SalonCard
+              key={index}
+              salonData={salonData}
+              index={index}
+              wishlisted={checkWishlisted(salonData.salon_uuid)}
+              wishlistData={wishlistData}
+            />
+          );
+        })}
     </>
+  );
+}
+
+function SalonCard({ salonData, index, wishlisted, wishlistData }) {
+  const navigate = useNavigate();
+  const [wishlistState, setWishlistState] = useState(wishlisted);
+  const [wishlistId, setWishlistId] = useState(
+    getWishlistId(salonData.salon_uuid)
+  );
+  function getWishlistId(salon_id) {
+    for (let i in wishlistData) {
+      if (wishlistData[i].wishlist_salon_uuid === salon_id) {
+        return wishlistData[i].wishlist_uuid;
+      }
+    }
+  }
+
+  async function addWishlist() {
+    const {
+      data: { wishlist_uuid },
+    } = await addWishlistApi(salonData.salon_uuid);
+    setWishlistId(wishlist_uuid);
+  }
+  return (
+    <div
+      className="salon-card"
+      key={salonData.salon_name}
+      onClick={() => {
+        navigate("/salon-details", {
+          state: { salon_uuid: salonData.salon_uuid },
+        });
+      }}
+    >
+      <p className="salon-card-location">
+        <svg
+          width="14"
+          height="15"
+          viewBox="0 0 14 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.5554 6.05556C11.5554 7.29023 10.9104 8.62735 9.93572 9.96835C9.07232 11.1562 7.99335 12.2901 6.99989 13.2916C6.00644 12.2901 4.92747 11.1562 4.06407 9.96835C3.08938 8.62735 2.44434 7.29023 2.44434 6.05556C2.44434 3.53959 4.48393 1.5 6.99989 1.5C9.51586 1.5 11.5554 3.53959 11.5554 6.05556Z"
+            stroke="white"
+          />
+          <circle cx="7" cy="6" r="1.56" stroke="white" strokeWidth="0.88" />
+        </svg>{" "}
+        {[" ", salonData.salon_area]}, {salonData.salon_city}
+      </p>
+      {wishlistState ? (
+        <button
+          onClick={(event) => {
+            event.stopPropagation();
+            setWishlistState(!wishlistState);
+            deleteWishlistApi(wishlistId);
+          }}
+          className="wishlist-button-salon-card"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="white"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.64457 2.29931L8 2.65853L8.35542 2.29931C9.01725 1.63043 9.88962 1.20115 10.8332 1.0895C11.9331 0.959346 13.0396 1.27145 13.9094 1.95716C14.7791 2.64287 15.3409 3.64601 15.471 4.7459C15.6001 5.8361 15.2946 6.93284 14.6214 7.79906L8 14.3872L1.37858 7.79907C0.705442 6.93284 0.399945 5.8361 0.528951 4.7459C0.659104 3.64601 1.22086 2.64287 2.09063 1.95716C2.9604 1.27145 4.06695 0.959346 5.16684 1.0895C6.11038 1.20115 6.98274 1.63043 7.64457 2.29931Z"
+              stroke="white"
+            />
+          </svg>
+        </button>
+      ) : (
+        <button
+          onClick={(event) => {
+            event.stopPropagation();
+            setWishlistState(!wishlistState);
+            addWishlist();
+          }}
+          className="wishlist-button-salon-card"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.64457 2.29931L8 2.65853L8.35542 2.29931C9.01725 1.63043 9.88962 1.20115 10.8332 1.0895C11.9331 0.959346 13.0396 1.27145 13.9094 1.95716C14.7791 2.64287 15.3409 3.64601 15.471 4.7459C15.6001 5.8361 15.2946 6.93284 14.6214 7.79906L8 14.3872L1.37858 7.79907C0.705442 6.93284 0.399945 5.8361 0.528951 4.7459C0.659104 3.64601 1.22086 2.64287 2.09063 1.95716C2.9604 1.27145 4.06695 0.959346 5.16684 1.0895C6.11038 1.20115 6.98274 1.63043 7.64457 2.29931Z"
+              stroke="white"
+            />
+          </svg>
+        </button>
+      )}
+      <div style={{ maxWidth: "276px", margin: "auto" }}>
+        <Carousel position={index + 1}>
+          {[img_4, img_1, img_2, img_3, img_4, img_1].map((img, index) => {
+            return (
+              <img
+                src={img}
+                key={index}
+                alt="salon"
+                className="salon-card-image"
+              />
+            );
+          })}
+        </Carousel>
+      </div>
+      <div className="salon-card-details">
+        <NavLink className="salon-card-select-button">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M8.96974 4.94629H0V6.94629H9.0708L6.38086 9.63623L7.79507 11.0504L11.8992 6.94629H12V4.94629H11.7982L7.79817 0.946289L6.38395 2.3605L8.96974 4.94629Z"
+              fill="white"
+            />
+          </svg>
+        </NavLink>
+        <p className="salon-card-title">{salonData.salon_name}</p>
+        <div className="salon-card-services-list">
+          {salonData.salon_services.map((service, index) => {
+            return <span key={index}> {service.service_name} |</span>;
+          })}
+        </div>
+        <p className="salon-card-pricing">Starts from ₹ 360 / person</p>
+      </div>
+    </div>
   );
 }

@@ -1,15 +1,21 @@
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { FiChevronDown } from "react-icons/fi";
+
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { showTimingsAPI } from "../../api/Booking_service.js";
-import DatePickerComponent from "../HomePage/DatePicker.js";
+import {
+  showTimingsAPI,
+  resheduleAppointAPI,
+} from "../../api/Booking_service.js";
 import "../css/BookingPage.css";
 
 function BookingPage() {
   const [date, setDate] = useState(new Date());
-  const [selctedTimeSlot, setSelectedTimeSlot] = useState("");
+  const [selctedTimeSlot, setSelectedTimeSlot] = useState({});
   const [timeSlots, setTimeSlots] = useState([]);
-  const { salonData, services, customerCount } = useLocation().state || {};
+  const { salonData, services, customerCount, type } =
+    useLocation().state || {};
   const [selectedServices, setSelectedServices] = useState(services);
   const navigate = useNavigate();
 
@@ -27,9 +33,9 @@ function BookingPage() {
       );
       if (data.length > 0) {
         setTimeSlots(data);
-        setSelectedTimeSlot(data[0].slot_time);
+        setSelectedTimeSlot(data[0]);
       } else {
-        setSelectedTimeSlot("");
+        setSelectedTimeSlot({});
         setTimeSlots([]);
       }
     }
@@ -37,8 +43,6 @@ function BookingPage() {
   }, [date]);
 
   function selectDate(selectedDate) {
-    console.log(selectedDate);
-    // console.log(selectedDate.toLocaleDateString("en-IN"));
     if (
       selectedDate >= new Date() ||
       selectedDate.toLocaleDateString("en-In") ===
@@ -61,7 +65,9 @@ function BookingPage() {
       state: {
         salonData: {
           salon_name: salonData.salon_name,
-          salon_address: salonData.salon_city + ", " + salonData.salon_area,
+          salon_address: salonData.salon_address,
+          salon_city: salonData.salon_city,
+          salon_area: salonData.salon_area,
           salon_uuid: salonData.salon_uuid,
         },
         services: selectedServices,
@@ -70,13 +76,22 @@ function BookingPage() {
       },
     });
   }
+
+  async function reschedule(appId) {
+    const slotDetails = {
+      time: selctedTimeSlot.slot_time,
+      slot_uuid: selctedTimeSlot.slot_uuid,
+      full_date: date.toLocaleDateString("en-IN"),
+    };
+    const { data } = await resheduleAppointAPI(appId, slotDetails);
+  }
   return (
     <div className="booking-page">
       <div className="booking-page-info-section">
         <div className="booking-page-salon-detains">
           <h2>{salonData.salon_name}</h2>
           <p>
-            {salonData.salon_address} |{" "}
+            {salonData.salon_city + " " + salonData.salon_area} |{" "}
             <a
               href="https://www.google.com/maps"
               style={{
@@ -100,8 +115,6 @@ function BookingPage() {
                     value={index}
                     checked={isChecked(service)}
                     onChange={(event) => {
-                      console.log("event", event.target.value);
-
                       setSelectedServices((prevService) => {
                         let service_exists = false;
                         let newService = [...prevService];
@@ -140,7 +153,7 @@ function BookingPage() {
           </div>
           <div>
             <h4>Time</h4>
-            <p>{selctedTimeSlot}</p>
+            <p>{selctedTimeSlot.slot_time}</p>
           </div>
         </div>
       </div>
@@ -152,14 +165,27 @@ function BookingPage() {
           }}
           inline
         />
-        <button
-          className="button-one booking-page-checkout-btn"
-          onClick={() => {
-            checkout();
-          }}
-        >
-          Proceed To Checkout
-        </button>
+        <div className=" booking-page-checkout-btn-container">
+          {type !== "reschedule" ? (
+            <button
+              className="button-one booking-page-checkout-btn"
+              onClick={() => {
+                checkout();
+              }}
+            >
+              Proceed To Checkout
+            </button>
+          ) : (
+            <button
+              className="button-one booking-page-checkout-btn"
+              onClick={() => {
+                reschedule();
+              }}
+            >
+              Confirm Change
+            </button>
+          )}
+        </div>
       </div>
       <div className="booking-page-timeslot-container">
         <p style={{ textAlign: "center", margin: "0", marginBottom: "20px" }}>
@@ -173,12 +199,12 @@ function BookingPage() {
                   key={slot.slot_uuid}
                   value={slot.slot_time}
                   className={`salon-page-time-slot-btn button-two ${
-                    selctedTimeSlot === slot.slot_time
+                    selctedTimeSlot.slot_time === slot.slot_time
                       ? "selected-timeslot"
                       : ""
                   }`}
                   onClick={() => {
-                    setSelectedTimeSlot(slot.slot_time);
+                    setSelectedTimeSlot(slot);
                   }}
                 >
                   {slot.slot_time}

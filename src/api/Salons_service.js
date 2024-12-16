@@ -75,109 +75,34 @@ export const getAllSalons = async (limit = 12) => {
 
     return data;
   } catch (error) {
-    console.error("Error fetching salon data:", error);
+    // console.error("Error fetching salon data:", error);
     return error.response.data;
   }
 };
 
-export const filterData = async (filterOptions) => {
-  console.log("salonfilter location data");
+export const filterData = async (filterOptions, limit = 12) => {
   let location = await getLocation();
-  let apiFilter = {};
+  let apiUrl = "";
 
-  // if (filterOptions.priceFrom !== "") {
-  //   if (location) {
-  //     apiFilter.location = `${location.latitude},${location.longitude}`;
-  //     apiFilter.minServicePrice = filterOptions.priceFrom;
-  //   } else {
-  //     alert("First give the location access");
-  //     apiFilter.minServicePrice = filterOptions.priceFrom;
-  //   }
-  // }
-  console.log("coming");
-
-  if (filterOptions.ratings !== "") {
-    if (location) {
-      apiFilter.location = `${location.latitude},${location.longitude}`;
-      apiFilter.minRating = filterOptions.ratings;
-    } else {
-      alert("First give the location access");
-      apiFilter.minRating = filterOptions.ratings;
-    }
+  if (
+    location &&
+    location.latitude !== undefined &&
+    location.longitude !== undefined
+  ) {
+    apiUrl = `${Context}/user/salons?city=nellore&&location=14.435850156136668,79.97795134195518&&limit=${limit}`;
+    //apiUrl = `${Context}/user/salons?city=Hyderabad&&location=${location.latitude},${location.longitude}&&limit=${limit}`;
+  } else {
+    apiUrl = `${Context}/user/salons?city=nellore&limit=${limit}`;
   }
-
-  if (filterOptions.distance !== "") {
-    if (location) {
-      apiFilter.location = `${location.latitude},${location.longitude}`;
-      apiFilter.distance = filterOptions.distance;
-    } else {
-      alert("First give the location access");
-    }
-  }
-  {
-    /*
-  if (filterOptions.priceFrom !== "") {
-    if (location) {
-      apiFilter.location = `${location.latitude},${location.longitude}`;
-      apiFilter.minServicePrice = filterOptions.priceFrom;
-    } else {
-      alert("First give the location access");
-      apiFilter.minServicePrice = filterOptions.priceFrom;
-    }
-  }*/
-  }
-
-  if (filterOptions.priceFrom && filterOptions.priceTo !== "") {
-    if (location) {
-      apiFilter.location = `${location.latitude},${location.longitude}`;
-      apiFilter.minServicePrice = filterOptions.priceFrom;
-      apiFilter.maxServicePrice = filterOptions.priceTo;
-    } else {
-      alert("First give the location access");
-      apiFilter.minServicePrice = filterOptions.priceFrom;
-      apiFilter.maxServicePrice = filterOptions.priceTo;
-    }
-  }
-
-  if (filterOptions.manhood !== "") {
-    if (location) {
-      apiFilter.location = `${location.latitude},${location.longitude}`;
-      apiFilter.sex = filterOptions.manhood;
-    } else {
-      alert("First give the location access");
-      apiFilter.sex = filterOptions.manhood;
-    }
-  }
-
-  if (filterOptions.services !== "") {
-    if (location) {
-      apiFilter.location = `${location.latitude},${location.longitude}`;
-      apiFilter.service = filterOptions.services.join(",");
-    } else {
-      alert("First give the location access");
-      apiFilter.service = filterOptions.services.join(",");
-    }
-  }
-
-  if (filterOptions.ratings !== "") {
-    if (location) {
-      apiFilter.location = `${location.latitude},${location.longitude}`;
-      apiFilter.minRating = filterOptions.ratings;
-    }
-  }
-
-  const queryString = Object.keys(apiFilter)
+  const queryString = Object.keys(filterOptions)
     .map(
       (key) =>
-        `${encodeURIComponent(key)}=${encodeURIComponent(apiFilter[key])}`
+        `${encodeURIComponent(key)}=${encodeURIComponent(filterOptions[key])}`
     )
     .join("&");
 
   try {
-    const { data } = await axios.get(
-      // `${Context}/user/salons?city=Hyderabad&limit=12&${queryString}`
-      `${Context}/user/salons?city=nellore&limit=12&${queryString}`
-    );
+    const { data } = await axios.get(apiUrl + "&" + queryString);
     return data;
   } catch (error) {
     return error.response.data;
@@ -275,4 +200,15 @@ export const createReviewAPI = async (details) => {
   } catch (error) {
     return error.response.data;
   }
+};
+export const getSalonByName = (name) => {
+  const token = getToken();
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  return axios.get(`${Context}/user/search/salon?name=${name}`, config);
 };

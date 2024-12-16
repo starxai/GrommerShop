@@ -228,7 +228,8 @@
   padding-block: 10px;
 }
 .sortBy-filter {
-  border: 1px solid #ccbb8e;
+  /* border: 1px solid #ccbb8e; */
+  background-color: rgba(34, 34, 34, 1);
   border-top: 0px;
   width: 250px;
 }
@@ -255,7 +256,7 @@
     width: 200px;
   }
   .salon-list-container {
-    grid: 10px 10px;
+    gap: 10px 10px;
   }
   .salon-card {
     width: 240px;

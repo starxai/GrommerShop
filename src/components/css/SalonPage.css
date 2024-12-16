@@ -84,7 +84,6 @@
   height: 0px;
   transition: height 250ms ease-in-out;
   overflow: hidden;
-  /* border: 1px solid #ccbb8e; */
 }
 
 .salon-form-filter {
@@ -114,4 +113,36 @@
   padding: 0.5em 1em;
   font-size: 12px;
   cursor: pointer;
+}
+.button-two:hover {
+  background-color: #222222;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .salon-form-field-container {
+    flex-direction: column;
+  }
+  .salon-form-field-container > div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+  .salon-page {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .salon-page-carousel {
+    width: 100%;
+    height: 500px;
+  }
+  .salon-details {
+    width: 100%;
+    height: auto;
+    padding: 0 30px;
+  }
+  .salon-form-btn {
+    width: 100%;
+  }
 }

@@ -1,8 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 // import Footer from "../Footer";
-import Navbar from "./NavbarComponent";
-import home_salon from "../images/home_salon.png";
 import about_us_img from "../images/about_us_img.png";
 import about_us_img_one from "../images/about_us_img_one.png";
 import about_us_img_two from "../images/about_us_img_two.png";
@@ -186,7 +183,7 @@ function AboutPage() {
       </div>
       <div className="carousel-container-about-us">
         <h2 className="word-by-founders">A Word By The Founders</h2>
-        <Carousel>
+        <Carousel type="reviews">
           {[
             {
               review:

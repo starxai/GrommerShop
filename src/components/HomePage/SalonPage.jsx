@@ -9,6 +9,7 @@ import img_4 from "../images/img4.jpg";
 import "../css/SalonPage.css";
 import { useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import Context from "../../context/axiox";
 
 function SalonPage() {
   const location = useLocation();
@@ -17,12 +18,13 @@ function SalonPage() {
   const [services, setServices] = useState([]);
   const [customerCount, setCustomerCount] = useState(1);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const fetchSalonData = async () => {
       try {
         const { data } = await axios(
-          `http://localhost:8000/user/salon?uuid=${salon_uuid}`
+          `${Context}/user/salon?uuid=${salon_uuid}`
         );
         setSalonData(data.data.salon);
         console.log(data);
@@ -31,18 +33,20 @@ function SalonPage() {
     fetchSalonData();
   }, [salon_uuid]);
   const images = [img_4, img_1, img_2, img_3, img_4, img_1];
-  console.log(services, customerCount);
 
   function bookTimeSlot() {
     navigate("/booking", {
       state: {
         salonData: {
           salon_name: salonData.salon_name,
-          salon_address: salonData.salon_city + ", " + salonData.salon_area,
+          salon_address: salonData.salon_address,
+          salon_city: salonData.salon_city,
+          salon_area: salonData.salon_area,
           salon_uuid: salonData.salon_uuid,
         },
         services,
         customerCount,
+        type: "regular",
       },
     });
   }
@@ -316,8 +320,6 @@ function SalonPage() {
                             value={index}
                             checked={isChecked(service)}
                             onChange={(event) => {
-                              console.log("event", event.target.value);
-
                               setServices((prevService) => {
                                 let service_exists = false;
                                 let newService = [...prevService];

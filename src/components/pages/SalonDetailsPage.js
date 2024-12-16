@@ -9,6 +9,7 @@ import img_4 from "../images/img4.jpg";
 import "../css/SalonPage.css";
 import { useEffect, useLayoutEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import Context from "../../context/axiox";
 
 function SalonPage() {
   const location = useLocation();
@@ -19,7 +20,7 @@ function SalonPage() {
     const fetchSalonData = async () => {
       try {
         const { data } = await axios(
-          `http://localhost:8000/user/salon?uuid=${salon_uuid}`
+          `${Context}/user/salon?uuid=${salon_uuid}`
         );
         setSalonData(data.data.salon);
         console.log(data);
@@ -28,7 +29,6 @@ function SalonPage() {
     fetchSalonData();
   }, [salon_uuid]);
   const images = [img_4, img_1, img_2, img_3, img_4, img_1];
-  console.log(salon_uuid);
 
   return (
     <div className="salon-page">

@@ -1,7 +1,7 @@
 import axios from "axios";
-import Context from "../context/Productuion";
+import Context from "../context/axiox";
 import { getToken, removeToken } from "../context/StorageToken";
-import moment from "moment";
+// import moment from "moment";
 
 export const HomeServiceAppointAPI = async (
   userDetails,
@@ -18,13 +18,13 @@ export const HomeServiceAppointAPI = async (
       },
     };
 
-    let time = moment(userDetails.appointmentTime, "HH:mm").format("hh:mm A");
+    // let time = moment(userDetails.appointmentTime, "HH:mm").format("hh:mm A");
 
     const details = {
       targetGender: selectedCategory.toLowerCase(),
       selectedServices: selectedServices,
       appointmentDate: userDetails.appointmentDate,
-      appointmentTime: time,
+      appointmentTime: userDetails.appointmentTime,
       fullName: userDetails.fullName,
       mobileNumber: userDetails.mobileNumber,
       fullAddress: userDetails.fullAddress,
@@ -37,6 +37,8 @@ export const HomeServiceAppointAPI = async (
       details,
       config
     );
+    console.log(data);
+
     return data;
   } catch (error) {
     return error.response.data;

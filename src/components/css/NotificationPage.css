@@ -1,0 +1,38 @@
+.notification-page-title {
+  margin-top: 100px;
+  text-align: center;
+  font-family: Avegas Royale;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  width: 100%;
+}
+.notification-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-inline: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+.notification-item {
+  width: 100%;
+  margin: auto;
+  padding: 5px 20px;
+  background-color: #222222;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+@media (max-width: 800px) {
+  .notification-page-title {
+    font-size: 48px;
+  }
+}
+@media (max-width: 450px) {
+  .notification-page-title {
+    font-size: 28px;
+  }
+}

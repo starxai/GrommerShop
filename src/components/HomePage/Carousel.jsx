@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import "../css/Carousel.css";
 
-export default function Carousel({ children: slides, position = 1 }) {
-  const [pos, setPos] = useState(position);
+export default function Carousel({ children: slides, type = "image slider" }) {
+  const [pos, setPos] = useState(0);
   const imageSliderRef = useRef(null);
   const totalSlides = slides.length - 2;
   function next() {
@@ -91,9 +91,11 @@ export default function Carousel({ children: slides, position = 1 }) {
                 }}
                 style={
                   pos === index + 1
-                    ? {
-                        backgroundColor: "orange",
-                      }
+                    ? type === "image slider"
+                      ? {
+                          backgroundColor: "#ccbb8e",
+                        }
+                      : { backgroundColor: "black" }
                     : {
                         backgroundColor: "rgb(255,255,255,0.75)",
                       }

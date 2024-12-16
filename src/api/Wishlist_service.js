@@ -1,5 +1,5 @@
 import axios from "axios";
-import Context from "../context/Productuion";
+import Context from "../context/axiox.js";
 import { getToken, removeToken } from "../context/StorageToken";
 
 /**
@@ -18,12 +18,11 @@ export const getWishlistApi = async () => {
       },
     };
 
-    console.log(`${Context}/user/wishlist`);
     const { data } = await axios.get(`${Context}/user/wishlist`, config);
-    if (data.code === 401) {
-      removeToken();
-      window.location.href = "/login";
-    }
+    // if (data.code === 401) {
+    //   removeToken();
+    //   window.location.href = "/login";
+    // }
     return data;
   } catch (error) {
     return error.response.data;
@@ -39,7 +38,6 @@ export const getWishlistApi = async () => {
  */
 export const addWishlistApi = async (salon_uuid) => {
   try {
-    console.log(salon_uuid);
     const token = getToken();
     const config = {
       headers: {

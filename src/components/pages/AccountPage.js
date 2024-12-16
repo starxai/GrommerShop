@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import account_landscape_img from "../images/account_page_img_landscape.jpg";
 import account_portrait_img from "../images/account_page_img_portrait.png";
 import profile_pic from "../images/profile.svg";
 import Footer from "../Footer";
 import "../css/AccountPage.css";
+import {userDetailsAPI} from "../../api/User_Login_Auth"
 
 function AccountPage() {
   const [fName, setFname] = useState("");
@@ -13,7 +15,21 @@ function AccountPage() {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  useEffect(() => {
+    async function fetchUser() {
+      const {
+        data,
+      } = await userDetailsAPI();
+      console.log(data);
 
+      if (data) {
+        setFname(data.user_full_name);
+        setEmail(data.user_email);
+        setPhoneNum(data.user_mobile);
+      }
+    }
+    fetchUser();
+  },[]);
   return (
     <div className="account-page">
       <div className="accound-page-img-container">
@@ -56,6 +72,7 @@ function AccountPage() {
                 type="text"
                 name="lname"
                 id="account-form-lname"
+                placeholder="Last Name"
                 value={lName}
                 onChange={(event) => {
                   setLname(event.target.value);
@@ -97,6 +114,7 @@ function AccountPage() {
                 setAddress(event.target.value);
               }}
               name="address"
+              placeholder="Enter your Address"
               id="account-form-address"
               className="account-form-textarea"
               rows={4}

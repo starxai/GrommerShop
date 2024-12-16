@@ -127,6 +127,9 @@
   justify-content: center;
   align-items: center;
 }
+.what-is-groomer-btn:hover {
+  background-color: rgba(204, 187, 142, 0.8);
+}
 
 .salon-list {
   background-color: black;
@@ -370,7 +373,8 @@
 }
 
 .home-salon {
-  padding: 100px;
+  padding-top: 100px;
+  padding-inline: 100px;
 }
 
 .home-salon-services {
@@ -440,9 +444,10 @@
 .get-in-touch {
   display: flex;
   overflow: hidden;
-  /* height: 500px; */
+  padding-top: 100px;
 }
 .get-in-touch-img-container {
+  position: relative;
   width: 50%;
   flex-grow: 0;
   flex-shrink: 0;
@@ -471,6 +476,9 @@
   border: 1px solid burlywood;
   color: white;
   font-family: Poppins;
+}
+.get-it-touch-submit-btn:hover {
+  background-color: #222222;
 }
 .form-fields {
   display: flex;
@@ -512,7 +520,17 @@
   letter-spacing: -0.04em;
 }
 .form-heading-two {
+  font-family: Avegas Royale;
+  font-weight: 400;
+  letter-spacing: -0.04em;
   display: none;
+}
+.scroll-down-svg {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  transform: translate(50%, -50%);
+  width: 80px;
 }
 
 @media (max-width: 1024px) {
@@ -602,6 +620,9 @@
 }
 
 @media (max-width: 768px) {
+  .scroll-down-svg {
+    display: none;
+  }
   .carousel-text {
     width: 400px;
   }

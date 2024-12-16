@@ -1,35 +1,114 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import get_in_touch from "../images/get_in_touch_img.png";
+import { contactUs } from "../../api/Booking_service.js";
+import scroll_down from "../../assets/scroll-down.svg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 function GetInTouch() {
-    return (
-        <>
-        <div className=" Get-Parent-container">
-            <div className="getIn-container">
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [error, setError] = useState([]);
 
-                 <img className="get-image-container" 
-                 src="https://i.ibb.co/0sbcfMY/pexels-dmitry-zvolskiy-1570806-1-4.jpg"
-                  alt="" />  
+  
+  async function sendFeedback() {
+    try {
+      const { data } = await contactUs(email, name, feedback);
+      console.log(data);
+      toast.success("Your credentials have been received. We’ll get in touch with you shortly.", {
+        theme: "colored"
+      })
+      
+    } catch (error) {
+      toast.error("Details entered in not acceptable. Please fill in correct information", {
+        theme: "colored"
+      })
+     
+    }
+  }
 
+  
 
-                 <div className="logo-relative">
-                 <span className="arrow-logo"><i class="bi bi-arrow-down text-white"></i></span>
-                    <img className="get-in-logo" src="https://i.ibb.co/rfL10Y1/scroll-down-2.png" alt="" />
-                </div> 
-            </div>
-         <div className="getIn-data-container">
-                <h1 class="text-white getintouch" style={{fontFamily:'Avegas Royale',fontSize:"48px",fontWeight:500,lineHeight:"56px"}}>Get In Touch With us</h1>
-                <input className="input getintouchinput1" type="text" placeholder="Name" /> <br />
-                <input className="input getintouchinput2" type="text" placeholder="Mobile.No" /> <br />
-                <input className="input getintouchinput2" type="text" placeholder="Email" /> <br />
-                <div className="text-area-container">
-                  <textarea className="text-area-division" name="paragraph_text" cols="52" rows="5"></textarea>
-                </div>
-                <div className="button-submit">
-                <button  className="submit-button" >Submit</button>
-    </div>  
-            </div>
+  return (
+    <>
+      
+      <div className="get-in-touch container">
+         <ToastContainer />
+        <h2 className="form-heading-two">Get In Touch With Us</h2>
+        <div className="get-in-touch-img-container">
+          <img
+            className="scroll-down-svg"
+            src={scroll_down}
+            alt="scroll-down"
+          />
+          <img src={get_in_touch} alt="groomer" className="get-in-touch-img" />
         </div>
-        </>
-    )
-
+        <form className="get-in-touch-form">
+          <h2 className="form-heading-one">Get In Touch With Us</h2>
+          <div className="form-fields">
+            <input
+              className="form-input"
+              placeholder="Name"
+              value={name}
+              onChange={(event) => {
+                if (event.target.value.length < 50) setName(event.target.value);
+              }}
+              style={{ fontStyle: "normal" }}
+            ></input>
+          </div>
+          <div className="form-fields">
+            <input
+              className="form-input"
+              placeholder="Mobile No."
+              value={phone}
+              onChange={(event) => {
+                if (
+                  !isNaN(event.target.value) &&
+                  event.target.value.length <= 10
+                )
+                  setPhone(event.target.value);
+              }}
+              style={{ fontStyle: "normal" }}
+            ></input>
+          </div>
+          <div className="form-fields">
+            <input
+              className="form-input"
+              placeholder="Email"
+              value={email}
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+              style={{ fontStyle: "normal" }}
+            ></input>
+          </div>
+          <textarea
+            name=""
+            id=""
+            className="text-area-form"
+            rows={4}
+            placeholder="Write what you feel like..."
+            value={feedback}
+            onChange={(event) => {
+              setFeedback(event.target.value);
+            }}
+          ></textarea>
+          <button
+            className="get-it-touch-submit-btn"
+            style={{ cursor: "pointer" }}
+            onClick={(event) => {
+              event.preventDefault();
+              sendFeedback();
+            }}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </>
+  );
 }
 export default GetInTouch;

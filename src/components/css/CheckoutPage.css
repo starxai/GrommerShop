@@ -1,8 +1,89 @@
 .checkout-page {
   display: flex;
   margin-top: 97px;
+  margin-bottom: 100px;
 }
 .checkout-page > div {
   width: 50%;
   flex-shrink: 0;
+}
+.chkout-page-section-one {
+  padding-inline: 50px;
+  border-right: 1px solid #ccbb8e;
+}
+.chkout-page-section-two {
+  padding-inline: 50px;
+}
+.chkout-page-price-details > p {
+  display: flex;
+  justify-content: space-between;
+}
+.chkout-page-price-details {
+  margin-bottom: 50px;
+}
+.creditDebit-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-inline: 5px;
+  margin-block: 30px;
+}
+.creditDebit-card-info > div {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.chkout-page-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chkout-page-form-field > input {
+  outline: none;
+  background-color: black;
+  color: #ccbb8e;
+  flex-grow: 1;
+  border: 1px solid #ccbb8e;
+  padding-block: 0.5em;
+  text-indent: 1em;
+}
+
+.chkout-page-pay-btn {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.chkout-page-booking-details > h3,
+.chkout-page-booking-details > p {
+  display: flex;
+  justify-content: space-between;
+}
+.chkoutpage-address {
+  max-width: 250px;
+}
+@media (max-width: 1000px) {
+  .debitcard-form-field-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  .checkout-page {
+    flex-direction: column-reverse;
+    font-size: 0.8rem;
+    gap: 20px;
+  }
+  .checkout-page > div {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  .chkout-page-section-one,
+  .chkout-page-section-two {
+    padding-inline: 20px;
+  }
+  .chkoutpage-address {
+    max-width: 150px;
+  }
 }

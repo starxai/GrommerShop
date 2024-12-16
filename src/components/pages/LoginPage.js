@@ -2,26 +2,139 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import loginpage_img from "../images/loginpage_img.png";
-import "../css/LoginPage2.css";
+import "../css/LoginPage.css";
+import Swal from 'sweetalert2'
+import React from 'react';
+
+import Context from "../../context/axiox";
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
-  async function login() {
-    try {
-      if (checkForm()) {
-        const {
-          data: { code },
-        } = await axios.post("http://127.0.0.1:8000/user/login/generateOtp", {
-          email: email,
-        });
-        console.log("Loginpage", code);
-        if (code === 200) {
-          navigate("/otp", { state: { email, event: "login" } });
+  
+    // style compnents for aler massage
+    React.useEffect(() => {
+      const styles = `
+        .availability-popup {
+          background: rgba(0, 0, 0, 0.9) !important;
+          padding: 20px !important;
+          color: white !important;
+        }
+  
+        .availability-content {
+          background: transparent !important;
+          padding: 0 !important;
+        }
+  
+       
+        // .swal2-close {
+        //   color: white !important;
+        //   font-size: 24px !important;
+        // }
+  
+        // .swal2-title {
+        //   color: white !important;
+        //   font-size: 20px !important;
+        //   font-weight: normal !important;
+        //   margin-bottom: 20px !important;
+        // }
+      `;
+  
+      const styleSheet = document.createElement("style");
+      styleSheet.innerText = styles;
+      document.head.appendChild(styleSheet);
+  
+      return () => {
+        document.head.removeChild(styleSheet);
+      };
+    }, []);
+
+
+    async function login() {
+      try {
+        if (checkForm()) {
+          const response = await axios.post(`${Context}/user/login/generateOtp`, {
+            email: email,
+          });
+    
+          const { code, message } = response.data;
+    
+          console.log("Loginpage", code);
+    
+          if (code === 200) {
+            Swal.fire({
+              text: message || "OTP received on your mail ID.",
+              icon: "success",
+              customClass: {
+                popup: 'availability-popup',
+                content: 'availability-content',
+              },
+              background: 'transparent',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+    
+            navigate("/otp", { state: { email, event: "login" } });
+          } else {
+            Swal.fire({
+              text: "An unexpected error occurred.",
+              icon: "error",
+              customClass: {
+                popup: 'availability-popup',
+                content: 'availability-content',
+              },
+              background: 'transparent',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        }
+      } catch (error) {
+        if (error.response) {
+          const { code, message } = error.response.data;
+    
+          if (code === 404) {
+            Swal.fire({
+              text: "No User Found. Please sign up first.",
+              icon: "error",
+              customClass: {
+                popup: 'availability-popup',
+                content: 'availability-content',
+              },
+              background: 'transparent',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          } else {
+            Swal.fire({
+              text: message || "An unexpected error occurred.",
+              icon: "error",
+              customClass: {
+                popup: 'availability-popup',
+                content: 'availability-content',
+              },
+              background: 'transparent',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        } else {
+          Swal.fire({
+            text: "Network error or server is unreachable.",
+            icon: "error",
+            customClass: {
+              popup: 'availability-popup',
+              content: 'availability-content',
+            },
+            background: 'transparent',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       }
-    } catch (error) {}
-  }
+    }
+    
 
   function checkForm() {
     if (email.length <= 0) {
@@ -50,14 +163,15 @@ export default function LoginPage() {
             </NavLink>
           </p>
           <div className="login-form-field">
-            <label
+            {/* <label
               htmlFor="login-form-email"
               className="login-form-input-label"
             >
               Email
-            </label>
+            </label> */}
             <input
               className="login-form-email-input"
+              placeholder="Email"
               type="text"
               name="email"
               id="login-form-email"

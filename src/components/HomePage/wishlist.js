@@ -4,7 +4,6 @@ import img1 from "../images/img1.jpg";
 //import list from '../components/list'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faHeart } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "./NavbarComponent";
 import Context from "../../context/axiox";
 import { getToken } from "../../context/StorageToken";
 //import FavoriteIcon from "@mui/icons-material/Favorite";

@@ -299,3 +299,20 @@ export const resheduleAppointAPI = async (appId, slotDetails) => {
     return error.response.data;
   }
 };
+
+export const contactUs = (email, name, message) => {
+  const token = getToken();
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const details = {
+    "email":email,
+    "name":name,
+    "message":message
+  }
+  return axios.post(`${Context}/user/contactUs`,details, config);
+};

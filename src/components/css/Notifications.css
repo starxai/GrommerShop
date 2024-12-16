@@ -1,0 +1,15 @@
+.notification {
+  position: absolute;
+  color: white;
+  background-color: red;
+  right: 0;
+  transform: translateX(100%);
+  transition: all 300ms ease-in-out;
+}
+.notification-text {
+  background-color: rgba(34, 131, 17, 1);
+  min-width: 300px;
+  padding: 0.5em;
+  margin: 0;
+  transition: all 300ms ease-in-out;
+}

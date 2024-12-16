@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/HomePage/NavbarComponent";
 const NotFound = () => {
   return (
     <div>
-      {/* <Navbar /> */}
       <div
         style={{
           backgroundColor: "#000",

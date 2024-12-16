@@ -4,7 +4,6 @@ import { useNavigate, NavLink } from "react-router-dom";
 // import { getAppointmentsApi } from "../../../api/Booking_service";
 // import { removeToken } from "../../../context/StorageToken";
 import manCircle from "../../assets/mans-face-in-a-circle.svg";
-import MenuBar from "./userProfile/menubar";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { RiArrowDropUpLine } from "react-icons/ri";
 import { RiArrowUpSLine } from "react-icons/ri";
@@ -81,6 +80,9 @@ function MenuBar2() {
       </li>
       <li className="profile-dropdown-link">
         <NavLink to="/account">Account</NavLink>
+      </li>
+      <li className="profile-dropdown-link">
+        <NavLink to="/notifications">Notifications</NavLink>
       </li>
       <li className="profile-dropdown-link" onClick={logoutHandler}>
         Logout

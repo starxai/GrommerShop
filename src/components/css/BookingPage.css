@@ -2,6 +2,7 @@
   display: flex;
   padding-top: 100px;
   gap: 50px;
+  position: relative;
 }
 .booking-page-info-section {
   width: 30%;
@@ -18,6 +19,11 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.booking-page-calender > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .booking-page-time-date-section h4,
 .booking-page-time-date-section p {
@@ -51,17 +57,17 @@
 }
 .booking-page-calender {
   width: 35%;
-  /* justify-content: center; */
-  /* border-left: 1px solid #ccbb8e; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .booking-page-timeslot-container {
   width: 20%;
 }
+
 .react-datepicker {
-  /* padding: 10px; */
-  /* border: 1px solid red; */
-  margin-left: 50px;
-  /* width: 100%; */
+  width: fit-content;
+  margin: auto;
 }
 .react-datepicker,
 .react-datepicker__header {
@@ -108,10 +114,10 @@
   font-weight: 700;
   background-color: #ccbb8e;
 }
+.booking-page-checkout-btn-container {
+  margin-top: 100px;
+}
 .booking-page-checkout-btn {
-  margin-top: 50px;
-  margin-left: 50px;
-  padding: 0.8em;
   font-size: 0.8rem;
 }
 .salon-page-time-slot-btn {
@@ -131,6 +137,9 @@
   background-color: #5b5441;
   border: 1px solid #5b5441;
 }
+.salon-page-time-slot-btn {
+  max-width: 250px;
+}
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -149,4 +158,36 @@
 
 ::-webkit-scrollbar-thumb:hover {
   border: 1px solid #ccbb8e;
+}
+
+@media (max-width: 950px) {
+  .booking-page {
+    flex-direction: column;
+  }
+  .booking-page-info-section {
+    width: 100%;
+  }
+  .booking-page-calender {
+    width: 100%;
+  }
+  .booking-page-timeslot-container {
+    width: 100%;
+  }
+  .booking-page-checkout-btn-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    height: fit-content;
+    margin-top: 0px;
+  }
+  .booking-page-time-slots {
+    margin-bottom: 50px;
+  }
+  .react-datepicker__day {
+    width: 2rem;
+  }
+  .react-datepicker__day-name {
+    width: 2rem;
+  }
 }

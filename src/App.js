@@ -1,28 +1,12 @@
-// import "./App.css";
 import { useState, createContext, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProtectedRoute from "./Routes/ProtectedRoute";
 import { getToken, removeToken } from "./context/StorageToken";
-import PaymentRoute from "./Routes/PaymentRoute";
-import CancelRoute from "./Routes/CancelRoute";
 import { userDetailsAPI } from "./api/User_Login_Auth";
 import PublicRoute from "./Routes/PublicRoute";
 import { getAllSalons } from "./api/Salons_service";
-import Login from "./components/HomePage/LoginPage";
-import SaloonList from "./components/HomePage/SaloonListingPage";
-// import SalonMainPage from "./components/HomePage/SalonDetailPage";
-import Register from "./components/Register";
 import Home from "./components/HomePage/Homepage.jsx";
 import Notfound from "./helper/Page404";
-import OTP from "./components/HomePage/OTPpage";
-import MenuBar from "./components/HomePage/userProfile/menubar";
 import AboutPage from "./components/HomePage/AboutUsPage";
-import SalonMainPage from "./components/HomePage/SalonDetailPage";
-import PageBooking from "./components/HomePage/SaloonBookingPage";
-import PaymentPage from "./CheckoutPage";
-import Profile from "./context/profilepage/profile";
-import Bookinghistory from "./components/HomePage/bookinghistory";
-import Wishlist from "./components/HomePage/wishlist";
 import MainLayout from "./components/HomePage/MainLayout";
 import SalonList from "./components/HomePage/SalonList.jsx";
 import SalonPage from "./components/HomePage/SalonPage.jsx";
@@ -32,23 +16,10 @@ import OtpPage from "./components/pages/OtpPage.js";
 import AccountPage from "./components/pages/AccountPage.js";
 import BookingPage from "./components/pages/BookingPage.js";
 import CheckoutPage from "./components/pages/CheckoutPage.js";
-// import Register from "./Components/Register";
-// import Bookings from "./Components/Bookings";
-// import Wishlist from "./Components/Wishlist";
-// import MenuItems from "./Components/MenuItems";
-// import AboutUs from "./Components/AboutUs";
-// import Salons from "./Components/Salons";
-// import SalonPage from "./Components/SalonPage";
-// import Reschedule from "./Components/Reschedule";
-// import Cancel from "./Components/Cancel";
-// import Review from "./Components/Review";
-// import HomePage from "./Components/HomePage";
-// import Login from "./Components/Login";
-// import BookSalon from "./Components/BookSalon";
-// import NotFound from "./Components2/Page404";
-// import SalonPay from "./Components/SalonPay";
-// import PayementFail from "./Components/PayementFail";
-// import HomeService from "./Components/HomeService";
+import BookingHistory from "./components/pages/BookingHistory.js";
+import HomeServiceForm from "./components/pages/HomeServiceForm.js";
+import WishlistPage from "./components/pages/WishlistPage.js";
+import NotificationPage from "./components/pages/NotificationPage.js";
 
 export const Store = createContext();
 export const Store2 = createContext();
@@ -91,7 +62,7 @@ function App() {
 
   useEffect(() => {
     HaveKey();
-    fetchAllSalons();
+    // fetchAllSalons();
   }, []);
 
   return (
@@ -111,15 +82,11 @@ function App() {
         >
           <Routes>
             <Route to="/" element={<MainLayout />}>
-              {/* Define routes for different pages */}
               <Route path="" element={<Home />} />
-              {/* <Route path="/aboutUs" element={<AboutUs />} /> */}
-              {/* <Route path="/ranu" element={<PayementFail />} /> */}
+
               <Route path="/menu" element={<SalonList />} />
               <Route path="/About" element={<AboutPage />} />
-              {/* <Route path="/login2" element={<LoginPage />} /> */}
-              {/* <Route path="/register2" element={<RegisterPage />} /> */}
-              {/* <Route path="/otp2" element={<OtpPage />} /> */}
+
               <Route path="/account" element={<AccountPage />} />
               <Route
                 path="/login"
@@ -146,113 +113,16 @@ function App() {
                 }
               />
 
-              <Route path="/bookinghistory" element={<Bookinghistory />} />
-              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/bookinghistory" element={<BookingHistory />} />
+              <Route path="/wishlist" element={<WishlistPage />} />
 
-              <Route
-                path="/salon-details"
-                element={
-                  // <PublicRoute>
-                  <SalonPage />
-                  // </PublicRoute>
-                }
-              />
-              <Route
-                path="/booking"
-                element={
-                  //  <PublicRoute>
-                  <BookingPage />
-                  //   </PublicRoute>
-                }
-              />
-              <Route
-                path="/account"
-                element={
-                  //  <PublicRoute>
-                  <AccountPage />
-                  //   </PublicRoute>
-                }
-              />
-              <Route
-                path="/checkout"
-                element={
-                  //   <PublicRoute>
-                  <CheckoutPage />
-                  //   </PublicRoute>
-                }
-              />
+              <Route path="/salon-details" element={<SalonPage />} />
+              <Route path="/booking" element={<BookingPage />} />
+              <Route path="/notifications" element={<NotificationPage />} />
+              <Route path="/account" element={<AccountPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/home-service" element={<HomeServiceForm />} />
 
-              {/* <Route
-              path="/saloonlisting"
-              element={
-                <PublicRoute>
-                 <SaloonList/>
-                 </PublicRoute>
-                 }
-                 /> */}
-
-              {/* <Route
-              path="/saloon"
-              element={
-                <SaloonList/>
-                }
-                /> */}
-
-              {/* <Route path="/menu" element={<MenuItems />} />
-            <Route path="/aboutUs" element={<AboutUs />} />
-            <Route path="/salons" element={<Salons />} />
-            <Route path="/salon/:id" element={<SalonPage />} />
-            <Route
-              path="/salon/payment/:id/:pay/:transactionID"
-              element={
-                <PaymentRoute>
-                <SalonPay />
-                </PaymentRoute>
-                }
-                /> */}
-              {/* <Route
-              path="/bookings"
-              element={
-                <ProtectedRoute>
-                <Bookings />
-                </ProtectedRoute>
-                }
-                />
-                <Route
-              path="/wishlist"
-              element={
-                <ProtectedRoute>
-                <Wishlist />
-                </ProtectedRoute>
-                }
-                /> */}
-
-              {/* <Route
-              path="/reschedule/:id"
-              element={
-                <ProtectedRoute>
-                <Reschedule />
-                </ProtectedRoute>
-                }
-                />
-                <Route
-                path="/cancel/:id"
-                element={
-                  <CancelRoute>
-                  <Cancel />
-                  </CancelRoute>
-                  }
-                  />
-                  <Route
-                  path="/review/:id"
-                  element={
-                    <ProtectedRoute>
-                    <Review />
-                    </ProtectedRoute>
-                    }
-                    /> */}
-              {/* A catch-all route for handling unknown URLs */}
-              {/* <Route path="/BookSalon" element={<BookSalon />} /> */}
               <Route path="*" element={<Notfound />} />
             </Route>
           </Routes>
